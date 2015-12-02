@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
-  public  enum Signal
+    class Resharper
     {
-        Green,Yellow,Red
     }
 }
