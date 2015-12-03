@@ -8,6 +8,9 @@ namespace Traffic_Light.Modules
 {
      interface ITrafficLight
      {
-         void SwithSignal(SignalColors colorSignalColors, int timePause);
+         string LightKey { get; set; }
+         string DefualtLightKey { get; set; }
+         int[] Possition { get; } 
+        
      }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
-    class Resharper
+    public enum LampsStance
     {
+        Top,Middle,Bottom
     }
 }

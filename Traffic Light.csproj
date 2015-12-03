@@ -43,12 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\CrossroadsController.cs" />
     <Compile Include="Modules\Draw.cs" />
     <Compile Include="Modules\LampsStance.cs" />
-    <Compile Include="Modules\Resharper.cs" />
     <Compile Include="Modules\SignalColors.cs" />
     <Compile Include="Modules\ITrafficLight.cs" />
     <Compile Include="Modules\AutomobileTrafficLight.cs" />
+    <Compile Include="Modules\TrafficLightManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
