@@ -7,9 +7,19 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
+
+delegate void TraffickLightDeligate();
+    
     class TrafficLightManager
     {
-     
+        public event TraffickLightDeligate TrLightEvent;
+
+        public void OnTrLightEvent()
+        {
+            TrLightEvent();
+        }
+        static object objectSam = new object();
+        
         List<ITrafficLight> trafficLights = new List<ITrafficLight>();
 
 
@@ -53,27 +63,33 @@ namespace Traffic_Light.Modules
            
             try
             {
-                foreach (var trafficLight in trafficLights)
+                lock (objectSam)
                 {
-                    Console.ForegroundColor = color;
-                    Console.SetCursorPosition(trafficLight.Possition[x], trafficLight.Possition[y]);
-                    Console.Write(trafficLight.LightKey);
+                    foreach (var trafficLight in trafficLights)
+                    {
+                        Console.ForegroundColor = color;
+                        Console.SetCursorPosition(trafficLight.Possition[x], trafficLight.Possition[y]);
+                        Console.Write(trafficLight.LightKey);
+                    }
                 }
+              
 
                 Thread.Sleep(time);
 
-                foreach (var trafficLight in trafficLights)
+                lock (objectSam)
                 {
-                    Console.ResetColor();
-                    if (setDefualtLight)
+                    foreach (var trafficLight in trafficLights)
                     {
-                        Console.SetCursorPosition(trafficLight.Possition[x], trafficLight.Possition[y]);
-                        Console.Write(trafficLight.DefualtLightKey);
+                        Console.ResetColor();
+                        if (setDefualtLight)
+                        {
+                            Console.SetCursorPosition(trafficLight.Possition[x], trafficLight.Possition[y]);
+                            Console.Write(trafficLight.DefualtLightKey);
 
+                        }
                     }
                 }
-                
-                
+
             }
             catch (ArgumentOutOfRangeException e)
             {
