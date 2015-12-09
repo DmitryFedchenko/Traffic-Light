@@ -43,18 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\CrossroadsController.cs" />
-    <Compile Include="Modules\Draw.cs" />
-    <Compile Include="Modules\LampsStance.cs" />
-    <Compile Include="Modules\SignalColors.cs" />
-    <Compile Include="Modules\ITrafficLight.cs" />
-    <Compile Include="Modules\AutomobileTrafficLight.cs" />
-    <Compile Include="Modules\TrafficLightManager.cs" />
+    <Compile Include="Controllers\CenterControl.cs" />
+    <Compile Include="Modules\CrossroadsDay.cs" />
+    <Compile Include="Modules\CrossroadsStop.cs" />
+    <Compile Include="Modules\WorkModeEnum.cs" />
+    <Compile Include="CrossroadsView.cs" />
+    <Compile Include="Modules\PositionTrLightEnum.cs" />
+    <Compile Include="Modules\SignalColorEnum.cs" />
+    <Compile Include="Modules\TrafficLight.cs" />
+    <Compile Include="Modules\CrossroadsNight.cs" />
+    <Compile Include="Modules\PedTrLight.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controllers\RoadController.cs" />
+    <Compile Include="Modules\State.cs" />
+    <Compile Include="Controllers\CrossroadsController.cs" />
+    <Compile Include="Modules\Crossroads.cs" />
+    <Compile Include="Modules\CarTrLight.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

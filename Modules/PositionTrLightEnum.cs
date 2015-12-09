@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
-    public enum LampsStance
+    public enum PositionTrLightEnum
     {
-        Top,Middle,Bottom
+        TopX, TopY,MiddleX, MiddleY, BottomX, BottomY
     }
 }
