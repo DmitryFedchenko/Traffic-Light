@@ -13,7 +13,7 @@ namespace Traffic_Light
         {
             var controlCentr = new CenterControl();
             var desk  = new CrossroadsView();
-            desk.View();
+            desk.DrawCrossroads();
             controlCentr.StartWork();
         }
     }

@@ -37,11 +37,6 @@ namespace Traffic_Light.Modules
             Console.WriteLine(" \n\nTo select a mode of day, click on the: 'd',\n for night: 'n'\n and for the stop work: 's'.");
         }
 
-
-        public void View()
-        {
-            DrawCrossroads();
-          
-        }
+        
     }
 }
