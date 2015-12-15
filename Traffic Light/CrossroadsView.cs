@@ -134,7 +134,7 @@ namespace Traffic_Light.Modules
             Console.WriteLine("                     |               |                         ");
             Console.WriteLine("                     |               |                         ");
             Console.WriteLine("                     |               |                         ");
-            Console.WriteLine(" \n\nTo select a mode of day, click on the: 'd',\n for night: 'n'\n and for the stop work: 's'.");
+            Console.WriteLine(" \n\nTo select a mode of day, press key: 'd',\n for night: 'n'\n and for the stop work: 's'.");
         }
 
 
