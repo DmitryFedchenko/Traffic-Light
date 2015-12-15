@@ -1,146 +1,143 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using Traffic_Light.Modules;
 
 namespace Traffic_Light
 {
-    public class CrossroadsController : Crossroads
+    public class CrossroadsController
     {
-       
-        public State State { get; set; }
-
-        public RoadController tLightRoadA { get; set; }
-        public RoadController tLightRoadB { get; set; }
-
-
-        public CrossroadsController()
-        {
-            allAutoTrLights = new List<TrafficLight>();
-            allPedTrLights = new List<TrafficLight>();
-         
-
-        }
-
-
+        public event DrowEventHandler drawEvenet;
+        public CrossroadsMode Mode { get; set; }
+        protected Crossroads crossroads;
        
         
-        public override void SwithSignal(List<TrafficLight> trLights, SignalColorEnum colorEnumSignalColorEnumColorEnum, int timePause, bool resetSignal)
+        public CrossroadsController(Crossroads crossroads)
         {
-           switch (colorEnumSignalColorEnumColorEnum)
-            {
-
-                case SignalColorEnum.Green:
-                    Light(trLights, PositionTrLightEnum.BottomX, PositionTrLightEnum.BottomY, ConsoleColor.Green, timePause, resetSignal);
-                    break;
-
-                case SignalColorEnum.Yellow:
-                    Light(trLights, PositionTrLightEnum.MiddleX, PositionTrLightEnum.MiddleY, ConsoleColor.Yellow, timePause, resetSignal);
-                    break;
-
-                case SignalColorEnum.Red:
-                    Light(trLights, PositionTrLightEnum.TopX, PositionTrLightEnum.TopY, ConsoleColor.Red, timePause, resetSignal);
-                    break;
-
-                case SignalColorEnum.RedAndYellow:
-                    Light(trLights, PositionTrLightEnum.TopX, PositionTrLightEnum.TopY, ConsoleColor.Red, 0, false);
-                    Light(trLights, PositionTrLightEnum.MiddleX, PositionTrLightEnum.MiddleY, ConsoleColor.Yellow, timePause, true);
-                    Light(trLights, PositionTrLightEnum.TopX, PositionTrLightEnum.TopY, ConsoleColor.Red, 0, true);
-
-                    break;
-
-            }
-
-
-        }
-        public override void BlinkSignal(List<TrafficLight> trLights, SignalColorEnum colorEnumSignal, int quantity, int period)
-        {
-            for (int i = 0; i < quantity + 1; i++)
-            {
-                SwithSignal(trLights, colorEnumSignal, period, true);
-                Thread.Sleep(period);
-            }
-
-        }
-        public void Light(List<TrafficLight> trafficLights, PositionTrLightEnum x, PositionTrLightEnum y, ConsoleColor color, int time, bool resetSignal)
-        {
-
-            try
-            {
-
-                foreach (var trafficLight in trafficLights)
-                {
-                    Console.ForegroundColor = color;
-                    Console.SetCursorPosition(trafficLight.posittionTrLight[x], trafficLight.posittionTrLight[y]);
-                    Console.Write(trafficLight.LightKey);
-                    Console.CursorVisible = false;
-                }
-
-
-
-                Thread.Sleep(time);
-
-
-                foreach (var trafficLight in trafficLights)
-                {
-                    Console.ResetColor();
-                    if (resetSignal)
-                    {
-                        Console.SetCursorPosition(trafficLight.posittionTrLight[x], trafficLight.posittionTrLight[y]);
-                        Console.Write(trafficLight.DefualtLightKey);
-
-                    }
-                }
-            }
-
-            catch
-                (ArgumentOutOfRangeException e)
-            {
-                Console.Clear();
-                Console.WriteLine(e.Message);
-            }
-
-        }
-
-
-        public void Work()
-        {
-            while (true)
-            {
-                State.Work();
-            }
+            this.crossroads = crossroads;
+            Mode = new CrossroadsMode(this);
             
+        }
+
+
+      
+        public void SetCrossroadsState(CrossroadsState crossroadsState)
+        {
           
-        }
+            bool blinkSignalRoadA = SwithSignal(ParticipantTypes.TrafficLightRoadA, crossroadsState.TrafficLigthRoadA);
+            bool blinkSignalRoadB = SwithSignal(ParticipantTypes.TrafficLightRoadB, crossroadsState.TrafficLightRoadB);
+            bool blinkSignalPedestrianTrafficLight = SwithSignal(ParticipantTypes.PedestrianTrafficLight, crossroadsState.PedestrianTrafficLight);
 
-        public void AllPedTrLightWork(int redTime, int greenTime, int blinkGreenNumber, int blinkGreenPeriod)
-        {
-
-            SwithSignal(allPedTrLights, SignalColorEnum.Red, 1000, true);
-            SwithSignal(allPedTrLights, SignalColorEnum.Green, greenTime, true);
-            BlinkSignal(allPedTrLights, SignalColorEnum.Green, blinkGreenNumber, blinkGreenPeriod);
-            SwithSignal(allPedTrLights, SignalColorEnum.Red, 0, false);
-        }
-
-        public void AllCarTrLightWork(bool message, int redTime, int redAndYellowTime, int greenTime, int blinkGreenNumber, int blinkGreenPeriod, int yellowTime)
-        {
-            if (message)
+            if (blinkSignalPedestrianTrafficLight || blinkSignalRoadA || blinkSignalPedestrianTrafficLight)
             {
+                BlinkSignalTrafficLight(blinkSignalRoadA, blinkSignalRoadB, blinkSignalPedestrianTrafficLight, 3, 500);
+                return;
+            }
+       
+            Thread.Sleep(crossroadsState.Time);
+        }
 
-                SwithSignal(allAutoTrLights, SignalColorEnum.Red, 1000, true);
-                SwithSignal(allAutoTrLights, SignalColorEnum.RedAndYellow, redAndYellowTime, true);
-                SwithSignal(allAutoTrLights, SignalColorEnum.Green, greenTime, true);
-                BlinkSignal(allAutoTrLights, SignalColorEnum.Green, blinkGreenNumber, blinkGreenPeriod);
-                SwithSignal(allAutoTrLights, SignalColorEnum.Yellow, yellowTime, true);
-                SwithSignal(allAutoTrLights, SignalColorEnum.Red, 0, false);
-                
+
+         public void DrawTarfficLights()
+        {
+            if (drawEvenet != null)
+            {
+                drawEvenet.Invoke();
+            }
+        }
+
+       
+
+        public bool SwithSignal(ParticipantTypes participant, SignalTypes signal)
+        {
+            
+            bool blink = false;
+            switch (signal)
+            {
+                case SignalTypes.BlinkGreen:
+                    signal = SignalTypes.Green;
+                    blink = true;
+                    break;
+
+                case SignalTypes.BlinkYellow:
+                    signal = SignalTypes.Yellow;
+                    blink = true;
+                    break;
             }
 
+            SetSiganlTrafficLight(participant, signal);
+            
+            return blink;
+
         }
 
+        public void SetSiganlTrafficLight(ParticipantTypes participant, SignalTypes signal)
+        {
+            ResetSignal(participant);
+            foreach (var trafficLights in crossroads.TrafficLights)
+            {
+                if (trafficLights.Key == participant)
+                {
+                    foreach (var trafficLight in trafficLights.Value)
+                    {
+                        trafficLight.SwitchSignal(signal);
+                    }
 
+                }
+            }
+            DrawTarfficLights();
+        }
+
+        public void BlinkSignalTrafficLight(bool roadA,bool roadB, bool pedestriantrafficlight, int quantity, int period)
+        {
+            SignalTypes tempSignalRoadA = crossroads.TrafficLights[ParticipantTypes.TrafficLightRoadA][1].currentSignal;
+            SignalTypes tempSignalRoadB = crossroads.TrafficLights[ParticipantTypes.TrafficLightRoadB][1].currentSignal;
+            SignalTypes tempSignalPedestrian= crossroads.TrafficLights[ParticipantTypes.PedestrianTrafficLight][1].currentSignal;
+
+            for (int i = 0; i < quantity; i++)
+            {
+
+                Thread.Sleep(period);
+                if (roadA)
+                    SetSiganlTrafficLight(ParticipantTypes.TrafficLightRoadA, tempSignalRoadA);
+                if (roadB)
+                    SetSiganlTrafficLight(ParticipantTypes.TrafficLightRoadB, tempSignalRoadB);
+                if (pedestriantrafficlight)
+                    SetSiganlTrafficLight(ParticipantTypes.PedestrianTrafficLight, tempSignalPedestrian);
+              
+
+                Thread.Sleep(period);
+                if (roadA)
+                    ResetSignal(ParticipantTypes.TrafficLightRoadA);
+                if (roadB)
+                    ResetSignal(ParticipantTypes.TrafficLightRoadB);
+                if (pedestriantrafficlight)
+                    ResetSignal(ParticipantTypes.PedestrianTrafficLight);
+
+              
+            }
+       }
+
+        public void ResetSignal(ParticipantTypes participant)
+        {
+            foreach (var trafficLights in crossroads.TrafficLights)
+            {
+
+                if (trafficLights.Key == participant)
+                {
+                    foreach (var trafficLight in trafficLights.Value)
+                    {
+                        trafficLight.SwitchSignal(SignalTypes.Black);
+                    }
+
+                }
+            }
+            DrawTarfficLights();
+        }
+        
     }
 }

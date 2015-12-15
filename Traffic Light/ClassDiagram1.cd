@@ -1,128 +1,66 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Traffic_Light.Modules.CrossroadsView">
-    <Position X="4" Y="0.75" Width="1.5" />
+    <Position X="6.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAAAAAEAAAAAAAAAAAAAAAQAAAAAAACAAAAQAAgA=</HashCode>
       <FileName>CrossroadsView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.Program">
-    <Position X="2" Y="0.75" Width="1.5" />
+    <Position X="5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.Crossroads">
-    <Position X="6" Y="0.75" Width="1.5" />
+    <Position X="4.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIIAAAAAAAAAAAACAAAAAAAAAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIABAAAAAACAAAAAAAA=</HashCode>
       <FileName>Modules\Crossroads.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.CrossroadsController">
     <Position X="6" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAIAAAAAAAAAAAAAwAAAAACAACAAAAABABAABA=</HashCode>
+      <HashCode>IAAAAAgACIAAAAAAAAAAAAAAIAACAAAAAABAAAQAAEA=</HashCode>
       <FileName>Controllers\CrossroadsController.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="State" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Traffic_Light.CarTrLight" Collapsed="true">
     <Position X="10.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Modules\CarTrLight.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Traffic_Light.PedTrLight" Collapsed="true">
-    <Position X="12.5" Y="5.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Modules\PedTrLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.Modules.TrafficLight" Collapsed="true">
     <Position X="11.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABAAACAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Modules\TrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Traffic_Light.RoadController">
-    <Position X="7.75" Y="4" Width="1.5" />
+  <Class Name="Traffic_Light.PedestrianTrafficLight" Collapsed="true">
+    <Position X="12.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAIAAAIAAAAAAAAAAQAAAAAQAAAAAAAABAAAAgAAAAQ=</HashCode>
-      <FileName>Controllers\RoadController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Traffic_Light.CrossroadsDay">
-    <Position X="4.25" Y="7.75" Width="1.5" />
-    <InheritanceLine Type="Traffic_Light.State" ManuallyRouted="true">
-      <Path>
-        <Point X="2.25" Y="6.44" />
-        <Point X="2.25" Y="7.059" />
-        <Point X="5" Y="7.059" />
-        <Point X="5" Y="7.75" />
-      </Path>
-    </InheritanceLine>
+  <Class Name="Traffic_Light.Controllers.CenterControl" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Modules\CrossroadsDay.cs</FileName>
+      <HashCode>AAAAAAAEAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAA=</HashCode>
+      <FileName>Controllers\CenterControl.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Traffic_Light.CrossroadsNight">
-    <Position X="0.5" Y="8" Width="1.5" />
-    <InheritanceLine Type="Traffic_Light.State" ManuallyRouted="true">
-      <Path>
-        <Point X="2.25" Y="6.44" />
-        <Point X="2.25" Y="7.054" />
-        <Point X="1.25" Y="7.054" />
-        <Point X="1.25" Y="8" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Modules\CrossroadsNight.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Traffic_Light.State">
-    <Position X="1.5" Y="4.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
-      <FileName>Modules\State.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Traffic_Light.CrossroadsStop">
-    <Position X="2.5" Y="7.75" Width="1.5" />
-    <InheritanceLine Type="Traffic_Light.State" ManuallyRouted="true">
-      <Path>
-        <Point X="2.25" Y="6.44" />
-        <Point X="2.25" Y="7.294" />
-        <Point X="3.25" Y="7.294" />
-        <Point X="3.25" Y="7.75" />
-      </Path>
-    </InheritanceLine>
-    <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
-      <FileName>Modules\CrossroadsStop.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Enum Name="Traffic_Light.Modules.SignalColorEnum">
+  <Enum Name="Traffic_Light.Modules.SignalTypes">
     <Position X="8.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAADACAAA=</HashCode>
-      <FileName>Modules\SignalColorEnum.cs</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="Traffic_Light.Modules.PositionTrLightEnum">
-    <Position X="10.5" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAw=</HashCode>
-      <FileName>Modules\PositionTrLightEnum.cs</FileName>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAADECAAA=</HashCode>
+      <FileName>Modules\SignalTypes.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Segoe UI" Size="9" />

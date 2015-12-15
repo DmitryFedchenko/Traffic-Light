@@ -12,8 +12,6 @@ namespace Traffic_Light
         static void Main(string[] args)
         {
             var controlCentr = new CenterControl();
-            var desk  = new CrossroadsView();
-            desk.DrawCrossroads();
             controlCentr.StartWork();
         }
     }

@@ -7,15 +7,14 @@ using System.Threading.Tasks;
 namespace Traffic_Light.Modules
 {
     public abstract class TrafficLight
-     {
-
-        public string LightKey { get; set; } = "*";
-
-        public string DefualtLightKey { get; set; } = "0";
-
+    {
        
-        public Dictionary<PositionTrLightEnum, int> posittionTrLight;
-        
 
-     }
+        public SignalTypes currentSignal;
+
+        public Dictionary<PositionTypes, int> posittionTrLight;
+        public abstract void SwitchSignal(SignalTypes signal);
+
+
+    }
 }

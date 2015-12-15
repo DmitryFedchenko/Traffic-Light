@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
-  public  enum SignalColorEnum
+   public enum ParticipantTypes
     {
-        Green,Yellow,Black,Red,RedAndYellow
+        TrafficLightRoadA,TrafficLightRoadB,PedestrianTrafficLight
     }
 }

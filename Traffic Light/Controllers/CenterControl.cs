@@ -4,82 +4,80 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Traffic_Light.Modules;
 
 namespace Traffic_Light.Controllers
 {
    public class CenterControl
-    {
-        private CrossroadsController crController;
-        private RoadController road1;
-        private RoadController road2;
-
+   {
+       private  Crossroads crossroads;
+       public CrossroadsController Controller { get; set; }
+       private CrossroadsView crossroadsView;
 
         public CenterControl()
         {
-            crController = new CrossroadsController();
-            road1 = new RoadController(crController);
-            road2 = new RoadController(crController);
+            crossroads = new Crossroads();
+            Controller = new CrossroadsController(crossroads);
+            crossroadsView = new CrossroadsView(crossroads,Controller);
+            crossroadsView.DrawCrossroads();
+            
 
-            crController.tLightRoadA = road1;
-            crController.tLightRoadB = road2;
+            // Initialize the roadA
+            crossroads.AddCarTrafficLight(ParticipantTypes.TrafficLightRoadA, 19, 9, 19, 10, 19, 11);
+            crossroads.AddCarTrafficLight(ParticipantTypes.TrafficLightRoadA, 40, 9, 40, 10, 40, 11);
 
-            // Initialize the road1
-            road1.AddCarTrLight(19, 9, 19, 10, 19, 11);
-            road1.AddCarTrLight(40, 9, 40, 10, 40, 11);
 
-            road1.AddPedTLight(7, 6, 9, 6);
-            road1.AddPedTLight(7, 14, 9, 14);
+            // Initialize the roadA
+            crossroads.AddCarTrafficLight(ParticipantTypes.TrafficLightRoadB, 27, 7, 29, 7, 31, 7);
+            crossroads.AddCarTrafficLight(ParticipantTypes.TrafficLightRoadB, 27, 12, 29, 12, 31, 12);
 
-            road1.AddPedTLight(49, 6, 51, 6);
-            road1.AddPedTLight(49, 14, 51, 14);
+            // Initialize the PedestrianTrafficLights
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 18, 3, 18, 4);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 40, 3, 40, 4);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 18, 14, 18, 15);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 40, 14, 40, 15);
 
-            // Initialize the road2
-            road2.AddCarTrLight(27, 7, 29, 7, 31, 7);
-            road2.AddCarTrLight(27, 12, 29, 12, 31, 12);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 7, 6, 9, 6);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 7, 14, 9, 14);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 49, 6, 51, 6);
+            crossroads.AddPedestrianTrafficLight(ParticipantTypes.PedestrianTrafficLight, 49, 14, 51, 14);
 
-            road2.AddPedTLight(18, 3, 18, 4);
-            road2.AddPedTLight(40, 3, 40, 4);
-            road2.AddPedTLight(18, 14, 18, 15);
-            road2.AddPedTLight(40, 14, 40, 15);
-        
 
         }
 
 
         public void StartWork()
         {
-            crController.State = new CrossroadsDay(crController);
-            
+
             //Create a secondary thread to control the crossroads
             Thread someThread = new Thread(Control);
-
             someThread.Start();
+            Controller.Mode.ChangeState(ModeTypes.Daytime);
 
-            crController.Work();
         }
 
         public void Control()
         {
-          while (true)
+            while (true)
             {
-                var cki = Console.ReadKey(true);
-               
+                var key = Console.ReadKey(true);
+
                 //start the state of Daytime
-                if (cki.Key.ToString() == "D")
+                if (key.Key.ToString() == "D")
                 {
-                    crController.State.ChangeMode(WorkModeEnum.Daytime);
+                    Controller.Mode.CurrentMode = ModeTypes.Daytime;
 
                 }
                 //start the state of Nighttime
-                if (cki.Key.ToString() == "N")
+                if (key.Key.ToString() == "N")
                 {
-                    crController.State.ChangeMode(WorkModeEnum.Night);
+                    Controller.Mode.CurrentMode = ModeTypes.Night;
 
                 }
                 //start the state of Stop
-                if (cki.Key.ToString() == "S")
+                if (key.Key.ToString() == "S")
                 {
-                    crController.State.ChangeMode(WorkModeEnum.Stop);
+                   Controller.Mode.CurrentMode = ModeTypes.Stop;
 
                 }
             }

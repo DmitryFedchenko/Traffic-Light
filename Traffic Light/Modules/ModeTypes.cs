@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Traffic_Light.Modules
+namespace Traffic_Light
 {
-    public enum PositionTrLightEnum
+    public enum ModeTypes
     {
-        TopX, TopY,MiddleX, MiddleY, BottomX, BottomY
+        Daytime, Night,Stop
+
     }
 }
