@@ -1,0 +1,10 @@
+D:\Programming\Traffic Light\Module Traffic-Lights\bin\Debug\Module Traffic-Lights.dll
+D:\Programming\Traffic Light\Module Traffic-Lights\bin\Debug\Module Traffic-Lights.pdb
+D:\Programming\Traffic Light\Module Traffic-Lights\obj\Debug\Module Traffic-Lights.csprojResolveAssemblyReference.cache
+D:\Programming\Traffic Light\Module Traffic-Lights\obj\Debug\Module Traffic-Lights.dll
+D:\Programming\Traffic Light\Module Traffic-Lights\obj\Debug\Module Traffic-Lights.pdb
+C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Module Traffic-Lights\bin\Debug\Module Traffic-Lights.dll
+C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Module Traffic-Lights\bin\Debug\Module Traffic-Lights.pdb
+C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Module Traffic-Lights\obj\Debug\Module Traffic-Lights.csprojResolveAssemblyReference.cache
+C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Module Traffic-Lights\obj\Debug\Module Traffic-Lights.dll
+C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Module Traffic-Lights\obj\Debug\Module Traffic-Lights.pdb
