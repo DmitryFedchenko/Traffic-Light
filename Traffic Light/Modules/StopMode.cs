@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
-   public class StopMode 
-   {
+   public class StopMode : Mode
+    {
       
        public List<CrossroadsState> states;
         public void AddState()

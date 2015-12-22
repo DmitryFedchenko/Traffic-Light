@@ -10,7 +10,8 @@ namespace Traffic_Light.Controllers
 {
    public class CenterControl
    {
-       private  Crossroads crossroads;
+        public System.Timers.Timer aTimer;
+        private  Crossroads crossroads;
        public CrossroadsController Controller { get; set; }
        private CrossroadsView crossroadsView;
 
@@ -50,38 +51,11 @@ namespace Traffic_Light.Controllers
         {
 
             //Create a secondary thread to control the crossroads
-            Thread someThread = new Thread(Control);
-            someThread.Start();
             Controller.Mode.ChangeState(ModeTypes.Daytime);
 
         }
 
-        public void Control()
-        {
-            while (true)
-            {
-                var key = Console.ReadKey(true);
-
-                //start the state of Daytime
-                if (key.Key.ToString() == "D")
-                {
-                    Controller.Mode.CurrentMode = ModeTypes.Daytime;
-
-                }
-                //start the state of Nighttime
-                if (key.Key.ToString() == "N")
-                {
-                    Controller.Mode.CurrentMode = ModeTypes.Night;
-
-                }
-                //start the state of Stop
-                if (key.Key.ToString() == "S")
-                {
-                   Controller.Mode.CurrentMode = ModeTypes.Stop;
-
-                }
-            }
-        }
+     
 
 
     }

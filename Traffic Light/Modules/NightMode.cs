@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Traffic_Light.Modules
 {
-   public class NightMode
+   public class NightMode : Mode
     {
        public List<CrossroadsState> states;
         public void AddState()

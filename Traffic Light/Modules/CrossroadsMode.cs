@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+
 
 namespace Traffic_Light.Modules
 {
     public class CrossroadsMode
     {
+      
         public ModeTypes CurrentMode { get; set; }
         private DayTimeMode dayTimeMode;
         private NightMode nightMode;
         private StopMode stopMode;
         private CrossroadsController crossroadsController;
 
+
+
         public CrossroadsMode(CrossroadsController crossroadsController)
         {
-
+            
             dayTimeMode = new DayTimeMode();
             nightMode = new NightMode();
             stopMode = new StopMode();
@@ -26,52 +31,40 @@ namespace Traffic_Light.Modules
         public void ChangeState(ModeTypes mode)
         {
             if (mode == ModeTypes.Daytime)
-                DayMode();
+                SetMode(ModeTypes.Daytime, dayTimeMode.states);
 
             if (mode == ModeTypes.Night)
-                NightMode();
+                SetMode(ModeTypes.Night, nightMode.states);
 
             if (mode == ModeTypes.Stop)
-                StopMode();
-        }
+                SetMode(ModeTypes.Stop, stopMode.states); 
 
-        public void DayMode()
-        {
-            CurrentMode = ModeTypes.Daytime;
-            foreach (var someState in dayTimeMode.states)
-            {
-                if (CurrentMode == ModeTypes.Daytime)
-                    crossroadsController.SetCrossroadsState(someState);
-
-            }
+            CurrentMode = mode;
             ChangeState(CurrentMode);
         }
 
-       
-        public void NightMode()
+        public void SetMode(ModeTypes mode, List<CrossroadsState> modeList )
         {
-            CurrentMode = ModeTypes.Night;
-            foreach (var someState in nightMode.states)
+            foreach (var crossroadsState in modeList)
             {
-                if (CurrentMode == ModeTypes.Night)
-                    crossroadsController.SetCrossroadsState(someState);
+                if (CurrentMode == mode)
+                    crossroadsController.SetCrossroadsState(crossroadsState);
             }
+        
+            
             ChangeState(CurrentMode);
         }
 
-        public void StopMode()
+        
+
+        public void SetModeEvent(Object source, ElapsedEventArgs e)
         {
-            CurrentMode = ModeTypes.Stop;
-            foreach (var someState in stopMode.states)
-            {
-                if (CurrentMode == ModeTypes.Stop)
-                    crossroadsController.SetCrossroadsState(someState);
-                
-            }
-            ChangeState(CurrentMode);
+            
+          ChangeState(CurrentMode);
+            
         }
 
-      
-
+    
+    
     }
 }

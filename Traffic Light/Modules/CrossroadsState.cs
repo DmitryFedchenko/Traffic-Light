@@ -8,18 +8,33 @@ namespace Traffic_Light.Modules
 {
   public  class CrossroadsState
     {
-        public SignalTypes TrafficLigthRoadA { get; set; }
-        public SignalTypes  TrafficLightRoadB { get; set; }
-        public SignalTypes PedestrianTrafficLight { get; set; }
-
+        public SignalTypes SignalTrafficLightRoadA { get; set; }
+        public SignalTypes  SignalTrafficLightRoadB { get; set; }
+        public SignalTypes SignalPedestrianTrafficLight { get; set; }
+        
         public int Time { get; set; }
+        public int Period { get; set; }
 
-        public CrossroadsState(SignalTypes trafficLightRoadA, SignalTypes trafficLightRoadB, SignalTypes pedestrianTrafficLight, int time)
+      public CrossroadsState(SignalTypes signalTrafficLightRoadA, SignalTypes signalTrafficLightRoadB, SignalTypes signalPedestrianTrafficLight, int time)
         {
-            TrafficLigthRoadA = trafficLightRoadA;
-            TrafficLightRoadB = trafficLightRoadB;
-            PedestrianTrafficLight = pedestrianTrafficLight;
+
+            SignalTrafficLightRoadA = signalTrafficLightRoadA;
+            SignalTrafficLightRoadB = signalTrafficLightRoadB;
+            SignalPedestrianTrafficLight = signalPedestrianTrafficLight;
             Time = time;
+            
         }
+
+      public CrossroadsState(SignalTypes signalTrafficLightRoadA, SignalTypes signalTrafficLightRoadB, SignalTypes signalPedestrianTrafficLight, int time, int period)
+      {
+
+            SignalTrafficLightRoadA = signalTrafficLightRoadA;
+            SignalTrafficLightRoadB = signalTrafficLightRoadB;
+            SignalPedestrianTrafficLight = signalPedestrianTrafficLight;
+            Time = time;
+         
+            Period = period;
+
+      }
     }
 }

@@ -46,7 +46,9 @@
     <Compile Include="Controllers\CenterControl.cs" />
     <Compile Include="Modules\Crossroads.cs" />
     <Compile Include="Modules\CrossroadsMode.cs" />
+    <Compile Include="Modules\CustomerTimer.cs" />
     <Compile Include="Modules\DayTimeMode.cs" />
+    <Compile Include="Modules\Mode.cs" />
     <Compile Include="Modules\ModeTypes.cs" />
     <Compile Include="Modules\NightMode.cs" />
     <Compile Include="Modules\ParticipantTypes.cs" />
