@@ -1,4 +1,4 @@
-﻿namespace Traffic_Light.Modules
+﻿namespace Traffic_Lights.Model.Constants
 {
   public  enum SignalTypes
     {

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic-Light_Console", "Traffic Light\Traffic-Light_Console.csproj", "{1816719C-1FAE-4B22-BDDB-70156164C842}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic Light.Console", "Traffic Light\Traffic Light.Console.csproj", "{1816719C-1FAE-4B22-BDDB-70156164C842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module Traffic-Lights", "Module Traffic-Lights\Module Traffic-Lights.csproj", "{05834FAA-38AD-4C00-8EE7-6C6B968BE1E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic Light.Model", "Module Traffic-Lights\Traffic Light.Model.csproj", "{05834FAA-38AD-4C00-8EE7-6C6B968BE1E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic-Lights WPF", "Traffic-Lights WPF\Traffic-Lights WPF.csproj", "{DC0B3F21-B8D0-40FD-88AC-9D89A89751FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic Light.WPF", "Traffic-Lights WPF\Traffic Light.WPF.csproj", "{DC0B3F21-B8D0-40FD-88AC-9D89A89751FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic-Lights_ WindowsForms", "Traffic-Lights_ WindowsForms\Traffic-Lights_ WindowsForms.csproj", "{0C1B5725-C43E-4FBF-AB37-52AC3F5C7402}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traffic Light.WindowsForms", "Traffic-Lights_ WindowsForms\Traffic Light.WindowsForms.csproj", "{0C1B5725-C43E-4FBF-AB37-52AC3F5C7402}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

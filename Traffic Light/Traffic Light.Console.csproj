@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrossroadsView.cs" />
+    <Compile Include="CrossroadsConsoleView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,9 +52,9 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Module Traffic-Lights\Module Traffic-Lights.csproj">
+    <ProjectReference Include="..\Module Traffic-Lights\Traffic Light.Model.csproj">
       <Project>{05834FAA-38AD-4C00-8EE7-6C6B968BE1E4}</Project>
-      <Name>Module Traffic-Lights</Name>
+      <Name>Traffic Light.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

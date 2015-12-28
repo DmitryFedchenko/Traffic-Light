@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Traffic_Lights__WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class CrossroadWindowsFormsView : Form
     {
-        public Form1()
+        public CrossroadWindowsFormsView()
         {
             InitializeComponent();
         }

@@ -14,3 +14,14 @@ C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Traffic Light\bin\Debug\Traff
 C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Traffic Light\bin\Debug\Module Traffic-Lights.dll
 C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Traffic Light\bin\Debug\Module Traffic-Lights.pdb
 C:\Users\dFedchenko\Documents\GitHub\Traffic-Light\Traffic Light\obj\Debug\Traffic-Light_Console.csprojResolveAssemblyReference.cache
+C:\Users\Dimas\Google Диск\For exchange\Traffic-Light\Traffic Light\bin\Debug\Traffic Light.exe.config
+C:\Users\Dimas\Google Диск\For exchange\Traffic-Light\Traffic Light\obj\Debug\Traffic Light.exe
+C:\Users\Dimas\Google Диск\For exchange\Traffic-Light\Traffic Light\obj\Debug\Traffic Light.pdb
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\bin\Debug\Traffic Light.exe.config
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\obj\Debug\Traffic Light.exe
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\obj\Debug\Traffic Light.pdb
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\obj\Debug\Traffic-Light_Console.csprojResolveAssemblyReference.cache
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\bin\Debug\Traffic Light.exe
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\bin\Debug\Traffic Light.pdb
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\bin\Debug\Module Traffic-Lights.dll
+C:\Users\dFedchenko\Desktop\Traffic-Light\Traffic Light\bin\Debug\Module Traffic-Lights.pdb

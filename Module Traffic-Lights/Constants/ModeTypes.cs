@@ -1,8 +1,8 @@
-﻿namespace Traffic_Light
+﻿namespace Traffic_Lights.Model.Constants
 {
     public enum ModeTypes
     {
-        Daytime, Night,Stop
+        Daytime, Night,Stop,Exit
 
     }
 }
