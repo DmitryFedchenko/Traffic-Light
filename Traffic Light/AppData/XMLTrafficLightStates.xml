@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trafficLightState>
+  <CrossroadsMode name="Daytime" id="0">
+    
+    <State id ="0" time="3000">
+      <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="2">Green</lamp>          
+      </TrafficLight>    
+
+      <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="0" >Red</lamp>          
+      </TrafficLight>
+
+      <TrafficLight participan="PedestrianTrafficLight" period="0">
+          <lamp id="0">Red</lamp>
+          
+      </TrafficLight>
+        
+  </State>
+
+  <State id ="1" time="2000">
+    <TrafficLight participan ="TrafficLightRoadA" period="500">
+          <lamp id="2" >Green</lamp>
+    </TrafficLight>
+
+    <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="0" >Red</lamp>
+    </TrafficLight>
+
+    <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="0" >Red</lamp>          
+      </TrafficLight>
+     
+    </State>
+
+  <State id ="2" time="1000">
+    <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="1" >Yellow</lamp>
+          
+      </TrafficLight>
+
+    <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="0">Red</lamp>    
+          <lamp id="1">Yellow</lamp>         
+      </TrafficLight>
+
+    <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="0" >Red</lamp>
+      </TrafficLight>
+
+  </State>
+
+  <State id ="3" time="3000">
+    <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="0" >Red</lamp>          
+      </TrafficLight>
+
+    <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="2">Green</lamp>         
+      </TrafficLight>
+
+    <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+
+   </State>
+  
+    
+     <State id ="4" time="2000">
+       <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+
+       <TrafficLight participan ="TrafficLightRoadB" period="500">
+          <lamp id="2">Green</lamp>         
+      </TrafficLight>
+
+      <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+      
+    </State>
+
+  
+  
+
+ <State id ="5" time="1000" >
+   
+   <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+
+     <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="1">Yellow</lamp>         
+      </TrafficLight>
+
+       <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+
+       </State>
+
+  
+  
+ <State id ="6" time="3000">
+   
+   <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+
+     <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="0">Red</lamp>         
+      </TrafficLight>
+
+       <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="1">Green</lamp>          
+      </TrafficLight>
+      
+    </State>
+
+ <State id ="7" time="2000">
+   
+     <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="0">Red</lamp>          
+      </TrafficLight>
+
+     <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="0">Red</lamp>         
+      </TrafficLight>
+
+       <TrafficLight participan ="PedestrianTrafficLight" period="500">
+          <lamp id="1">Green</lamp>          
+      </TrafficLight>
+
+      
+    </State>
+
+
+
+ <State id ="8" time="1000">
+   
+   <TrafficLight participan ="TrafficLightRoadA" period="0">
+          <lamp id="0">Red</lamp>
+          <lamp id="1">Yellow</lamp>          
+      </TrafficLight>
+
+     <TrafficLight participan ="TrafficLightRoadB" period="0">
+          <lamp id="0" >Red</lamp>         
+      </TrafficLight>
+
+       <TrafficLight participan ="PedestrianTrafficLight" period="0">
+          <lamp id="0" >Red</lamp>
+       </TrafficLight>
+     
+    </State>
+
+    </CrossroadsMode >
+
+
+
+  <CrossroadsMode name="Night" id="1">
+    
+    <State id ="0" time="3000">
+      <TrafficLight participan ="TrafficLightRoadA" period="500">
+          <lamp id="1">Yellow</lamp>          
+      </TrafficLight>    
+
+      <TrafficLight participan ="TrafficLightRoadB" period="500">
+          <lamp id="1" >Yellow</lamp>          
+      </TrafficLight>
+
+      <TrafficLight participan="PedestrianTrafficLight" period="0">
+         
+          
+      </TrafficLight>
+        
+  </State>
+  </CrossroadsMode>
+  
+  <CrossroadsMode name="Stop" id="2">
+    
+    <State id ="0" time="2000">
+      <TrafficLight participan ="TrafficLightRoadA" period="0">
+                
+      </TrafficLight>    
+
+      <TrafficLight participan ="TrafficLightRoadB" period="0">
+                 
+      </TrafficLight>
+
+      <TrafficLight participan="PedestrianTrafficLight" period="0">
+         
+          
+      </TrafficLight>
+        
+  </State>
+  </CrossroadsMode>
+
+</trafficLightState>

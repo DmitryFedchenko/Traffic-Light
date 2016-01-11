@@ -57,6 +57,7 @@
     <Compile Include="TrafficLightView.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AppData\XMLTrafficLightStates.xml" />
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
     <Content Include="NLog.config">

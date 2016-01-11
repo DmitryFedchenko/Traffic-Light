@@ -53,12 +53,7 @@
     <Compile Include="XmlCrossroadsDataReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\XMLTrafficLightStates.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="bin\XMLTrafficLightStates.xml">
-      <SubType>Designer</SubType>
-    </Content>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

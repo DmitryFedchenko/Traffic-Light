@@ -1,12 +1,14 @@
 ﻿using Module_Traffic_Lights.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Traffic_Lights.Model.Constants;
 using Traffic_Lights.Model.Models;
+
 
 namespace Module_Traffic_Lights
 {
@@ -17,7 +19,8 @@ namespace Module_Traffic_Lights
 
         public void ReadXMl()
         {
-            string fileName = "XMLTrafficLightStates.xml";
+            string fileName = "../../AppData/XMLTrafficLightStates.xml";
+           
             XDocument doc = XDocument.Load(fileName);
 
 
