@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<trafficLightState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DayTimeStates>
+    
+    <State>
+      <TrafficLightA>
+          <signal>Green</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Red</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>3000</TimeWait>
+    </State>
+
+  <State>
+    
+      <TrafficLightA>
+          <signal>BlinkGreen</signal>
+          <period>500</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Red</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>2000</TimeWait>
+    </State>
+
+  <State>
+      <TrafficLightA>
+          <signal>Yellow</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>RedYellow</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>1000</TimeWait>
+    </State>
+
+  <State>
+      <TrafficLightA>
+          <signal>Red</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Green</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>3000</TimeWait>
+    </State>
+  
+    
+     <State>
+      <TrafficLightA>
+          <signal>Red</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>BlinkGreen</signal>
+         <period>500</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>2000</TimeWait>
+    </State>
+
+  
+  
+
+ <State>
+      <TrafficLightA>
+          <signal>Red</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Yellow</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>1000</TimeWait>
+    </State>
+  </DayTimeStates> 
+  
+  
+ <State>
+      <TrafficLightA>
+          <signal>Red</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Red</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Green</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>3000</TimeWait>
+    </State>
+
+ <State>
+      <TrafficLightA>
+          <signal>Red</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Red</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>BlinkGreen</signal>
+          <period>500</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>2000</TimeWait>
+    </State>
+
+
+
+ <State>
+      <TrafficLightA>
+          <signal>RedYellow</signal>
+          <period>0</period>
+      </TrafficLightA>    
+
+      <TrafficLightB>
+          <signal>Red</signal>
+         <period>0</period>
+      </TrafficLightB>
+    
+    <PedestrianTrafficLight>
+          <signal>Red</signal>
+          <period>0</period>
+      </PedestrianTrafficLight>
+
+      <TimeWait>1000</TimeWait>
+    </State>
+
+</trafficLightState>
