@@ -1,8 +1,0 @@
-﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
-  &lt;Assembly Path="C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll" /&gt;&#xD;
-&lt;/AssemblyExplorer&gt;</s:String>
-	<s:Boolean x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=3ed22b29_002D46d2_002D4025_002Da673_002D47e5859384cd/@KeyIndexDefined">True</s:Boolean>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=3ed22b29_002D46d2_002D4025_002Da673_002D47e5859384cd/Coords/@EntryValue">(Doc Ln 15 Col 41)</s:String>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=3ed22b29_002D46d2_002D4025_002Da673_002D47e5859384cd/FileId/@EntryValue">1816719C-1FAE-4B22-BDDB-70156164C842/f:TLightController.cs</s:String>
-	<s:String x:Key="/Default/Housekeeping/Bookmarks/NumberedBookmarks/=3ed22b29_002D46d2_002D4025_002Da673_002D47e5859384cd/Owner/@EntryValue">AnonymousBookmarkManager</s:String></wpf:ResourceDictionary>

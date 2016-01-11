@@ -1,8 +1,0 @@
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\bin\Debug\Traffic-Lights_ WindowsForms.exe.config
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\bin\Debug\Traffic-Lights_ WindowsForms.exe
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\bin\Debug\Traffic-Lights_ WindowsForms.pdb
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\obj\Debug\Traffic-Lights_ WindowsForms.csprojResolveAssemblyReference.cache
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\obj\Debug\Traffic_Lights__WindowsForms.Properties.Resources.resources
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\obj\Debug\Traffic-Lights_ WindowsForms.csproj.GenerateResource.Cache
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\obj\Debug\Traffic-Lights_ WindowsForms.exe
-D:\Programming\Traffic Light\Traffic-Lights_ WindowsForms\obj\Debug\Traffic-Lights_ WindowsForms.pdb
