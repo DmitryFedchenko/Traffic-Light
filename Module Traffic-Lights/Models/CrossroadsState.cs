@@ -1,6 +1,6 @@
 ﻿using Module_Traffic_Lights.Models;
 using System.Collections.Generic;
-using Traffic_Lights.Model.Constants;
+
 
 namespace Traffic_Lights.Model.Models
 {

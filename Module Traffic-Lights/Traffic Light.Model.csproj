@@ -40,8 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\CrossroadsStateTypes.cs" />
-    <Compile Include="Models\CrossroadsModel.cs" />
+    <Compile Include="Models\Crossroads.cs" />
     <Compile Include="Models\ICrossroads.cs" />
     <Compile Include="Models\ITrafficLight.cs" />
     <Compile Include="Models\Lamp.cs" />

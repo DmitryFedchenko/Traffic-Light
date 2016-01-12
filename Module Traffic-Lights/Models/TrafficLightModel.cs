@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Timers;
-using Traffic_Lights.Model.Constants;
+
 using Timer = System.Timers.Timer;
 
 namespace Traffic_Lights.Model.Models
@@ -10,13 +10,13 @@ namespace Traffic_Lights.Model.Models
 
     public class TrafficLightModel : ITrafficLight
     {
-        private object obj = new object();
+       
         public int Id { get; set; }
         public List<Lamp> Lamps { get;}
-        public List<int> BlinkIdLamps;
+        private List<int> BlinkIdLamps;
          
 
-        protected Timer timer;
+        private Timer timer;
         public string Participan { get;}
 
         public event EventHandler ChangeTrafficLightSignal;
@@ -32,16 +32,18 @@ namespace Traffic_Lights.Model.Models
         }
 
         
-        public void BlinkSignal(Object source, ElapsedEventArgs e)
+        private void BlinkSignal(Object source, ElapsedEventArgs e)
         {
-             lock (obj)
-             {
-                 for (int i = 0; i < BlinkIdLamps.Count; i++)
-                     Lamps[BlinkIdLamps[i]].Light = Lamps[BlinkIdLamps[i]].Light == false ? true : false;
+             
+                for (int i = 0; i < BlinkIdLamps.Count; i++)
+                {
+                       Lamps[BlinkIdLamps[i]].Light = Lamps[BlinkIdLamps[i]].Light == false ? true : false;
+                }
+                     
 
                  if (ChangeTrafficLightSignal != null)
                     ChangeTrafficLightSignal(this, EventArgs.Empty);
-             }
+             
         }
 
         public void AddLamps(int count)
@@ -52,7 +54,7 @@ namespace Traffic_Lights.Model.Models
             }
         }
 
-        public void ResetTimer()
+        private void ResetTimer()
         {
             BlinkIdLamps.Clear();
             timer.Stop();

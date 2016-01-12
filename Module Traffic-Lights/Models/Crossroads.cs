@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Timers;
 using Traffic_Light.Model;
-using Traffic_Lights.Model.Constants;
+
 
 
 
@@ -10,7 +10,7 @@ using Traffic_Lights.Model.Constants;
 namespace Traffic_Lights.Model.Models
 {
    
-    public class CrossroadsModel : ICrossroads
+    public class Crossroads : ICrossroads
     {
         private object obj = new object();
         private Timer timer;
@@ -21,7 +21,7 @@ namespace Traffic_Lights.Model.Models
         public event EventHandler TrafficLightChange;
         
 
-        public CrossroadsStateTypes CrossroadsStateSelected { get; set; } = CrossroadsStateTypes.Daytime;
+        public string CrossroadsStateSelected { get; set; } = "Daytime";
 
         private int stateCrossroadsNumber = 0;
 
@@ -33,7 +33,7 @@ namespace Traffic_Lights.Model.Models
         {
             try
             {
-                CrossroadsStateSelected = (CrossroadsStateTypes)Enum.Parse(typeof(CrossroadsStateTypes), state);
+                CrossroadsStateSelected =  state;
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace Traffic_Lights.Model.Models
                     stateCrossroadsNumber = 0;
                     timer.Stop();
                     timer.Dispose();
-                    ManagerCrossroads.StartWork();
+                    ManagerCrossroads.StartWorkTraffiLights();
                 }
 
             }
@@ -159,7 +159,7 @@ namespace Traffic_Lights.Model.Models
         #endregion
 
 
-        public CrossroadsModel()
+        public Crossroads()
         {
             TrafficLights = new List<ITrafficLight>();
             States = new List<CrossroadsState>();

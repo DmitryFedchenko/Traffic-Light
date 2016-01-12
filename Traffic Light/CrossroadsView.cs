@@ -9,7 +9,7 @@ namespace Traffic_Light.Console
     public class CrossroadsView : ICrossroadsView
     {
         public List<ITrafficLightView> ViewTraffiLIghts { get; set; }
-        private object obj = new object();
+        
         public event EventHandler AddTraffilight;
         public event EventHandler ChangedState;
 
@@ -27,10 +27,9 @@ namespace Traffic_Light.Console
         }
 
 
-        public void LightSignal(int TraffiLightId, int lampId, string colorSiganl, bool light)
+        public void RepresentSignal(int TraffiLightId, int lampId, string colorSiganl, bool light)
         {
-            lock (obj)
-            {
+          
                 ConsoleColor tempColor;
                 if (Enum.TryParse(colorSiganl, out tempColor))
                 {
@@ -44,7 +43,7 @@ namespace Traffic_Light.Console
                     else
                     ResetSiganl(lampX, lampY);
                 }
-            }
+           
          
            
           }

@@ -1,12 +1,6 @@
 ﻿using Module_Traffic_Lights.Models;
-using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-using Traffic_Lights.Model.Constants;
 using Traffic_Lights.Model.Models;
 
 
@@ -14,9 +8,13 @@ namespace Module_Traffic_Lights
 {
     public class XmlCrossroadsDataReader
     {
-        
-        public Dictionary<CrossroadsStateTypes, List<CrossroadsState>> controllerModes = new Dictionary<CrossroadsStateTypes, List<CrossroadsState>>();
 
+        public Dictionary<string, List<CrossroadsState>> CrossroadsModes;
+
+        public XmlCrossroadsDataReader()
+        {
+            CrossroadsModes = new Dictionary<string, List<CrossroadsState>>();
+        }
         public void ReadXMl()
         {
             string fileName = "../../AppData/XMLTrafficLightStates.xml";
@@ -28,7 +26,7 @@ namespace Module_Traffic_Lights
             // Crossroads mode
             foreach (XElement tempCrossroadsMode in doc.Root.Elements())
             {
-                CrossroadsStateTypes crossroadsStateName = (CrossroadsStateTypes)Enum.Parse(typeof(CrossroadsStateTypes), tempCrossroadsMode.Attribute("name").Value);
+                string crossroadsStateName = tempCrossroadsMode.Attribute("name").Value;
                 var crossroadsStates = new List<CrossroadsState>();
 
                 //State
@@ -63,7 +61,7 @@ namespace Module_Traffic_Lights
                     crossroadsStates.Add(tempCrossroadsState);
                 }
 
-                controllerModes.Add(crossroadsStateName, crossroadsStates);
+                CrossroadsModes.Add(crossroadsStateName, crossroadsStates);
             }
 
         }

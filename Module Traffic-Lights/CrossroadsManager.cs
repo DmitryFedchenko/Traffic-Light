@@ -1,8 +1,5 @@
 ﻿using Module_Traffic_Lights;
 using System.Collections.Generic;
-
-using Traffic_Lights.Model.Constants;
-
 using Traffic_Lights.Model.Models;
 
 
@@ -11,13 +8,13 @@ namespace Traffic_Light.Model
 {
    public class CrossroadsManager
     {
-        object obj = new object();
-
-        protected CrossroadsModel crossroads;
-        public XmlCrossroadsDataReader xmlReader;
         
 
-        public CrossroadsManager(CrossroadsModel crossroads)
+        private Crossroads crossroads;
+        private XmlCrossroadsDataReader xmlReader;
+        
+
+        public CrossroadsManager(Crossroads crossroads)
         {
             xmlReader = new XmlCrossroadsDataReader();
             this.crossroads = crossroads;
@@ -25,34 +22,31 @@ namespace Traffic_Light.Model
             
         }
 
-        public void StartWork()
+        public void StartWorkTraffiLights()
         {
-            lock (obj)
-            {
-                switch (crossroads.CrossroadsStateSelected)
+              switch (crossroads.CrossroadsStateSelected)
                 {
 
-                    case CrossroadsStateTypes.Daytime:
-                        crossroads.States = xmlReader.controllerModes[CrossroadsStateTypes.Daytime] ;
+                    case "Daytime":
+                        crossroads.States = xmlReader.CrossroadsModes[crossroads.CrossroadsStateSelected] ;
                         crossroads.IterateCrossroadsStates();
                         break;
 
-                    case CrossroadsStateTypes.Night:
-                        crossroads.States = xmlReader.controllerModes[CrossroadsStateTypes.Night];
+                    case "Night":
+                        crossroads.States = xmlReader.CrossroadsModes[crossroads.CrossroadsStateSelected];
                         crossroads.IterateCrossroadsStates();
                         break;
 
-                    case CrossroadsStateTypes.Stop:
-                        crossroads.States = xmlReader.controllerModes[CrossroadsStateTypes.Stop];
+                    case "Stop":
+                        crossroads.States = xmlReader.CrossroadsModes[crossroads.CrossroadsStateSelected];
                         crossroads.IterateCrossroadsStates();
                         break;
 
-                    case CrossroadsStateTypes.Exit:
+                    case "Exit":
                         crossroads.StopIterate();
-                        break;
-                        
+                        break;                        
                 }
-            }
+          
         }
    
     }

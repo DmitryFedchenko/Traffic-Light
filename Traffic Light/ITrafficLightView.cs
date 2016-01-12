@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Traffic_Lights.Model.Constants;
+
 
 namespace Traffic_Light.Console
 {

@@ -7,11 +7,11 @@ namespace Traffic_Light.Console
         static void Main(string[] args)
         {
      
-         CrossroadsModel crossroads = new CrossroadsModel();;
+         Crossroads crossroads = new Crossroads();;
          CrossroadsView crossroadsView = new CrossroadsView();
          MainPresenter presenter = new MainPresenter(crossroads, crossroadsView);
             crossroadsView.DrawCrossroads();
-            crossroads.ManagerCrossroads.StartWork();
+            crossroads.ManagerCrossroads.StartWorkTraffiLights();
             crossroadsView.ControlPanel();
 
 

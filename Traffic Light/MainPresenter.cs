@@ -6,7 +6,7 @@ namespace Traffic_Light
 {
     class MainPresenter
     {
-        private object obj = new object();
+
 
         readonly ICrossroads Crossroads;
         readonly ICrossroadsView CrossroadsView;
@@ -20,7 +20,6 @@ namespace Traffic_Light
             CrossroadsView.AddTraffilight += CrossroadsView_addTraffilight;
             CrossroadsView.ChangedState += CrossroadsView_ChangedState;
             Crossroads.TrafficLightChange += CrossroadsTrafficLightChange;
-
             CrossroadsView.InitTrafficLight();
         }
 
@@ -32,13 +31,12 @@ namespace Traffic_Light
 
         private void CrossroadsTrafficLightChange(object sender, EventArgs e)
         {
-            lock (obj)
-            {
+           
                  foreach (var lamp in Crossroads.CurrentChangedTraffiLight.Lamps)
                 {
-                CrossroadsView.LightSignal(Crossroads.CurrentChangedTraffiLight.Id, lamp.Id, lamp.Signal, lamp.Light);
+                CrossroadsView.RepresentSignal(Crossroads.CurrentChangedTraffiLight.Id, lamp.Id, lamp.Signal, lamp.Light);
                 }
-            }
+        
        
         }
 
