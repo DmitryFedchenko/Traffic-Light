@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TrafficLights.Program" Collapsed="true">
+    <Position X="2" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.TrafficLight">
+    <Position X="7.5" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAAAAAAAAAhAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrafficLight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.TrafficLightController">
+    <Position X="4" Y="5" Width="2.5" />
+    <AssociationLine Name="ControllerMode" Type="TrafficLights.ControllerMode" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.875" Y="5" />
+        <Point X="5.875" Y="4.625" />
+        <Point X="11.062" Y="4.625" />
+        <Point X="11.062" Y="5" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="1.047" Y="0.435" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAABAgAEIAAAAAAAAhAAgAAAAAAAAAQAICQBAAAACA=</HashCode>
+      <FileName>TrafficLightController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TrafficLight" />
+      <Property Name="ControllerMode" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.121" />
+  </Class>
+  <Class Name="TrafficLights.TrafficLightView">
+    <Position X="1" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrafficLightView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.TrafficLightState">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>TrafficLightStates.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.TrafficLightControllerState">
+    <Position X="7.25" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrafficLightControllerState.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TrafficLightState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TrafficLights.DayTimeMode">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DayTimeMode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.ControllerMode">
+    <Position X="10.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>TrafficLightMode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.NightMode">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NightMode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrafficLights.Presenter">
+    <Position X="2" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TrafficLightView" />
+      <Property Name="TrafficLightController" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="TrafficLights.ITrafficLightControl">
+    <Position X="2" Y="7" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAACA=</HashCode>
+      <FileName>ITrafficLightControl.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
