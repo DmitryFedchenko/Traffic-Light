@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TrafficLightClassDiagram
+namespace TrafficLights
 {
-    public class Lamp
+    public class TrafficLightDB
     {
-        public int Id;
+        public void AddTrafficLight()
+        {
 
-        public string Signal
+        }
+        public int CarTrafficLights
         {
             get
             {
@@ -21,7 +23,7 @@ namespace TrafficLightClassDiagram
             }
         }
 
-        public bool Light
+        public int PedestrianTrafficLights
         {
             get
             {

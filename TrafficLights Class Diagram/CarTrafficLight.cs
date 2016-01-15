@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TrafficLightClassDiagram
+namespace TrafficLights
 {
-    public class PedestrianTrafficLightState
+    public class CarTrafficLight : TrafficLightClassDiagram.TrafficLight
     {
+        public CarTrafficLight()
+        {
+            throw new System.NotImplementedException();
+        }
 
-        public int  Id { get; set; }
-        public int IntervalBlinkSignal
+        public int RedLamp
         {
             get
             {
@@ -33,7 +36,7 @@ namespace TrafficLightClassDiagram
             }
         }
 
-        public int RedLamp
+        public string YellowLamp
         {
             get
             {

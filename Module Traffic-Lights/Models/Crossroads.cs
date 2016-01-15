@@ -12,7 +12,7 @@ namespace Traffic_Lights.Model.Models
    
     public class Crossroads : ICrossroads
     {
-        private object obj = new object();
+  
         private Timer timer;
 
         protected List<ITrafficLight> TrafficLights { get; }
@@ -56,14 +56,12 @@ namespace Traffic_Lights.Model.Models
 
         private void TrafficLightModel_ChangeTrafficLightSignal(object sender, EventArgs e)
         {
-            lock (obj)
-            {
+         
                 CurrentChangedTraffiLight = sender as ITrafficLight;
 
              if (TrafficLightChange != null)
                 TrafficLightChange(this,EventArgs.Empty);
-            }
-            
+                    
         }
 
 
@@ -73,11 +71,14 @@ namespace Traffic_Lights.Model.Models
 
         public void SetCrossroadsState(object obj, ElapsedEventArgs args)
         {
-            lock (obj)
-            {
+           
                 if (stateCrossroadsNumber < States.Count)
                 {
                     if (States.Count > stateCrossroadsNumber)
+
+
+
+
                         ChangeCrossroadsState(States[stateCrossroadsNumber]);
 
                     if (States.Count > stateCrossroadsNumber)
@@ -95,7 +96,7 @@ namespace Traffic_Lights.Model.Models
                     ManagerCrossroads.StartWorkTraffiLights();
                 }
 
-            }
+            
 
 
         }
@@ -108,14 +109,12 @@ namespace Traffic_Lights.Model.Models
         
         public void IterateCrossroadsStates()
         {
-            lock (obj)
-            {
+         
                 timer = new Timer();
                 timer.AutoReset = true;
                 timer.Enabled = true;
                 timer.Elapsed += SetCrossroadsState;
-
-            }
+         
 
         }
 

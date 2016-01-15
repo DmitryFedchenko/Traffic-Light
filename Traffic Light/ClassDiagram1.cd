@@ -21,5 +21,10 @@
       <FileName>Modules\PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Traffic_Lights.Model.Models.Crossroads">
+    <Position X="5.75" Y="2.25" Width="3" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

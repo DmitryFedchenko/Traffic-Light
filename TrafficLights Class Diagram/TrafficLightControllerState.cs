@@ -7,7 +7,7 @@ namespace TrafficLights
 {
     public class TrafficLightControllerState
     {
-        public TrafficLightState TrafficLightState
+        public TrafficLightState CarTrafficLightState
         {
             get
             {
@@ -19,19 +19,7 @@ namespace TrafficLights
             }
         }
 
-        public List<TrafficLightState> TrafficLightStates
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public int Id
+        public List<TrafficLightState> PedestrianTrafficLightState
         {
             get
             {
@@ -44,6 +32,93 @@ namespace TrafficLights
         }
 
         public int TimeWait
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public TrafficLightClassDiagram.PedestrianTrafficLightState TrafficLightState1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public CarTrafficLightState CarTrafficLightState1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+    }
+
+    public class CopyOfTrafficLightControllerState
+    {
+        public TrafficLightState CarTrafficLightState
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public List<TrafficLightState> PedestrianTrafficLightState
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public int TimeWait
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public TrafficLightClassDiagram.PedestrianTrafficLightState TrafficLightState1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public CarTrafficLightState CarTrafficLightState1
         {
             get
             {

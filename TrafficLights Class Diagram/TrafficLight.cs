@@ -4,22 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Timers;
 
-namespace TrafficLights
+namespace TrafficLightClassDiagram
 {
-    public class TrafficLight
+    public abstract class TrafficLight
     {
-        public Dictionary<int, string> LampsLight { get; set; }
+        private int BlinkSignalTimer;
+            
+        public event EventHandler ChangeSignal;
 
         public int Id { get; set; }
 
-        public void AddLampLight()
+        public void ChangeSignalLamp()
         {
             throw new System.NotImplementedException();
         }
 
-        public void ResetLampsLight()
+        private void BlinkSignal()
         {
             throw new System.NotImplementedException();
         }
+
+      
     }
 }

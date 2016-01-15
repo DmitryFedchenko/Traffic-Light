@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TrafficLights
+namespace TrafficLightClassDiagram
 {
- 
+
     public abstract class ControllerMode
     {
         public List<TrafficLightControllerState> States
@@ -18,6 +18,11 @@ namespace TrafficLights
             set
             {
             }
+        }
+
+        public void AddState()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
