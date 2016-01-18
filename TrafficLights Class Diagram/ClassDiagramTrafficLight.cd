@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="TrafficLightClassDiagram.Program">
-    <Position X="3" Y="5.25" Width="1.75" />
+    <Position X="2.75" Y="5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -15,14 +15,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.TrafficLightController">
-    <Position X="7" Y="3.25" Width="2.5" />
+    <Position X="7" Y="2.5" Width="2.25" />
     <AssociationLine Name="ControllerMode" Type="TrafficLightClassDiagram.ControllerMode">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-1.973" Y="0.023" Height="0.182" Width="1.442" />
+        <Position X="-1.615" Y="0.023" Height="0.182" Width="1.442" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IASARAAAEIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <HashCode>IEAARAAIkAAAAAAAAAAAAQQAAAIAAAAAAAAAAgAAACA=</HashCode>
       <FileName>TrafficLightController.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -31,73 +31,42 @@
     <Lollipop Position="0.121" />
   </Class>
   <Class Name="TrafficLightClassDiagram.TrafficLightView">
-    <Position X="3" Y="3.25" Width="1.75" />
+    <Position X="2.75" Y="3" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TrafficLightView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLightClassDiagram.PedestrianTrafficLightState">
-    <Position X="9.75" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAEAAAAAAAAACAAAAAAAAAAAAAAAAAQA=</HashCode>
-      <FileName>TrafficLightStates.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TrafficLights.TrafficLightControllerState">
-    <Position X="9.5" Y="8.25" Width="2.25" />
-    <AssociationLine Name="TrafficLightState1" Type="TrafficLightClassDiagram.PedestrianTrafficLightState" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="11.438" Y="8.25" />
-        <Point X="11.438" Y="3.84" />
-        <Point X="11.25" Y="3.84" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.152" Y="0.1" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="CarTrafficLightState1" Type="TrafficLights.CarTrafficLightState" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="11.531" Y="8.25" />
-        <Point X="11.531" Y="7.437" />
-        <Point X="11.75" Y="7.437" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.543" Y="-0.693" />
-      </MemberNameLabel>
-    </AssociationLine>
+    <Position X="9.5" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAIAAAAAAQAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQgAAAAAEAAAAAAAAAAIAAA=</HashCode>
       <FileName>TrafficLightControllerState.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="TrafficLightState1" />
-      <Property Name="CarTrafficLightState1" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="TrafficLightClassDiagram.DayTimeMode">
-    <Position X="7.75" Y="8.25" Width="1.5" />
+    <Position X="9" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DayTimeMode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.ControllerMode">
-    <Position X="7" Y="6.25" Width="1.5" />
+    <Position X="7" Y="6.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>TrafficLightMode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.NightMode">
-    <Position X="6" Y="8.25" Width="1.5" />
+    <Position X="6" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NightMode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.Presenter">
-    <Position X="5" Y="3.25" Width="1.5" />
+    <Position X="5" Y="3" Width="1.5" />
     <AssociationLine Name="TrafficLightView" Type="TrafficLightClassDiagram.TrafficLightView">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="-1.154" Y="0.476" Height="0.182" Width="1.022" />
@@ -119,62 +88,17 @@
       <FileName>PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLights.CarTrafficLightState">
-    <Position X="11.75" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAEAAAAAAAAACBAAAAAAAAAAAAAAAAQA=</HashCode>
-      <FileName>CarTrafficLightState.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrafficLights.TrafficLightDB">
-    <Position X="9" Y="6.25" Width="2" />
-    <TypeIdentifier>
-      <HashCode>gAAAAAAAEAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TrafficLightDB.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TrafficLights.CarTrafficLight">
-    <Position X="2.25" Y="7.25" Width="1.5" />
+    <Position X="2.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAABAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAABAAAAQAAAAAAAAAAAQA=</HashCode>
       <FileName>CarTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLights.CopyOfTrafficLightControllerState">
-    <Position X="9.5" Y="8.25" Width="2.25" />
-    <AssociationLine Name="TrafficLightState1" Type="TrafficLightClassDiagram.PedestrianTrafficLightState" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="11.438" Y="8.25" />
-        <Point X="11.438" Y="3.84" />
-        <Point X="11.25" Y="3.84" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.152" Y="0.1" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <AssociationLine Name="CarTrafficLightState1" Type="TrafficLights.CarTrafficLightState" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="11.531" Y="8.25" />
-        <Point X="11.531" Y="7.437" />
-        <Point X="11.75" Y="7.437" />
-      </Path>
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="-1.543" Y="-0.693" />
-      </MemberNameLabel>
-    </AssociationLine>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAIAAAAAAQAAAQAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TrafficLightControllerState.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="TrafficLightState1" />
-      <Property Name="CarTrafficLightState1" />
-    </ShowAsAssociation>
-  </Class>
   <Interface Name="TrafficLightClassDiagram.ITrafficLightControl">
-    <Position X="9.75" Y="4.75" Width="1.5" />
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ITrafficLightControl.cs</FileName>
     </TypeIdentifier>
   </Interface>

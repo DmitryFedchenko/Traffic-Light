@@ -2,50 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TrafficLightClassDiagram;
 
 namespace TrafficLights
 {
-    public class CarTrafficLight : TrafficLightClassDiagram.TrafficLight
+    public class CarTrafficLight : TrafficLight
     {
-        public CarTrafficLight()
+        public string Name { get; set; }
+
+        int Id { get; set; }
+        public CarTrafficLight(int id)
         {
-            throw new System.NotImplementedException();
+            Id = id;
         }
 
-        public int RedLamp
+
+        public bool GreenLamp { get; set; }
+        public bool YellowLamp { get; set; }
+        public bool RedLamp { get; set; }
+
+        public override void ChangeSignalLamp(string signal)
         {
-            get
+            switch (signal)
             {
-                throw new System.NotImplementedException();
+                case "Green":
+                    GreenLamp = true;
+                    break;
             }
 
-            set
-            {
-            }
-        }
-
-        public int GreenLamp
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public string YellowLamp
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
         }
     }
 }

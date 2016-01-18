@@ -14,10 +14,8 @@ namespace TrafficLightClassDiagram
 
         public int Id { get; set; }
 
-        public void ChangeSignalLamp()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract void ChangeSignalLamp(string signal);
+        
 
         private void BlinkSignal()
         {

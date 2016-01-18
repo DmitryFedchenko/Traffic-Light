@@ -2,27 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TrafficLights;
 
 namespace TrafficLightClassDiagram
 {
 
     public abstract class ControllerMode
     {
-        public List<TrafficLightControllerState> States
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
+        public List<TrafficLightControllerState> States { get; set; }
+       
 
-            set
-            {
-            }
-        }
+      
 
-        public void AddState()
-        {
-            throw new System.NotImplementedException();
-        }
+       
     }
 }

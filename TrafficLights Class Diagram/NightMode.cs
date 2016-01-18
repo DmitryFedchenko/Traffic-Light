@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TrafficLights;
 
 namespace TrafficLightClassDiagram
 {
@@ -9,7 +10,8 @@ namespace TrafficLightClassDiagram
     {
         public NightMode()
         {
-            throw new System.NotImplementedException();
+            this.States.Add(new TrafficLightControllerState("Gray", "Gray", "BlinkYellow", 1000));
+          
         }
     }
 }

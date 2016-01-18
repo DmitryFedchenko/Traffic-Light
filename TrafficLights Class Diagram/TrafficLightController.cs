@@ -2,65 +2,105 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Timers;
+using System.Threading;
 using TrafficLights;
 
 namespace TrafficLightClassDiagram
 {
     public class TrafficLightController : ITrafficLightControl
     {
-        private Timer ChangeStateTimer;
-        private int StateNumber;
+        public List<CarTrafficLight> CarTrafficlights;
+        public List<PedestrianTrafficLight> PedestrianTrafficlights;
+        public Timer ChangeStateTimer;
 
-        public ControllerMode Mode
+        public List<TrafficLightControllerState> StateList; 
+
+        public AutoResetEvent autoEvent = new AutoResetEvent(false);
+
+        public string CurrentMode { get; set; }
+        private int CurrentStateNumber;
+        private int TimeWaite;
+        
+        public void AddTrafficlight(int id, string type)
         {
-            get
+            switch (type)
             {
-                throw new System.NotImplementedException();
-            }
+                case "CarTrafficLight":
+                    CarTrafficlights.Add(new CarTrafficLight(id));
+                    break;
 
-            set
-            {
+                case "PedestrianTrafficLight":
+                    PedestrianTrafficlights.Add(new PedestrianTrafficLight(id));
+                    break;
+                default:
+                    break;
             }
         }
-
-        public ControllerMode ControllerMode
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public TrafficLightDB TrafficLightDB
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
+        public ControllerMode ControllerMode { get; set; }
+       
+               
+        
         private void SwithMode()
         {
-            throw new System.NotImplementedException();
+            switch (CurrentMode)
+            {
+                case "DayTime":
+                    StateList = new DayTimeMode().States;
+                    break;
+                case "Night":
+                    StateList = new NightMode().States;
+                    break;
+
+                default:
+                    break;
+            }
+
         }
 
-        private void IterateControllerStates()
+        public void IterateControllerStates()
         {
-            throw new System.NotImplementedException();
+            ChangeStateTimer = new Timer(SetState, autoEvent, 0,0);
+
+            autoEvent.WaitOne(TimeWaite);
+            if (CurrentStateNumber < StateList.Count)
+                IterateControllerStates();
+
         }
 
-        private void SetState()
+        private void SetState(object obj)
         {
-            throw new System.NotImplementedException();
+            foreach (var carTrafficlight in CarTrafficlights)
+            {
+                switch (carTrafficlight.Id)
+                {
+                    case 0:
+                        carTrafficlight.ChangeSignalLamp(StateList[CurrentStateNumber].TrafficLightRoadA);
+                        break;
+                    case 1:
+                        carTrafficlight.ChangeSignalLamp(StateList[CurrentStateNumber].TrafficLightRoadB);
+                        break;
+                   
+                    default:
+                        break;
+                }
+            }
+
+            foreach (var pedestrianTrafficlight in PedestrianTrafficlights)
+            {
+                pedestrianTrafficlight.ChangeSignalLamp(StateList[CurrentStateNumber].PedestrianTrafficlight);
+            }
+        }
+
+        public void StartWork()
+        {
+            IterateControllerStates();
+            SwithMode();
+        }
+        public TrafficLightController()
+        {
+            
+
+
         }
     }
 }

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace TrafficLights
 {
-    public class CarTrafficLightState
+    public class PedestrianTrafficLight : TrafficLightClassDiagram.TrafficLight
     {
-        public int Id  { get; set; }
-        public int IntervalBlinkSignal
+    
+        public int RedLamp
         {
             get
             {
@@ -31,29 +31,14 @@ namespace TrafficLights
             {
             }
         }
-
-        public int RedLamp
+        public PedestrianTrafficLight(int id)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            Id = id;
         }
 
-        public int YellowLamp
+        public override void ChangeSignalLamp(string signal)
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,6 +10,9 @@ namespace TrafficLightClassDiagram
     {
         static void Main(string[] args)
         {
+            TrafficLightController controller = new TrafficLightController();
+            controller.IterateControllerStates();
+           
         }
     }
 }
