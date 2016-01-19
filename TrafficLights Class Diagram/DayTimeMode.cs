@@ -10,6 +10,7 @@ namespace TrafficLightClassDiagram
     {
         public DayTimeMode()
         {
+            this.States = new List<TrafficLightControllerState>();
             this.States.Add(new TrafficLightControllerState("Green","Red","Red",3000));
             this.States.Add(new TrafficLightControllerState("BlinkGreen", "Red", "Red", 2000));
             this.States.Add(new TrafficLightControllerState("Yellow", "RedAndellow", "Red", 1000));
@@ -20,28 +21,7 @@ namespace TrafficLightClassDiagram
             this.States.Add(new TrafficLightControllerState("Red", "Red", "BlinkGreen", 2000));
             this.States.Add(new TrafficLightControllerState("RedAndYellow", "Red", "Red", 1000));
 
-
         }
-
-
-        /*
-             states.Add(new CrossroadsState(SignalTypes.Green, SignalTypes.Red, SignalTypes.Red, 3000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.BlinkGreen, SignalTypes.Red, SignalTypes.Red, 2000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.Yellow, SignalTypes.RedAndYellow, SignalTypes.Red, 1000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.Red, SignalTypes.Green, SignalTypes.Red, 3000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.Red, SignalTypes.BlinkGreen, SignalTypes.Red, 2000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.Red, SignalTypes.Yellow, SignalTypes.Red, 1000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.Red, SignalTypes.Red, SignalTypes.Green, 3000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.Red, SignalTypes.Red, SignalTypes.BlinkGreen, 2000));
- +
- +            states.Add(new CrossroadsState(SignalTypes.RedAndYellow, SignalTypes.Red, SignalTypes.Red, 1000));
-        */
+        
     }
 }

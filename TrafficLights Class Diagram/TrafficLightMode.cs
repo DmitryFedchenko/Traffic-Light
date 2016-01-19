@@ -10,10 +10,6 @@ namespace TrafficLightClassDiagram
     public abstract class ControllerMode
     {
         public List<TrafficLightControllerState> States { get; set; }
-       
-
       
-
-       
     }
 }

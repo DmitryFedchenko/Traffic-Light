@@ -46,7 +46,6 @@
     <Compile Include="CarTrafficLight.cs" />
     <Compile Include="DayTimeMode.cs" />
     <Compile Include="ITrafficLightControl.cs" />
-    <Compile Include="Lamp.cs" />
     <Compile Include="NightMode.cs" />
     <Compile Include="PedestrianTrafficLight.cs" />
     <Compile Include="Presenter.cs" />
@@ -55,9 +54,7 @@
     <Compile Include="TrafficLight.cs" />
     <Compile Include="TrafficLightController.cs" />
     <Compile Include="TrafficLightControllerState.cs" />
-    <Compile Include="TrafficLightDB.cs" />
     <Compile Include="TrafficLightMode.cs" />
-    <Compile Include="TrafficLightStates.cs" />
     <Compile Include="TrafficLightView.cs" />
   </ItemGroup>
   <ItemGroup>
