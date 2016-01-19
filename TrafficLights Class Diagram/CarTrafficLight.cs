@@ -22,6 +22,10 @@ namespace TrafficLights
 
         public override void ChangeSignalLamp(string signal)
         {
+            GreenLamp = false;
+            YellowLamp = false;
+            RedLamp = false;
+
             switch (signal)
             {
                 case "Green":
@@ -36,6 +40,9 @@ namespace TrafficLights
                 case "RedAndYellow":
                     RedLamp = true;
                     YellowLamp = true;
+                    break;
+                case "BlinkGreen":
+                    BlinkSignal();
                     break;
             }
 

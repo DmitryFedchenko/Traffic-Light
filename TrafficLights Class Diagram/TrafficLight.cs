@@ -18,7 +18,7 @@ namespace TrafficLightClassDiagram
         public abstract void ChangeSignalLamp(string signal);
         
 
-        protected void BlinkSignal()
+        protected void BlinkSignal(string signal)
         {
             throw new System.NotImplementedException();
         }
