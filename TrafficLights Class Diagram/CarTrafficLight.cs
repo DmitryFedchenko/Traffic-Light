@@ -8,9 +8,8 @@ namespace TrafficLights
 {
     public class CarTrafficLight : TrafficLight
     {
-        public string Name { get; set; }
 
-        int Id { get; set; }
+        
         public CarTrafficLight(int id)
         {
             Id = id;
@@ -27,6 +26,16 @@ namespace TrafficLights
             {
                 case "Green":
                     GreenLamp = true;
+                    break;
+                case "Red":
+                    GreenLamp = true;
+                    break;
+                case "Yellow":
+                    GreenLamp = true;
+                    break;
+                case "RedAndYellow":
+                    RedLamp = true;
+                    YellowLamp = true;
                     break;
             }
 

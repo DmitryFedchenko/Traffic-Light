@@ -15,14 +15,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.TrafficLightController">
-    <Position X="7" Y="2.5" Width="2.25" />
+    <Position X="7" Y="2" Width="2.25" />
     <AssociationLine Name="ControllerMode" Type="TrafficLightClassDiagram.ControllerMode">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
-        <Position X="-1.615" Y="0.023" Height="0.182" Width="1.442" />
+        <Position X="0.648" Y="-1.667" Height="0.182" Width="1.265" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>IEAARAAIkAAAAAAAAAAAAQQAAAIAAAAAAAAAAgAAACA=</HashCode>
+      <HashCode>IEAARAAIkAAAAAAAAAAAAQQAIAIAAAAAAAAAAgAAACA=</HashCode>
       <FileName>TrafficLightController.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -45,7 +45,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.DayTimeMode">
-    <Position X="9" Y="8" Width="1.5" />
+    <Position X="9" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>DayTimeMode.cs</FileName>
@@ -59,17 +59,22 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.NightMode">
-    <Position X="6" Y="8" Width="1.5" />
+    <Position X="6.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>NightMode.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLightClassDiagram.Presenter">
-    <Position X="5" Y="3" Width="1.5" />
+    <Position X="5" Y="3" Width="1.75" />
     <AssociationLine Name="TrafficLightView" Type="TrafficLightClassDiagram.TrafficLightView">
       <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
         <Position X="-1.154" Y="0.476" Height="0.182" Width="1.022" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="TrafficLightController" Type="TrafficLightClassDiagram.TrafficLightController">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.381" Y="0.539" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
@@ -84,14 +89,14 @@
   <Class Name="TrafficLights.PedestrianTrafficLight">
     <Position X="4" Y="7.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAQA=</HashCode>
       <FileName>PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TrafficLights.CarTrafficLight">
     <Position X="2.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAABAAAAQAAAAAAAAAAAQA=</HashCode>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAQABAAAAQAAAAAAAAAAAQA=</HashCode>
       <FileName>CarTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>

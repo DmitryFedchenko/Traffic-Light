@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Timers;
+using System.Threading;
 
 namespace TrafficLightClassDiagram
 {
     public abstract class TrafficLight
     {
-        private int BlinkSignalTimer;
+        
+        protected Timer BlinkSignalTimer;
             
         public event EventHandler ChangeSignal;
 
@@ -17,7 +18,7 @@ namespace TrafficLightClassDiagram
         public abstract void ChangeSignalLamp(string signal);
         
 
-        private void BlinkSignal()
+        protected void BlinkSignal()
         {
             throw new System.NotImplementedException();
         }

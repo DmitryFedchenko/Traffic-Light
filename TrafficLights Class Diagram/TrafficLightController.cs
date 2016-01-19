@@ -14,10 +14,9 @@ namespace TrafficLightClassDiagram
         public Timer ChangeStateTimer;
 
         public List<TrafficLightControllerState> StateList; 
-
         public AutoResetEvent autoEvent = new AutoResetEvent(false);
 
-        public string CurrentMode { get; set; }
+        public string CurrentMode { get; set; } = "DayTime";
         private int CurrentStateNumber;
         private int TimeWaite;
         
@@ -60,10 +59,11 @@ namespace TrafficLightClassDiagram
         public void IterateControllerStates()
         {
             ChangeStateTimer = new Timer(SetState, autoEvent, 0,0);
-
             autoEvent.WaitOne(TimeWaite);
+
             if (CurrentStateNumber < StateList.Count)
                 IterateControllerStates();
+
 
         }
 
@@ -79,16 +79,15 @@ namespace TrafficLightClassDiagram
                     case 1:
                         carTrafficlight.ChangeSignalLamp(StateList[CurrentStateNumber].TrafficLightRoadB);
                         break;
-                   
-                    default:
-                        break;
-                }
+               }
             }
 
             foreach (var pedestrianTrafficlight in PedestrianTrafficlights)
             {
                 pedestrianTrafficlight.ChangeSignalLamp(StateList[CurrentStateNumber].PedestrianTrafficlight);
             }
+
+            TimeWaite = StateList[CurrentStateNumber].TimeWait;
         }
 
         public void StartWork()
@@ -96,11 +95,6 @@ namespace TrafficLightClassDiagram
             IterateControllerStates();
             SwithMode();
         }
-        public TrafficLightController()
-        {
-            
-
-
-        }
+        
     }
 }

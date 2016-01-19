@@ -2,35 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
+using TrafficLightClassDiagram;
 
 namespace TrafficLights
 {
-    public class PedestrianTrafficLight : TrafficLightClassDiagram.TrafficLight
+    public class PedestrianTrafficLight : TrafficLight
     {
-    
-        public int RedLamp
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
 
-            set
-            {
-            }
-        }
+        public int RedLamp { get; set; }
 
-        public int GreenLamp
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
 
-            set
-            {
-            }
-        }
+        public int GreenLamp { get; set; }
+
         public PedestrianTrafficLight(int id)
         {
             Id = id;
@@ -38,7 +22,7 @@ namespace TrafficLights
 
         public override void ChangeSignalLamp(string signal)
         {
-            throw new NotImplementedException();
+            this.BlinkSignalTimer = new Timer();
         }
     }
 }
