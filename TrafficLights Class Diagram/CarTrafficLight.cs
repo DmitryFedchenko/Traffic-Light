@@ -47,7 +47,7 @@ namespace TrafficLights
                     YellowLamp = true;
                     break;
                 case "BlinkGreen":
-                    BlinkSignalTimer = new Timer(BlinkSignal, "BlinkGreen", 0, 500);                          
+                    BlinkSignalTimer = new Timer(BlinkSignal, "Green", 0, 500);                          
                     break;
                 case "BlinkYellow":
                     BlinkSignalTimer = new Timer(BlinkSignal, "Yellow", 0, 500);
@@ -65,7 +65,7 @@ namespace TrafficLights
         protected override void BlinkSignal(object obj)
         {
             if ("Yellow" == (string)obj)
-                YellowLamp = GreenLamp ? false : true;
+                YellowLamp = YellowLamp ? false : true;
 
             if ("Green" == (string)obj)
                 GreenLamp = GreenLamp ? false : true;
