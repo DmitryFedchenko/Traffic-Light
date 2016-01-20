@@ -10,16 +10,16 @@ namespace TrafficLightClassDiagram
     {
         public DayTimeMode()
         {
-            this.States = new List<TrafficLightControllerState>();
-            this.States.Add(new TrafficLightControllerState("Green","Red","Red",3000));
-            this.States.Add(new TrafficLightControllerState("BlinkGreen", "Red", "Red", 2000));
-            this.States.Add(new TrafficLightControllerState("Yellow", "RedAndellow", "Red", 1000));
-            this.States.Add(new TrafficLightControllerState("Red", "Green", "Red", 3000));
-            this.States.Add(new TrafficLightControllerState("Red", "BlinkGreen", "Red", 2000));
-            this.States.Add(new TrafficLightControllerState("Red", "Yellow", "Red", 1000));
-            this.States.Add(new TrafficLightControllerState("Red", "Red", "Green", 3000));
-            this.States.Add(new TrafficLightControllerState("Red", "Red", "BlinkGreen", 2000));
-            this.States.Add(new TrafficLightControllerState("RedAndYellow", "Red", "Red", 1000));
+            this.ListStates = new List<TrafficLightControllerState>();
+            this.ListStates.Add(new TrafficLightControllerState("Green","Red","Red",3000));
+            this.ListStates.Add(new TrafficLightControllerState("BlinkGreen", "Red", "Red", 2000));
+            this.ListStates.Add(new TrafficLightControllerState("Yellow", "RedAndellow", "Red", 1000));
+            this.ListStates.Add(new TrafficLightControllerState("Red", "Green", "Red", 3000));
+            this.ListStates.Add(new TrafficLightControllerState("Red", "BlinkGreen", "Red", 2000));
+            this.ListStates.Add(new TrafficLightControllerState("Red", "Yellow", "Red", 1000));
+            this.ListStates.Add(new TrafficLightControllerState("Red", "Red", "Green", 3000));
+            this.ListStates.Add(new TrafficLightControllerState("Red", "Red", "BlinkGreen", 2000));
+            this.ListStates.Add(new TrafficLightControllerState("RedAndYellow", "Red", "Red", 1000));
 
         }
         

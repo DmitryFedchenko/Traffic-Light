@@ -12,14 +12,12 @@ namespace TrafficLightClassDiagram
         public List<CarTrafficLight> CarTrafficlights { get; } = new List<CarTrafficLight>();
         public List<PedestrianTrafficLight> PedestrianTrafficlights { get; } = new List<PedestrianTrafficLight>();
         private Timer ChangeStateTimer;
-        private ControllerMode ControllerMode { get; set; }
 
         private List<TrafficLightControllerState> ListStatesController; 
-        private AutoResetEvent autoResetEvent = new AutoResetEvent(false);
+        private AutoResetEvent AutoResetEventTimer = new AutoResetEvent(false);
 
         public string CurrentMode { get; set; } = "DayTime";
-        private int CurrentStateNumber;
-        private int TimeWaiteNextState;
+        private int RunTimeState;
 
 
         public void AddTrafficlight(int id, string typeTrafficLight)
@@ -42,10 +40,12 @@ namespace TrafficLightClassDiagram
             switch (CurrentMode)
             {
                 case "DayTime":
-                    ListStatesController = new DayTimeMode().States;
+                    ListStatesController = new DayTimeMode().ListStates;
+                    IterateControllerStates();
                     break;
                 case "Night":
-                    ListStatesController = new NightMode().States;
+                    ListStatesController = new NightMode().ListStates;
+                    IterateControllerStates();
                     break;
 
                 default:
@@ -56,51 +56,54 @@ namespace TrafficLightClassDiagram
 
         private void IterateControllerStates()
         {
-           
-            ChangeStateTimer = new Timer(new TimerCallback(SetState), autoResetEvent, TimeWaiteNextState, -1);
-           
-            //To stop main thread
-            autoResetEvent.WaitOne();
-            ChangeStateTimer.Dispose();
 
-            if (CurrentStateNumber < ListStatesController.Count)
-                IterateControllerStates();
-           
+            for (int currentStateNumber = 0; currentStateNumber < ListStatesController.Count; currentStateNumber++)
+            {
+                ChangeStateTimer = new Timer(new TimerCallback(SetState), currentStateNumber, RunTimeState, -1);
+
+                // stop main thread
+                AutoResetEventTimer.WaitOne();
+                ChangeStateTimer.Dispose();
+            }
+
+            SwithMode();
         }
 
         private void SetState(object obj)
         {
-            Console.WriteLine("State " + CurrentStateNumber + "\n" );
+
+            int currentStateNumber = (int)obj;
+
+            Console.WriteLine("State " + currentStateNumber + "\n" );
             foreach (var carTrafficlight in CarTrafficlights)
             {
                 if(carTrafficlight.Id == 0)
-                    carTrafficlight.ChangeSignalLamp(ListStatesController[CurrentStateNumber].TrafficLightRoadA);
+                    carTrafficlight.ChangeSignalLamp(ListStatesController[currentStateNumber].TrafficLightRoadA);
 
 
                 if (carTrafficlight.Id == 1)
-                    carTrafficlight.ChangeSignalLamp(ListStatesController[CurrentStateNumber].TrafficLightRoadB);
+                    carTrafficlight.ChangeSignalLamp(ListStatesController[currentStateNumber].TrafficLightRoadB);
             }
                 
             foreach (var pedestrianTrafficlight in PedestrianTrafficlights)
-                pedestrianTrafficlight.ChangeSignalLamp(ListStatesController[CurrentStateNumber].PedestrianTrafficlight);
+                pedestrianTrafficlight.ChangeSignalLamp(ListStatesController[currentStateNumber].PedestrianTrafficlight);
 
-            var  autoEvent = (AutoResetEvent)obj;
+            
+            RunTimeState = ListStatesController[currentStateNumber].TimeWait;
 
-            TimeWaiteNextState = ListStatesController[CurrentStateNumber].TimeWait;
-
-            CurrentStateNumber++;
+            
             Console.WriteLine( " \n");
+
             
             //To start main thread
-            autoEvent.Set();
+             AutoResetEventTimer.Set();
 
         }
 
         public void StartWork()
         {
             SwithMode();
-            IterateControllerStates();
-            
+                     
         }
         
     }

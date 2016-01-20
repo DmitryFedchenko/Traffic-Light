@@ -10,7 +10,7 @@ namespace TrafficLightClassDiagram
     {
         public NightMode()
         {
-            this.States.Add(new TrafficLightControllerState("Gray", "Gray", "BlinkYellow", 1000));
+            this.ListStates.Add(new TrafficLightControllerState("Gray", "Gray", "BlinkYellow", 1000));
           
         }
     }

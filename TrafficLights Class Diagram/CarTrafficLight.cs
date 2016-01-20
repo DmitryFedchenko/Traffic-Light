@@ -52,6 +52,9 @@ namespace TrafficLights
                 case "BlinkYellow":
                     BlinkSignalTimer = new Timer(BlinkSignal, "Yellow", 0, 500);
                     break;
+
+                default:
+                    return;
             }
             Console.WriteLine(Id +" "+signal);
             if(ChangeSignal != null)
