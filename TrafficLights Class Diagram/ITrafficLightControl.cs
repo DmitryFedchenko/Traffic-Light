@@ -10,6 +10,7 @@ namespace TrafficLightClassDiagram
     {
         List<CarTrafficLight> CarTrafficlights { get; }
         List<PedestrianTrafficLight> PedestrianTrafficlights { get; }
-        string CurrentMode { get; set; }
+        string ModeSelectUser { get; set; }
+      
     }
 }
