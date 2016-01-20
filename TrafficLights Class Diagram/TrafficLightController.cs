@@ -48,8 +48,13 @@ namespace TrafficLightClassDiagram
                     IterateControllerStates();
                     break;
 
-                default:
+                case "Stop":
+                    ListStatesController = new StopMode().ListStates;
+                    IterateControllerStates();
                     break;
+
+                default:
+                    return;
             }
 
         }
