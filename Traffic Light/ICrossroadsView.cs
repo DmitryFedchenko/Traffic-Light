@@ -10,6 +10,6 @@ namespace Traffic_Light.Console
         string UserSelectedState { get; set; }
         void InitTrafficLight();
         event EventHandler AddTraffilight;
-        event EventHandler ChangedState;
+        event EventHandler UserSelectMode;
     }
 }

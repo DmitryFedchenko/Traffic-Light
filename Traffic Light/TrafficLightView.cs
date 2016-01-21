@@ -6,7 +6,7 @@ namespace Traffic_Light.Console
     public class TrafficLightView : ITrafficLightView
     {
         public int Id { get; set; }
-        public string Participan { get; set; }
+        public string TrafficLightType { get; set; }
         public List<LampCordinate> LampCoordinates { get; set; }
 
         public int LampCount
@@ -17,7 +17,7 @@ namespace Traffic_Light.Console
 
         public TrafficLightView(string participan ,int topX, int topY, int middleX, int middleY)
         {
-            Participan = participan;
+            TrafficLightType = participan;
 
             LampCoordinates = new List<LampCordinate>();
             LampCoordinates.Add(new LampCordinate(topX, topY));

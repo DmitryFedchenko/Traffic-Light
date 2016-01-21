@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using TrafficLitht;
 
-namespace TrafficLightClassDiagram
+namespace TrafficLitht
 {
-    public interface ITrafficLightControl
+    public interface ITrafficLightController
     {
         List<CarTrafficLight> CarTrafficlights { get; }
         List<PedestrianTrafficLight> PedestrianTrafficlights { get; }
         string ModeSelectUser { get; set; }
-      
+        void AddTrafficlight(int id, string typeTrafficLight);
+
+
     }
 }

@@ -11,7 +11,7 @@ namespace Traffic_Light.Console
         public List<ITrafficLightView> ViewTraffiLIghts { get; set; }
         
         public event EventHandler AddTraffilight;
-        public event EventHandler ChangedState;
+        public event EventHandler UserSelectMode;
 
         public string UserSelectedState {get; set;}
         
@@ -43,10 +43,37 @@ namespace Traffic_Light.Console
                     else
                     ResetSiganl(lampX, lampY);
                 }
-           
-         
-           
-          }
+
+
+            //ConsoleColor tempColor = ConsoleColor.Black;
+            //int lampId = 0;
+
+            //if (redLamp)
+            //{
+            //    lampId = 0;
+            //    tempColor = ConsoleColor.Red;
+            //}
+            //if (yellowLamp)
+            //{
+            //    lampId = 1;
+            //    tempColor = ConsoleColor.Yellow;
+            //}
+            //if (greenLamp)
+            //{
+            //    lampId = 2;
+            //    tempColor = ConsoleColor.Green;
+            //}
+
+            //var tempViewTrafficLight = ViewTraffiLIghts.Find(x => x.Id == TraffiLightId);
+            //int lampX = tempViewTrafficLight.LampCoordinates[lampId].X;
+            //int lampY = tempViewTrafficLight.LampCoordinates[lampId].Y;
+
+            //SetSignal(lampX, lampY, tempColor);
+
+
+            //ResetSiganl(lampX, lampY);
+
+        }
 
         public void SetSignal(int x, int y, ConsoleColor color)
         {
@@ -138,23 +165,23 @@ namespace Traffic_Light.Console
                     {
                         UserSelectedState = "Daytime";
 
-                    if (ChangedState != null)
-                        ChangedState(this, EventArgs.Empty);
+                    if (UserSelectMode != null)
+                        UserSelectMode(this, EventArgs.Empty);
                     }
                     //start the state of Nighttime
                     if (key.Key.ToString() == "N")
                     {
                         UserSelectedState = "Night";
-                    if (ChangedState != null)
-                        ChangedState(this, EventArgs.Empty);
+                    if (UserSelectMode != null)
+                        UserSelectMode(this, EventArgs.Empty);
                 }
                     //start the state of Stop
                     if (key.Key.ToString() == "S")
                     {
                         UserSelectedState = "Stop";
 
-                    if (ChangedState != null)
-                        ChangedState(this, EventArgs.Empty);
+                    if (UserSelectMode != null)
+                        UserSelectMode(this, EventArgs.Empty);
                 }
 
                     //exit from program

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using TrafficLightClassDiagram;
 
-namespace TrafficLightClassDiagram
+
+namespace TrafficLitht
 {
     public class CarTrafficLight : TrafficLight
     {

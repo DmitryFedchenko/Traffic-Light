@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TrafficLightClassDiagram;
 
-namespace TrafficLightClassDiagram
+namespace TrafficLitht
 {
     public class StopMode : ControllerMode
     {

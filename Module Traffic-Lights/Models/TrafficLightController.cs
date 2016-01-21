@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 
 using System.Threading;
-using TrafficLitht;
 
-namespace TrafficLightClassDiagram
+
+namespace TrafficLitht
 {
-    public class TrafficLightController : ITrafficLightControl
+    public class TrafficLightController : ITrafficLightController
     {
         public List<CarTrafficLight> CarTrafficlights { get; } 
         public List<PedestrianTrafficLight> PedestrianTrafficlights { get; }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Traffic_Light.Console;
-using Traffic_Lights.Model.Models;
+using TrafficLitht;
 
 namespace Traffic_Light
 {
@@ -8,33 +8,41 @@ namespace Traffic_Light
     {
 
 
-        readonly ICrossroads Crossroads;
+        readonly ITrafficLightController TrafficLightController;
         readonly ICrossroadsView CrossroadsView;
        
 
-        public MainPresenter(ICrossroads crossroads, ICrossroadsView crossroadsView )
+        public MainPresenter(ITrafficLightController trafficLightControl, ICrossroadsView crossroadsView )
         {
             CrossroadsView = crossroadsView;
-            this.Crossroads = crossroads;
+            this.TrafficLightController = trafficLightControl;
 
             CrossroadsView.AddTraffilight += CrossroadsView_addTraffilight;
-            CrossroadsView.ChangedState += CrossroadsView_ChangedState;
-            Crossroads.TrafficLightChange += CrossroadsTrafficLightChange;
+            CrossroadsView.UserSelectMode += CrossroadsView_ChangedState;
+
+
+            foreach (var trafficLight in TrafficLightController.CarTrafficlights)
+            trafficLight.ChangeSignal += TrafficLightStateChange;
+
+            foreach (var trafficLight in TrafficLightController.PedestrianTrafficlights)
+                trafficLight.ChangeSignal += TrafficLightStateChange;
+
+
             CrossroadsView.InitTrafficLight();
         }
 
         private void CrossroadsView_ChangedState(object sender, EventArgs e)
         {
-           Crossroads.ChangeSelectedCrossroadsState(CrossroadsView.UserSelectedState);
+            TrafficLightController.ModeSelectUser = CrossroadsView.UserSelectedState;
         }
 
 
-        private void CrossroadsTrafficLightChange(object sender, EventArgs e)
+        private void TrafficLightStateChange(object sender, EventArgs e)
         {
            
-                 foreach (var lamp in Crossroads.CurrentChangedTraffiLight.Lamps)
+                 foreach (var trafficLight in TrafficLightController.CarTrafficlights)
                 {
-                CrossroadsView.RepresentSignal(Crossroads.CurrentChangedTraffiLight.Id, lamp.Id, lamp.Signal, lamp.Light);
+                CrossroadsView.RepresentSignal(trafficLight.);
                 }
         
        
@@ -44,11 +52,11 @@ namespace Traffic_Light
         {
             foreach (var viewTrafficLight in CrossroadsView.ViewTraffiLIghts)
             {
-                        string tempParticipan = viewTrafficLight.Participan;
+                        string tempTrafficLightType = viewTrafficLight.TrafficLightType;
                         int tempTrafficLightId = viewTrafficLight.Id;
-                        int tempTrafficLightCount = viewTrafficLight.LampCount;
+                     
 
-                Crossroads.AddTrafficLight(tempParticipan, tempTrafficLightId, tempTrafficLightCount);
+                TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
              
             }
         }

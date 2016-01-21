@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using TrafficLitht;
 
-namespace TrafficLightClassDiagram
+namespace TrafficLitht
 {
     public class DayTimeMode : ControllerMode
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TrafficLightClassDiagram
@@ -16,10 +17,12 @@ namespace TrafficLightClassDiagram
             controller.AddTrafficlight(1, "CarTrafficLight");
             controller.AddTrafficlight(3, "PedestrianTrafficLight");
 
-
+            char n  = 's';
             controller.StartWork();
-
-            Console.ReadKey();
+            while ( n != 'n') {
+                 n = Console.ReadKey().KeyChar;
+            }
+            
         }
     }
 }
