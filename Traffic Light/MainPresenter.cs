@@ -18,7 +18,7 @@ namespace Traffic_Light
             this.TrafficLightController = trafficLightControl;
 
             CrossroadsView.AddTraffilight += CrossroadsView_addTraffilight;
-            CrossroadsView.UserSelectMode += CrossroadsView_ChangedState;
+            CrossroadsView.UserChangeMode += CrossroadsView_UserChangeMode;
 
 
             foreach (var trafficLight in TrafficLightController.CarTrafficlights)
@@ -31,7 +31,7 @@ namespace Traffic_Light
             CrossroadsView.InitTrafficLight();
         }
 
-        private void CrossroadsView_ChangedState(object sender, EventArgs e)
+        private void CrossroadsView_UserChangeMode(object sender, EventArgs e)
         {
             TrafficLightController.ModeSelectUser = CrossroadsView.UserSelectedState;
         }
@@ -39,13 +39,14 @@ namespace Traffic_Light
 
         private void TrafficLightStateChange(object sender, EventArgs e)
         {
-           
-                 foreach (var trafficLight in TrafficLightController.CarTrafficlights)
+
+            if (TrafficLightController.CarTrafficlights[0].Equals(sender))
+                foreach (var trafficLight in TrafficLightController.CarTrafficlights)
                 {
-                CrossroadsView.RepresentSignal(trafficLight.);
+                    this.CrossroadsView.ViewTraffiLIghts[trafficLight.Id]. 
                 }
-        
-       
+
+
         }
 
         private void CrossroadsView_addTraffilight(object sender, EventArgs e)
@@ -57,8 +58,7 @@ namespace Traffic_Light
                      
 
                 TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
-             
-            }
+           }
         }
 
 

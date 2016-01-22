@@ -9,8 +9,7 @@ namespace TrafficLightClassDiagram
 {
     public class CarTrafficLight : TrafficLight
     {
-
-        
+               
         public CarTrafficLight(int id)
         {
            Id = id;

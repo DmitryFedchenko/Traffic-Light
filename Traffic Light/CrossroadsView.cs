@@ -11,7 +11,7 @@ namespace Traffic_Light.Console
         public List<ITrafficLightView> ViewTraffiLIghts { get; set; }
         
         public event EventHandler AddTraffilight;
-        public event EventHandler UserSelectMode;
+        public event EventHandler UserChangeMode;
 
         public string UserSelectedState {get; set;}
         
@@ -165,23 +165,23 @@ namespace Traffic_Light.Console
                     {
                         UserSelectedState = "Daytime";
 
-                    if (UserSelectMode != null)
-                        UserSelectMode(this, EventArgs.Empty);
+                    if (UserChangeMode != null)
+                        UserChangeMode(this, EventArgs.Empty);
                     }
                     //start the state of Nighttime
                     if (key.Key.ToString() == "N")
                     {
                         UserSelectedState = "Night";
-                    if (UserSelectMode != null)
-                        UserSelectMode(this, EventArgs.Empty);
+                    if (UserChangeMode != null)
+                        UserChangeMode(this, EventArgs.Empty);
                 }
                     //start the state of Stop
                     if (key.Key.ToString() == "S")
                     {
                         UserSelectedState = "Stop";
 
-                    if (UserSelectMode != null)
-                        UserSelectMode(this, EventArgs.Empty);
+                    if (UserChangeMode != null)
+                        UserChangeMode(this, EventArgs.Empty);
                 }
 
                     //exit from program

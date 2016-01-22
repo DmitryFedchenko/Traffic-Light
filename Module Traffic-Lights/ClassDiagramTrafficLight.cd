@@ -36,13 +36,6 @@
       <FileName>Models\NightMode.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLitht.Presenter">
-    <Position X="5" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\Presenter.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="TrafficLitht.PedestrianTrafficLight">
     <Position X="4" Y="6" Width="1.75" />
     <TypeIdentifier>

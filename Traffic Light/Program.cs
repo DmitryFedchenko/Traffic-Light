@@ -1,4 +1,4 @@
-﻿using Traffic_Lights.Model.Models;
+﻿using TrafficLitht;
 
 namespace Traffic_Light.Console
 {
@@ -7,11 +7,11 @@ namespace Traffic_Light.Console
         static void Main(string[] args)
         {
      
-         Crossroads crossroads = new Crossroads();;
+         TrafficLightController crossroads = new TrafficLightController();;
          CrossroadsView crossroadsView = new CrossroadsView();
          MainPresenter presenter = new MainPresenter(crossroads, crossroadsView);
             crossroadsView.DrawCrossroads();
-            crossroads.ManagerCrossroads.StartWorkTraffiLights();
+            crossroads.StartWork();
             crossroadsView.ControlPanel();
 
 

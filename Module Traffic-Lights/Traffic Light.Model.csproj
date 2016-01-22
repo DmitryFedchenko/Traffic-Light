@@ -46,7 +46,6 @@
     <Compile Include="Models\ITrafficLightController.cs" />
     <Compile Include="Models\NightMode.cs" />
     <Compile Include="Models\PedestrianTrafficLight.cs" />
-    <Compile Include="Models\Presenter.cs" />
     <Compile Include="Models\StopMode.cs" />
     <Compile Include="Models\TrafficLight.cs" />
     <Compile Include="Models\TrafficLightController.cs" />

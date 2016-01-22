@@ -52,12 +52,7 @@ namespace TrafficLightClassDiagram
                     ListStatesController = new StopMode().ListStates;
                     CurrentMode = ModeSelectUser;
                     break;
-
-                case "Exit":
-                    if(ChangeStateTimer != null)
-                    ChangeStateTimer.Dispose();
-                    break;
-
+               
                 default:
                     return;
             }
@@ -105,7 +100,9 @@ namespace TrafficLightClassDiagram
         public void StartWork()
         {
             SwithMode();
-            ChangeStateTimer = new Timer(new TimerCallback(SetState), null, 0, -1);
+
+            if (ListStatesController != null)
+            ChangeStateTimer = new Timer(SetState, null, 0, -1);
                                
         }
         public TrafficLightController()

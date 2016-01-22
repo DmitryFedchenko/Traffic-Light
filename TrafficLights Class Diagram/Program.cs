@@ -15,7 +15,7 @@ namespace TrafficLightClassDiagram
 
             controller.AddTrafficlight(0, "CarTrafficLight");
             controller.AddTrafficlight(1, "CarTrafficLight");
-            controller.AddTrafficlight(3, "PedestrianTrafficLight");
+            controller.AddTrafficlight(2, "PedestrianTrafficLight");
 
             char n  = 's';
             controller.StartWork();
