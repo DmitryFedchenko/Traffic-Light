@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 
 using System.Threading;
-using TrafficLitht;
+
 
 namespace TrafficLightClassDiagram
 {
     public class TrafficLightController : ITrafficLightControl
     {
         public List<CarTrafficLight> CarTrafficlights { get; } 
-        public List<PedestrianTrafficLight> PedestrianTrafficlights { get; }
+       
         private Timer ChangeStateTimer;
         private int CurrentStateNumber;
-        private List<TrafficLightControllerState> ListStatesController; 
+        
        
         public string ModeSelectUser { get; set; }
 
@@ -21,15 +21,15 @@ namespace TrafficLightClassDiagram
 
         public void AddTrafficlight(int id, string typeTrafficLight)
         {
-            bool isCarTrafficLight = typeTrafficLight == "CarTrafficLight";           
-            if (isCarTrafficLight)
-                CarTrafficlights.Add(new CarTrafficLight(id));
+            switch (typeTrafficLight)
+            {
+                case "Pedestrian":
+                    break;
 
+                default:
+                    break;
+            }
 
-            bool isPedestrintrafficLight = typeTrafficLight == "PedestrianTrafficLight";
-            if (isPedestrintrafficLight)
-                    PedestrianTrafficlights.Add(new PedestrianTrafficLight(id));
-                 
         }
         
        
@@ -69,15 +69,15 @@ namespace TrafficLightClassDiagram
             foreach (var carTrafficlight in CarTrafficlights)
             {
                 if(carTrafficlight.Id == 0)
-                    carTrafficlight.ChangeSignalLamp(ListStatesController[CurrentStateNumber].TrafficLightRoadA);
+                    carTrafficlight.SetState(ListStatesController[CurrentStateNumber].TrafficLightRoadA);
                                 
                 if (carTrafficlight.Id == 1)
-                    carTrafficlight.ChangeSignalLamp(ListStatesController[CurrentStateNumber].TrafficLightRoadB);
+                    carTrafficlight.SetState(ListStatesController[CurrentStateNumber].TrafficLightRoadB);
             }
 
             // Set current state to all pedestrian traffic lights   
             foreach (var pedestrianTrafficlight in PedestrianTrafficlights)
-                 pedestrianTrafficlight.ChangeSignalLamp(ListStatesController[CurrentStateNumber].PedestrianTrafficlight);
+                 pedestrianTrafficlight.SetState(ListStatesController[CurrentStateNumber].PedestrianTrafficlight);
 
             ChangeStateTimer.Change(ListStatesController[CurrentStateNumber].TimeWait,0);
             CurrentStateNumber++;

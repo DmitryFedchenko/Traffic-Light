@@ -8,14 +8,16 @@ namespace TrafficLightClassDiagram
 {
     public abstract class TrafficLight
     {
-        
+        public IEnumerable<bool> SignalStates;
+
         protected  Timer BlinkSignalTimer;
                     
         public abstract event EventHandler ChangeSignal;
 
         public int Id { get; set; }
+        public string TrafficLightType { get; set; }
 
-        public abstract void ChangeSignalLamp(string signal);
+        public abstract void SetState(IEnumerator<SignalsType> signals);
 
         protected abstract void BlinkSignal(object obj);
        

@@ -6,7 +6,7 @@ using System.Threading;
 
 using TrafficLightClassDiagram;
 
-namespace TrafficLitht
+namespace TrafficLightClassDiagram
 {
     public class PedestrianTrafficLight : TrafficLight
     {
@@ -17,11 +17,11 @@ namespace TrafficLitht
         }
         
         public bool GreenLamp { get; set; }
-         public bool RedLamp { get; set; }
+        public bool RedLamp { get; set; }
 
         public override event EventHandler ChangeSignal;
 
-        public override void ChangeSignalLamp(string signal)
+        public override void SetState(string signal)
         {
             if (BlinkSignalTimer != null)
                 BlinkSignalTimer.Dispose();

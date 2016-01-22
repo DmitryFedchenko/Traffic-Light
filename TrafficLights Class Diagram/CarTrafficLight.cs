@@ -21,18 +21,23 @@ namespace TrafficLightClassDiagram
 
         public override event EventHandler ChangeSignal;
 
-        public override void ChangeSignalLamp(string signal)
+        public override void SetState(IEnumerable<SignalsType> signals)
         {
+            var asd = signals;
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine(signals.MoveNext);
+            }           
             if (BlinkSignalTimer != null)
                 BlinkSignalTimer.Dispose();
 
             GreenLamp = false;
             YellowLamp = false;
             RedLamp = false;
-
-            switch (signal)
+            
+            switch ()
             {
-                case "Green":
+                case :
                     GreenLamp = true;
                     break;
                 case "Red":
@@ -75,6 +80,6 @@ namespace TrafficLightClassDiagram
             Console.WriteLine("Blink "+ Id +" " + GreenLamp);
         }
 
-      
+     
     }
 }
