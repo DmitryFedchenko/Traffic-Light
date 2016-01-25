@@ -7,8 +7,7 @@ namespace TrafficLightClassDiagram
     public interface ITrafficLightControl
     {
 
-        List<CarTrafficLight> CarTrafficlights { get; }
-        List<PedestrianTrafficLight> PedestrianTrafficlights { get; }
+        List<TrafficLight> TrafficLights { get;}
         string ModeSelectUser { get; set; }
       
     }

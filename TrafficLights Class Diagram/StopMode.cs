@@ -10,7 +10,7 @@ namespace TrafficLightClassDiagram
     {
         public StopMode()
         {
-            this.ListStates.Add(new TrafficLightControllerState("Gray", "Gray", "Gray",2000));
+           // this.ListStates.Add(new TrafficLightControllerState("Gray", "Gray", "Gray",2000));
         }
     }
 }

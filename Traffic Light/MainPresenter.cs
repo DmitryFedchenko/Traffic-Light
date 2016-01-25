@@ -40,10 +40,10 @@ namespace Traffic_Light
         private void TrafficLightStateChange(object sender, EventArgs e)
         {
 
-            if (TrafficLightController.CarTrafficlights[0].Equals(sender))
+            
                 foreach (var trafficLight in TrafficLightController.CarTrafficlights)
                 {
-                    this.CrossroadsView.ViewTraffiLIghts[trafficLight.Id]. 
+         //           this.CrossroadsView.ViewTraffiLIghts[trafficLight.Id]. 
                 }
 
 

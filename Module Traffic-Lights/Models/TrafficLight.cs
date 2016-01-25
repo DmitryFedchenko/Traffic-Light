@@ -12,7 +12,7 @@ namespace TrafficLitht
         protected  Timer BlinkSignalTimer;
                     
         public abstract event EventHandler ChangeSignal;
-
+       // public Dictionary<Lamp, bool> Lamps;
         public int Id { get; set; }
 
         public abstract void ChangeSignalLamp(string signal);

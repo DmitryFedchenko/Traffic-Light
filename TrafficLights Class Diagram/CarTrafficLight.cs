@@ -9,77 +9,68 @@ namespace TrafficLightClassDiagram
 {
     public class CarTrafficLight : TrafficLight
     {
-               
-        public CarTrafficLight(int id)
-        {
-           Id = id;
-        }
-
-        public bool GreenLamp { get; set; }
-        public bool YellowLamp { get; set; }
-        public bool RedLamp { get; set; }
-
         public override event EventHandler ChangeSignal;
 
-        public override void SetState(IEnumerable<SignalsType> signals)
+        public override void SetSignal(Dictionary<SignalsType,bool> signals)
         {
-            var asd = signals;
-            for (int i = 0; i < 10; i++)
-            {
-                Console.WriteLine(signals.MoveNext);
-            }           
             if (BlinkSignalTimer != null)
                 BlinkSignalTimer.Dispose();
 
-            GreenLamp = false;
-            YellowLamp = false;
-            RedLamp = false;
-            
-            switch ()
-            {
-                case :
-                    GreenLamp = true;
-                    break;
-                case "Red":
-                    GreenLamp = true;
-                    break;
-                case "Yellow":
-                    GreenLamp = true;
-                    break;
-                case "RedAndYellow":
-                    RedLamp = true;
-                    YellowLamp = true;
-                    break;
-                case "BlinkGreen":
-                    BlinkSignalTimer = new Timer(BlinkSignal, "Green", 0, 500);                          
-                    break;
-                case "BlinkYellow":
-                    BlinkSignalTimer = new Timer(BlinkSignal, "Yellow", 0, 500);
-                    break;
+    
+            Lamps[Lamp.GreenLamp] = signals[SignalsType.Green];
+            Lamps[Lamp.YellowLamp] = signals[SignalsType.Yellow];
+            Lamps[Lamp.RedLamp] = signals[SignalsType.Red];
 
-                default:
-                    return;
-            }
-            Console.WriteLine(Id +" "+signal);
-            if(ChangeSignal != null)
-            ChangeSignal(this,EventArgs.Empty);
+            if(signals[SignalsType.BlinkGreen])
+                BlinkSignalTimer = new Timer(BlinkSignal, Lamp.GreenLamp, 0, 500);
+
+            if (signals[SignalsType.BlinkYellow])
+                BlinkSignalTimer = new Timer(BlinkSignal, Lamp.YellowLamp, 0, 500);
+
+            foreach (var item in signals.Where(x => x.Value == true))
+                Console.WriteLine("{0}   {1}    {2}" , Id,this.TrafficLightType,item.Key);
+
+            if (ChangeSignal != null)
+                ChangeSignal(this, EventArgs.Empty);
 
         }
+
 
         protected override void BlinkSignal(object obj)
         {
-            if ("Yellow" == (string)obj)
-                YellowLamp = YellowLamp ? false : true;
+            if (Lamp.YellowLamp == (Lamp)obj)
+            {
+                Lamps[Lamp.YellowLamp] = Lamps[Lamp.YellowLamp] ? false : true;
+                Console.WriteLine("Blink " + Id +   "    Yellow") ;
+            }
+            if (Lamp.GreenLamp == (Lamp)obj)
+            {
+                Lamps[Lamp.GreenLamp] = Lamps[Lamp.GreenLamp] ? false : true;
+                Console.WriteLine("Blink " + Id + "    Green!");
+            }
+            if (ChangeSignal != null)
+                ChangeSignal(this, EventArgs.Empty);
 
-            if ("Green" == (string)obj)
-                GreenLamp = GreenLamp ? false : true;
-                        
-            if(ChangeSignal != null)
-            ChangeSignal(this, EventArgs.Empty);
-
-            Console.WriteLine("Blink "+ Id +" " + GreenLamp);
+           
         }
 
-     
+        public CarTrafficLight(int id, string trafficlightType)
+        {
+            this.TrafficLightType = trafficlightType;
+            Id = id;
+            this.Lamps = new Dictionary<Lamp, bool> { };
+
+            Lamps.Add(Lamp.GreenLamp, false);
+            Lamps.Add(Lamp.YellowLamp, false);
+            Lamps.Add(Lamp.RedLamp, false);
+        }
+
+    }
+
+    public enum Lamp
+    {
+        GreenLamp, YellowLamp, RedLamp
     }
 }
+
+

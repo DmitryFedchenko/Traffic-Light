@@ -45,9 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarTrafficLight.cs" />
-    <Compile Include="DayTimeMode.cs" />
     <Compile Include="ITrafficLightControl.cs" />
-    <Compile Include="NightMode.cs" />
     <Compile Include="PedestrianTrafficLight.cs" />
     <Compile Include="Presenter.cs" />
     <Compile Include="Program.cs" />

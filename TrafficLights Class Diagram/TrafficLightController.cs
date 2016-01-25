@@ -9,8 +9,8 @@ namespace TrafficLightClassDiagram
 {
     public class TrafficLightController : ITrafficLightControl
     {
-        public List<CarTrafficLight> CarTrafficlights { get; } 
-       
+        public List<TrafficLight> TrafficLights { get; }
+        public List<TrafficLightControllerState> ControllerStateList;
         private Timer ChangeStateTimer;
         private int CurrentStateNumber;
         
@@ -21,35 +21,30 @@ namespace TrafficLightClassDiagram
 
         public void AddTrafficlight(int id, string typeTrafficLight)
         {
-            switch (typeTrafficLight)
-            {
-                case "Pedestrian":
-                    break;
+            if ((typeTrafficLight == "RoadATrafficLight") || (typeTrafficLight == "RoadBTrafficLight"))
+                TrafficLights.Add(new CarTrafficLight(id,typeTrafficLight));
 
-                default:
-                    break;
-            }
+            if (typeTrafficLight == "pedestrianTrafficLight")
+                TrafficLights.Add(new PedestrianTrafficLight(id, typeTrafficLight));
 
         }
-        
-       
-      
+
         private void SwithMode()
         {
             switch (ModeSelectUser)
             {
                 case "DayTime":
-                    ListStatesController = new DayTimeMode().ListStates;
+                    ControllerStateList = new ControllerMode().DayTime;
                     CurrentMode = ModeSelectUser;
                     break;
 
                 case "Night":
-                    ListStatesController = new NightMode().ListStates;
+                    ControllerStateList = new ControllerMode().NightTime;
                     CurrentMode = ModeSelectUser;
                     break;
 
                 case "Stop":
-                    ListStatesController = new StopMode().ListStates;
+                    ControllerStateList = new ControllerMode().Stop;
                     CurrentMode = ModeSelectUser;
                     break;
                
@@ -64,52 +59,45 @@ namespace TrafficLightClassDiagram
         {
            
             Console.WriteLine("State " + CurrentStateNumber + "\n");
-           
-            // Set current state to all car traffic light 
-            foreach (var carTrafficlight in CarTrafficlights)
-            {
-                if(carTrafficlight.Id == 0)
-                    carTrafficlight.SetState(ListStatesController[CurrentStateNumber].TrafficLightRoadA);
-                                
-                if (carTrafficlight.Id == 1)
-                    carTrafficlight.SetState(ListStatesController[CurrentStateNumber].TrafficLightRoadB);
-            }
+
+            // Set current state to all road A  traffic light 
+            foreach (var carTrafficlight in TrafficLights.FindAll(x => x.TrafficLightType == "RoadATrafficLight"))
+                carTrafficlight.SetSignal(ControllerStateList[CurrentStateNumber].RoadASignals);
+
+            // Set current state to all road B traffic lights   
+            foreach (var carTrafficlight in TrafficLights.FindAll(x => x.TrafficLightType == "RoadBTrafficLight"))
+                carTrafficlight.SetSignal(ControllerStateList[CurrentStateNumber].RoadBSignals);
 
             // Set current state to all pedestrian traffic lights   
-            foreach (var pedestrianTrafficlight in PedestrianTrafficlights)
-                 pedestrianTrafficlight.SetState(ListStatesController[CurrentStateNumber].PedestrianTrafficlight);
+            foreach (var pedestrianTrafficLight in TrafficLights.FindAll(x => x.TrafficLightType == "pedestrianTrafficLight"))
+                pedestrianTrafficLight.SetSignal(ControllerStateList[CurrentStateNumber].PedestrianTrafficLightSignals);
 
-            ChangeStateTimer.Change(ListStatesController[CurrentStateNumber].TimeWait,0);
+            ChangeStateTimer.Change(ControllerStateList[CurrentStateNumber].TimeWait,0);
             CurrentStateNumber++;
 
             Console.WriteLine(" \n");
 
             // Check to opportunity of next iterate states in this mode
-            bool existIndexState = CurrentStateNumber < ListStatesController.Count;
-            bool validMode = ModeSelectUser == CurrentMode;
-
-            if (!validMode || !existIndexState)
-            {
+            bool existIndexState = CurrentStateNumber < ControllerStateList.Count;
+       
+            if (!existIndexState)
                 CurrentStateNumber = 0;
-                SwithMode();
-            }
+            
                 
            
         }
 
         public void StartWork()
         {
-            SwithMode();
-
-            if (ListStatesController != null)
-            ChangeStateTimer = new Timer(SetState, null, 0, -1);
-                               
+            if (ControllerStateList != null)
+            ChangeStateTimer = new Timer(SetState, null, 0, -1);                              
         }
         public TrafficLightController()
         {
-            CarTrafficlights  = new List<CarTrafficLight>();
-            PedestrianTrafficlights = new List<PedestrianTrafficLight>();
-            ModeSelectUser = "DayTime";
+            TrafficLights = new List<TrafficLight>();
+            ControllerStateList = new ControllerMode().DayTime;
+
+
         }
     }
 }

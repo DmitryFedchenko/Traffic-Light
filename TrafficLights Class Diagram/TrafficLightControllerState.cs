@@ -7,39 +7,25 @@ namespace TrafficLightClassDiagram
 {
     public class TrafficLightControllerState
     {
-        private SignalsType[] roadASignals;
-        private SignalsType[] roadBSignals;
-        private SignalsType[] pedestrianTrafficLightSignals;
+        public Dictionary<SignalsType, bool> RoadASignals { get; set; }
+        public Dictionary<SignalsType, bool> RoadBSignals { get; set; }
+        public Dictionary<SignalsType, bool> PedestrianTrafficLightSignals { get; set; }
 
-        //public IEnumerator<SignalsType> TrafficLightRoadA { get; set; }
-       
-
-        //public IEnumerator<SignalsType> TrafficLightRoadB { get; set; }
-        
-
-        //public IEnumerator<SignalsType> PedestrianTrafficlight { get; set; }
-        
         public int TimeWait { get; set; }
-        //public TrafficLightControllerState(IEnumerator<bool> trafficLightRoadA, IEnumerator<bool> trafficLightRoadB, IEnumerator<bool> pedestrinaTrafficLight, int timeWait)
-        //{
-        //    TrafficLightRoadA = trafficLightRoadA;
-        //    TrafficLightRoadB = trafficLightRoadB;
-        //    this.PedestrianTrafficlight = pedestrinaTrafficLight;
+      
 
-        //}
-
-        public TrafficLightControllerState(SignalsType[] roadASignals, SignalsType[] roadBSignals, SignalsType[] pedestrianTrafficLightSignals, int timeWait)
+        public TrafficLightControllerState(Dictionary<SignalsType, bool> roadASignals, Dictionary<SignalsType, bool> roadBSignals, Dictionary<SignalsType, bool> pedestrianTrafficLightSignals, int timeWait)
         {
-            this.roadASignals = roadASignals;
-            this.roadBSignals = roadBSignals;
-            this.pedestrianTrafficLightSignals = pedestrianTrafficLightSignals;
+            this.RoadASignals = roadASignals;
+            this.RoadBSignals = roadBSignals;
+            this.PedestrianTrafficLightSignals = pedestrianTrafficLightSignals;
             TimeWait = timeWait;
         }
     }
 
     public enum SignalsType
     {
-        Red, Yellow, RedAndYellow, BlinkGreen, BlinkYellow       
+        Green,Red, Yellow, RedAndYellow, BlinkGreen, BlinkYellow       
     }
 
    

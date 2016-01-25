@@ -10,58 +10,50 @@ namespace TrafficLightClassDiagram
 {
     public class PedestrianTrafficLight : TrafficLight
     {
-
-        public PedestrianTrafficLight(int id)
-        {
-            Id = id;
-        }
-        
-        public bool GreenLamp { get; set; }
-        public bool RedLamp { get; set; }
-
         public override event EventHandler ChangeSignal;
 
-        public override void SetState(string signal)
+        public override void SetSignal(Dictionary<SignalsType, bool> signals)
         {
             if (BlinkSignalTimer != null)
                 BlinkSignalTimer.Dispose();
 
-            GreenLamp = false;
-            RedLamp = false;
 
-            switch (signal)
-            {
-                case "Green":
-                    GreenLamp = true;
+            Lamps[Lamp.GreenLamp] = signals[SignalsType.Green];           
+            Lamps[Lamp.RedLamp] = signals[SignalsType.Red];
 
-                    break;
-                case "Red":
-                    RedLamp = true;
-                    break;
-            
-                case "BlinkGreen":
-                    BlinkSignalTimer = new Timer(BlinkSignal,"Green", 0, 500);
-                    break;
-                                   
+            if (signals[SignalsType.BlinkGreen])
+                BlinkSignalTimer = new Timer(BlinkSignal, Lamp.GreenLamp, 0, 500);
 
-            }
-            Console.WriteLine("             Pedestrian " + signal);
 
-            if (ChangeSignal != null)
-            ChangeSignal(this, EventArgs.Empty);
-
-        }
-
-        protected override void BlinkSignal(object obj)
-        {
-            if ("Green" == (string)obj)
-                GreenLamp = GreenLamp ? false : true;
-
+         //   foreach (var item in signals.Where(x => x.Value == true))
+           //     Console.WriteLine("                 {0}   {1}    {2}", Id, this.TrafficLightType, item.Key);
 
             if (ChangeSignal != null)
                 ChangeSignal(this, EventArgs.Empty);
 
-            Console.WriteLine("             Blink pedestrian " + GreenLamp);
         }
+
+
+        protected override void BlinkSignal(object obj)
+        {
+            if (Lamp.GreenLamp == (Lamp)obj)
+                Lamps[Lamp.GreenLamp] = Lamps[Lamp.GreenLamp] ? false : true;
+
+            if (ChangeSignal != null)
+                ChangeSignal(this, EventArgs.Empty);
+
+          //  Console.WriteLine("                                          Blink " + Id + " " + Lamp.GreenLamp);
+        }
+
+        public PedestrianTrafficLight(int id, string trafficlightType)
+        {
+            this.TrafficLightType = trafficlightType;
+            Id = id;
+            this.Lamps = new Dictionary<Lamp, bool> { };
+
+            Lamps.Add(Lamp.GreenLamp, false);
+            Lamps.Add(Lamp.RedLamp, false);
+        }
+
     }
 }
