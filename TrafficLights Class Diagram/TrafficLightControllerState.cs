@@ -13,7 +13,6 @@ namespace TrafficLightClassDiagram
 
         public int TimeWait { get; set; }
       
-
         public TrafficLightControllerState(Dictionary<SignalsType, bool> roadASignals, Dictionary<SignalsType, bool> roadBSignals, Dictionary<SignalsType, bool> pedestrianTrafficLightSignals, int timeWait)
         {
             this.RoadASignals = roadASignals;

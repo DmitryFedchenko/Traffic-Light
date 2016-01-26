@@ -32,6 +32,7 @@ namespace Traffic_Light.Console
             LampCoordinates.Add(new LampCordinate(lampBottomX, lampBottomY));
         }
 
+        
 
     }
 

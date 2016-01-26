@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Traffic_Light.Console;
-using TrafficLitht;
+using TrafficLightClassDiagram;
 
 namespace Traffic_Light
 {
@@ -10,7 +11,7 @@ namespace Traffic_Light
 
         readonly ITrafficLightController TrafficLightController;
         readonly ICrossroadsView CrossroadsView;
-       
+        object obj = new object();
 
         public MainPresenter(ITrafficLightController trafficLightControl, ICrossroadsView crossroadsView )
         {
@@ -20,32 +21,34 @@ namespace Traffic_Light
             CrossroadsView.AddTraffilight += CrossroadsView_addTraffilight;
             CrossroadsView.UserChangeMode += CrossroadsView_UserChangeMode;
 
+            CrossroadsView.InitTrafficLight();
 
-            foreach (var trafficLight in TrafficLightController.CarTrafficlights)
-            trafficLight.ChangeSignal += TrafficLightStateChange;
-
-            foreach (var trafficLight in TrafficLightController.PedestrianTrafficlights)
+            foreach (var trafficLight in TrafficLightController.TrafficLights)
                 trafficLight.ChangeSignal += TrafficLightStateChange;
 
 
-            CrossroadsView.InitTrafficLight();
+
+           
         }
 
         private void CrossroadsView_UserChangeMode(object sender, EventArgs e)
         {
-            TrafficLightController.ModeSelectUser = CrossroadsView.UserSelectedState;
+            TrafficLightController.SwithMode(CrossroadsView.UserSelectedState);
         }
 
-
+    
         private void TrafficLightStateChange(object sender, EventArgs e)
         {
 
-            
-                foreach (var trafficLight in TrafficLightController.CarTrafficlights)
-                {
-         //           this.CrossroadsView.ViewTraffiLIghts[trafficLight.Id]. 
-                }
+          
+                Dictionary<int, bool> tempTrafficLight = (TrafficLight)sender;
 
+                if (tempTrafficLight.Lamps != null)
+                    var tempLamps = tempTrafficLight.Lamps;
+
+                foreach (var lamp in tempTrafficLight.Lamps)
+                        CrossroadsView.RepresentSignal(tempTrafficLight.Id, (int)lamp.Key, lamp.Value);
+            
 
         }
 
@@ -55,9 +58,13 @@ namespace Traffic_Light
             {
                         string tempTrafficLightType = viewTrafficLight.TrafficLightType;
                         int tempTrafficLightId = viewTrafficLight.Id;
-                     
 
-                TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
+                if (!TrafficLightController.TrafficLights.Exists(x => x.Id == tempTrafficLightId))
+                {
+                    TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
+
+                }
+
            }
         }
 

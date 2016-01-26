@@ -4,11 +4,12 @@ using System.Linq;
 
 namespace TrafficLightClassDiagram
 {
-    public interface ITrafficLightControl
+    public interface ITrafficLightController
     {
-
+        void AddTrafficlight(int id, string typeTrafficLight);
         List<TrafficLight> TrafficLights { get;}
-        string ModeSelectUser { get; set; }
-      
+        void SwithMode(string mode);
+
+
     }
 }

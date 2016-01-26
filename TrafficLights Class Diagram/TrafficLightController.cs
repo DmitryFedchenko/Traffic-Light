@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace TrafficLightClassDiagram
 {
-    public class TrafficLightController : ITrafficLightControl
+    public class TrafficLightController : ITrafficLightController
     {
         public List<TrafficLight> TrafficLights { get; }
         public List<TrafficLightControllerState> ControllerStateList;
@@ -24,28 +24,32 @@ namespace TrafficLightClassDiagram
             if ((typeTrafficLight == "RoadATrafficLight") || (typeTrafficLight == "RoadBTrafficLight"))
                 TrafficLights.Add(new CarTrafficLight(id,typeTrafficLight));
 
-            if (typeTrafficLight == "pedestrianTrafficLight")
+            if (typeTrafficLight == "PedestrianTrafficLight")
                 TrafficLights.Add(new PedestrianTrafficLight(id, typeTrafficLight));
 
         }
 
-        private void SwithMode()
+        public void SwithMode(string mode)
         {
-            switch (ModeSelectUser)
+            if (CurrentMode == mode)
+                return;
+
+            CurrentStateNumber = 0;           
+            switch (CurrentMode)
             {
                 case "DayTime":
                     ControllerStateList = new ControllerMode().DayTime;
-                    CurrentMode = ModeSelectUser;
+                    CurrentMode = mode;
                     break;
 
                 case "Night":
                     ControllerStateList = new ControllerMode().NightTime;
-                    CurrentMode = ModeSelectUser;
+                    CurrentMode = mode;
                     break;
 
                 case "Stop":
                     ControllerStateList = new ControllerMode().Stop;
-                    CurrentMode = ModeSelectUser;
+                    CurrentMode = mode;
                     break;
                
                 default:
@@ -57,27 +61,15 @@ namespace TrafficLightClassDiagram
        
         private void SetState(object obj)
         {
-           
-            Console.WriteLine("State " + CurrentStateNumber + "\n");
-
-            // Set current state to all road A  traffic light 
-            foreach (var carTrafficlight in TrafficLights.FindAll(x => x.TrafficLightType == "RoadATrafficLight"))
-                carTrafficlight.SetSignal(ControllerStateList[CurrentStateNumber].RoadASignals);
-
-            // Set current state to all road B traffic lights   
-            foreach (var carTrafficlight in TrafficLights.FindAll(x => x.TrafficLightType == "RoadBTrafficLight"))
-                carTrafficlight.SetSignal(ControllerStateList[CurrentStateNumber].RoadBSignals);
-
-            // Set current state to all pedestrian traffic lights   
-            foreach (var pedestrianTrafficLight in TrafficLights.FindAll(x => x.TrafficLightType == "pedestrianTrafficLight"))
-                pedestrianTrafficLight.SetSignal(ControllerStateList[CurrentStateNumber].PedestrianTrafficLightSignals);
-
+          //  Console.WriteLine("State   " + CurrentStateNumber +" \n");
+           // Set current state to all traffic lights   
+            foreach (var trafficlight in TrafficLights)
+                trafficlight.SetState(ControllerStateList[CurrentStateNumber]);
+                   
             ChangeStateTimer.Change(ControllerStateList[CurrentStateNumber].TimeWait,0);
             CurrentStateNumber++;
-
-            Console.WriteLine(" \n");
-
-            // Check to opportunity of next iterate states in this mode
+                     
+            // Check opportunity of next iterate states in this mode
             bool existIndexState = CurrentStateNumber < ControllerStateList.Count;
        
             if (!existIndexState)
@@ -89,8 +81,10 @@ namespace TrafficLightClassDiagram
 
         public void StartWork()
         {
+
             if (ControllerStateList != null)
-            ChangeStateTimer = new Timer(SetState, null, 0, -1);                              
+            ChangeStateTimer = new Timer(SetState, null, 0, -1);
+                                        
         }
         public TrafficLightController()
         {

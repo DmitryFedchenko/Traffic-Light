@@ -1,4 +1,5 @@
-﻿using TrafficLitht;
+﻿using TrafficLightClassDiagram;
+
 
 namespace Traffic_Light.Console
 {
@@ -6,12 +7,12 @@ namespace Traffic_Light.Console
     {
         static void Main(string[] args)
         {
-     
-         TrafficLightController crossroads = new TrafficLightController();;
+
+            TrafficLightController trafficLightController = new TrafficLightController();;
          CrossroadsView crossroadsView = new CrossroadsView();
-         MainPresenter presenter = new MainPresenter(crossroads, crossroadsView);
+         MainPresenter presenter = new MainPresenter(trafficLightController, crossroadsView);
             crossroadsView.DrawCrossroads();
-            crossroads.StartWork();
+            trafficLightController.StartWork();
             crossroadsView.ControlPanel();
 
 

@@ -69,9 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Module Traffic-Lights\Traffic Light.Model.csproj">
-      <Project>{05834FAA-38AD-4C00-8EE7-6C6B968BE1E4}</Project>
-      <Name>Traffic Light.Model</Name>
+    <ProjectReference Include="..\TrafficLights Class Diagram\Traffic Light.ClassDiagram.csproj">
+      <Project>{cd996cdf-8b8d-4143-920c-2b9b742e4b15}</Project>
+      <Name>Traffic Light.ClassDiagram</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

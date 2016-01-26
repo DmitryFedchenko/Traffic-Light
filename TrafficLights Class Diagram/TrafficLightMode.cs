@@ -36,6 +36,7 @@ namespace TrafficLightClassDiagram
         public Dictionary<SignalsType, bool> addSomeSignals() {
 
             Dictionary<SignalsType, bool> siganlStates = new Dictionary<SignalsType, bool>();
+
             siganlStates.Add(SignalsType.BlinkGreen, false);
             siganlStates.Add(SignalsType.Green, false);
             siganlStates.Add(SignalsType.Yellow, false);
@@ -103,8 +104,6 @@ namespace TrafficLightClassDiagram
 
         public ControllerMode()
         {
-
-             
          
             DayTime = new List<TrafficLightControllerState>();
             NightTime = new List<TrafficLightControllerState>();
@@ -115,6 +114,6 @@ namespace TrafficLightClassDiagram
 
     }
     public enum ModeType {
-        DayTime, NightTime, Stop
+        DayTime = 0, NightTime = 1, Stop = 2
     }
 }
