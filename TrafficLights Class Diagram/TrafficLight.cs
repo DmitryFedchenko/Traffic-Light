@@ -8,20 +8,14 @@ namespace TrafficLightClassDiagram
 {
     public abstract class TrafficLight
     {
-        object obj = new object();
+      
         protected  Timer BlinkSignalTimer;
-
-        public abstract Dictionary<LampType, bool> Lamps { get; set; }
-
         public abstract event EventHandler ChangeSignal;
-
         public int Id { get; set; }
         public string TrafficLightType { get; set; }
 
         public void SetState(TrafficLightControllerState trafficLightState)
-        {                      lock(obj) {
-
-
+        {            
                 if (BlinkSignalTimer != null)
                     BlinkSignalTimer.Dispose();
 
@@ -43,11 +37,11 @@ namespace TrafficLightClassDiagram
                         break;
                 }
 
-            }
+            
                
             }
 
-        protected abstract  void SetSignal(Dictionary<SignalsType, bool> signals);
+        protected abstract void SetSignal(SignalsType signal);
 
         protected abstract void BlinkSignal(object obj);
        

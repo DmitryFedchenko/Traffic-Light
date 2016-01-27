@@ -7,13 +7,13 @@ namespace TrafficLightClassDiagram
 {
     public class TrafficLightControllerState
     {
-        public Dictionary<SignalsType, bool> RoadASignals { get; set; }
-        public Dictionary<SignalsType, bool> RoadBSignals { get; set; }
-        public Dictionary<SignalsType, bool> PedestrianTrafficLightSignals { get; set; }
+        public SignalsType RoadASignals { get; set; }
+        public SignalsType RoadBSignals { get; set; }
+        public SignalsType  PedestrianTrafficLightSignals { get; set; }
 
         public int TimeWait { get; set; }
       
-        public TrafficLightControllerState(Dictionary<SignalsType, bool> roadASignals, Dictionary<SignalsType, bool> roadBSignals, Dictionary<SignalsType, bool> pedestrianTrafficLightSignals, int timeWait)
+        public TrafficLightControllerState(SignalsType roadASignals, SignalsType roadBSignals, SignalsType pedestrianTrafficLightSignals, int timeWait)
         {
             this.RoadASignals = roadASignals;
             this.RoadBSignals = roadBSignals;
@@ -21,10 +21,9 @@ namespace TrafficLightClassDiagram
             TimeWait = timeWait;
         }
     }
-
     public enum SignalsType
     {
-        Green,Red, Yellow, RedAndYellow, BlinkGreen, BlinkYellow       
+        Green,Red, Yellow, RedAndYellow, BlinkGreen, BlinkYellow, Grey       
     }
 
    

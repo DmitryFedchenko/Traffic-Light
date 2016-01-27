@@ -7,7 +7,7 @@ namespace Traffic_Light
 {
     class MainPresenter
     {
-
+        
 
         readonly ITrafficLightController TrafficLightController;
         readonly ICrossroadsView CrossroadsView;
@@ -38,35 +38,34 @@ namespace Traffic_Light
 
     
         private void TrafficLightStateChange(object sender, EventArgs e)
-        {
+        {                        
+            Dictionary<LampType, bool> tempLamps = new Dictionary<LampType, bool>();
+         //   tempLamps = ((TrafficLight)sender).Lamps;
 
-          
-                Dictionary<int, bool> tempTrafficLight = (TrafficLight)sender;
+            var tempTrafficLight = (TrafficLight)sender;
 
-                if (tempTrafficLight.Lamps != null)
-                    var tempLamps = tempTrafficLight.Lamps;
-
-                foreach (var lamp in tempTrafficLight.Lamps)
-                        CrossroadsView.RepresentSignal(tempTrafficLight.Id, (int)lamp.Key, lamp.Value);
+            
+                foreach (var lamp in tempLamps)
+                    CrossroadsView.RepresentSignal(tempTrafficLight.Id, (int)lamp.Key, lamp.Value);
             
 
         }
 
-        private void CrossroadsView_addTraffilight(object sender, EventArgs e)
-        {
-            foreach (var viewTrafficLight in CrossroadsView.ViewTraffiLIghts)
-            {
-                        string tempTrafficLightType = viewTrafficLight.TrafficLightType;
-                        int tempTrafficLightId = viewTrafficLight.Id;
+        //private void CrossroadsView_addTraffilight(object sender, EventArgs e)
+        //{
+        //    foreach (var viewTrafficLight in CrossroadsView.ViewTraffiLIghts)
+        //    {
+        //                string tempTrafficLightType = viewTrafficLight.TrafficLightType;
+        //                int tempTrafficLightId = viewTrafficLight.Id;
 
-                if (!TrafficLightController.TrafficLights.Exists(x => x.Id == tempTrafficLightId))
-                {
-                    TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
+        //        if (!TrafficLightController.TrafficLights.Exists(x => x.Id == tempTrafficLightId))
+        //        {
+        //            TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
 
-                }
+        //        }
 
-           }
-        }
+        //   }
+        //}
 
 
 

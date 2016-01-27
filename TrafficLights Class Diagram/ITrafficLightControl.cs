@@ -6,7 +6,8 @@ namespace TrafficLightClassDiagram
 {
     public interface ITrafficLightController
     {
-        void AddTrafficlight(int id, string typeTrafficLight);
+       
+       void AddTrafficlight(TrafficLight trafficLight);
         List<TrafficLight> TrafficLights { get;}
         void SwithMode(string mode);
 

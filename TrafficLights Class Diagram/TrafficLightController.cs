@@ -13,20 +13,12 @@ namespace TrafficLightClassDiagram
         public List<TrafficLightControllerState> ControllerStateList;
         private Timer ChangeStateTimer;
         private int CurrentStateNumber;
-        
-       
-        public string ModeSelectUser { get; set; }
 
         private string CurrentMode;
 
-        public void AddTrafficlight(int id, string typeTrafficLight)
+        public void AddTrafficlight(TrafficLight trafficLight)
         {
-            if ((typeTrafficLight == "RoadATrafficLight") || (typeTrafficLight == "RoadBTrafficLight"))
-                TrafficLights.Add(new CarTrafficLight(id,typeTrafficLight));
-
-            if (typeTrafficLight == "PedestrianTrafficLight")
-                TrafficLights.Add(new PedestrianTrafficLight(id, typeTrafficLight));
-
+         TrafficLights.Add(trafficLight);
         }
 
         public void SwithMode(string mode)
@@ -35,7 +27,7 @@ namespace TrafficLightClassDiagram
                 return;
 
             CurrentStateNumber = 0;           
-            switch (CurrentMode)
+            switch (mode)
             {
                 case "DayTime":
                     ControllerStateList = new ControllerMode().DayTime;
@@ -61,8 +53,7 @@ namespace TrafficLightClassDiagram
        
         private void SetState(object obj)
         {
-          //  Console.WriteLine("State   " + CurrentStateNumber +" \n");
-           // Set current state to all traffic lights   
+            // Set current state to all traffic lights   
             foreach (var trafficlight in TrafficLights)
                 trafficlight.SetState(ControllerStateList[CurrentStateNumber]);
                    
@@ -74,14 +65,10 @@ namespace TrafficLightClassDiagram
        
             if (!existIndexState)
                 CurrentStateNumber = 0;
-            
-                
-           
         }
 
         public void StartWork()
         {
-
             if (ControllerStateList != null)
             ChangeStateTimer = new Timer(SetState, null, 0, -1);
                                         
@@ -90,8 +77,10 @@ namespace TrafficLightClassDiagram
         {
             TrafficLights = new List<TrafficLight>();
             ControllerStateList = new ControllerMode().DayTime;
-
-
         }
+    }
+
+    public enum TrafficLightType {
+        RoadATrafficLight, RoadBTrafficLight, PedestrianTrafficLight
     }
 }

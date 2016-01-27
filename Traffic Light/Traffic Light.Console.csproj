@@ -68,12 +68,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TrafficLights Class Diagram\Traffic Light.ClassDiagram.csproj">
-      <Project>{cd996cdf-8b8d-4143-920c-2b9b742e4b15}</Project>
-      <Name>Traffic Light.ClassDiagram</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
