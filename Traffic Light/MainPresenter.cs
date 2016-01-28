@@ -1,78 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using Traffic_Light.Console;
-using TrafficLightClassDiagram;
+using Traffic_Light.Model;
 
 namespace Traffic_Light
 {
     class MainPresenter
     {
+        public ITrafficLightController Controller;
+        public ICrossroadsView CrossroadsView;
+
+        CarTrafficLight RoadATrafficLight;
+        CarTrafficLight RoadBTrafficLight;
+        PedestrianTrafficLight PedestrianTrafficLight;
+       
         
 
-        readonly ITrafficLightController TrafficLightController;
-        readonly ICrossroadsView CrossroadsView;
-        object obj = new object();
-
-        public MainPresenter(ITrafficLightController trafficLightControl, ICrossroadsView crossroadsView )
+        public MainPresenter(ICrossroadsView crossroadsView, ITrafficLightController controller)
         {
             CrossroadsView = crossroadsView;
-            this.TrafficLightController = trafficLightControl;
+            Controller = controller;
 
-            CrossroadsView.AddTraffilight += CrossroadsView_addTraffilight;
+            RoadATrafficLight = new CarTrafficLight(0, "RoadATrafficLight");
+            RoadBTrafficLight = new CarTrafficLight(1, "RoadBTrafficLight");
+            PedestrianTrafficLight = new PedestrianTrafficLight(2, "PedestrianTrafficLight");
+
+            Controller.AddTrafficlight(RoadATrafficLight);
+            Controller.AddTrafficlight(RoadBTrafficLight);
+            Controller.AddTrafficlight(PedestrianTrafficLight);
+
             CrossroadsView.UserChangeMode += CrossroadsView_UserChangeMode;
-
-            CrossroadsView.InitTrafficLight();
-
-            foreach (var trafficLight in TrafficLightController.TrafficLights)
-                trafficLight.ChangeSignal += TrafficLightStateChange;
-
-
-
-           
+            RoadATrafficLight.ChangeSignal += RoadATrafficLight_ChangeSignal;
+            RoadBTrafficLight.ChangeSignal += RoadBTrafficLight_ChangeSignal;
+            PedestrianTrafficLight.ChangeSignal += PedestrianTrafficLight_ChangeSignal;
+                       
         }
 
         private void CrossroadsView_UserChangeMode(object sender, EventArgs e)
         {
-            TrafficLightController.SwithMode(CrossroadsView.UserSelectedState);
+            Controller.SwithMode(CrossroadsView.UserSelectedState);
         }
 
-    
-        private void TrafficLightStateChange(object sender, EventArgs e)
-        {                        
-            Dictionary<LampType, bool> tempLamps = new Dictionary<LampType, bool>();
-         //   tempLamps = ((TrafficLight)sender).Lamps;
-
-            var tempTrafficLight = (TrafficLight)sender;
-
-            
-                foreach (var lamp in tempLamps)
-                    CrossroadsView.RepresentSignal(tempTrafficLight.Id, (int)lamp.Key, lamp.Value);
-            
-
+        private void PedestrianTrafficLight_ChangeSignal(object sender, EventArgs e)
+        {
+            CrossroadsView.PedestrianTrafficLight.ChangeSignal(PedestrianTrafficLight.RedLamp, PedestrianTrafficLight.GreenLamp);
         }
 
-        //private void CrossroadsView_addTraffilight(object sender, EventArgs e)
-        //{
-        //    foreach (var viewTrafficLight in CrossroadsView.ViewTraffiLIghts)
-        //    {
-        //                string tempTrafficLightType = viewTrafficLight.TrafficLightType;
-        //                int tempTrafficLightId = viewTrafficLight.Id;
+        private void RoadBTrafficLight_ChangeSignal(object sender, EventArgs e)
+        {
+                CrossroadsView.RoadBTrafficLight.ChangeSignal(RoadBTrafficLight.RedLamp, RoadBTrafficLight.YellowLamp, RoadBTrafficLight.GreenLamp);
+        }
 
-        //        if (!TrafficLightController.TrafficLights.Exists(x => x.Id == tempTrafficLightId))
-        //        {
-        //            TrafficLightController.AddTrafficlight(tempTrafficLightId, tempTrafficLightType);
-
-        //        }
-
-        //   }
-        //}
-
-
-
-
-
-        
-
-       
+        private void RoadATrafficLight_ChangeSignal(object sender, EventArgs e)
+        {
+                CrossroadsView.RoadATrafficLight.ChangeSignal(RoadATrafficLight.RedLamp, RoadATrafficLight.YellowLamp, RoadATrafficLight.GreenLamp);
+        }
     }
 }

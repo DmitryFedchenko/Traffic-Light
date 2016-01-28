@@ -8,7 +8,6 @@ namespace Traffic_Light.Model
 
     public  class ControllerMode
     {
-      
         public List<TrafficLightControllerState> DayTime { get; set; }
         public List<TrafficLightControllerState> NightTime { get; set; }
         public List<TrafficLightControllerState> Stop { get; set; }

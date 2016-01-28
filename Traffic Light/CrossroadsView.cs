@@ -8,121 +8,33 @@ namespace Traffic_Light.Console
     
     public class CrossroadsView : ICrossroadsView
     {
-       
-        public List<ITrafficLightView> ViewTraffiLIghts { get; set; }
+        public TrafficLightView RoadATrafficLight { get; set; } = new TrafficLightView("RoadATrafficLight", 19, 9, 19, 10, 19, 11);
+        public TrafficLightView RoadBTrafficLight { get; set; } = new TrafficLightView("RoadBTrafficLight", 27, 7, 29, 7, 31, 7);
+        public TrafficLightView PedestrianTrafficLight { get; set; } = new TrafficLightView("PedestrianTrafficLight", 18, 3, 18, 4);
+
+        public List<TrafficLightView> ViewTraffiLIghts { get; set; }
         
         public event EventHandler AddTraffilight;
         public event EventHandler UserChangeMode;
 
         public string UserSelectedState {get; set;}
-        
 
 
-        public void AddViewTrafficLight(ITrafficLightView viewTrafficLIght)
+
+        public void AddViewTrafficLight(TrafficLightView viewTrafficLIght)
         {
             ViewTraffiLIghts.Add(viewTrafficLIght);
-            viewTrafficLIght.Id = ViewTraffiLIghts.Count-1;
+            viewTrafficLIght.Id = ViewTraffiLIghts.Count - 1;
 
             if (AddTraffilight != null)
                 AddTraffilight(this, EventArgs.Empty);
         }
 
 
-        public void RepresentSignal(int TraffiLightId, string trafficLightType, string signal)
-        {
-
-            ConsoleColor tempColor;
-            LampType lamp = (LampType) Enum.Parse(typeof (LampType),signal);
-
-            if (Enum.TryParse(signal, out tempColor))
-            {
-                var tempViewTrafficLight = ViewTraffiLIghts.Find(x => x.Id == TraffiLightId);
-                int lampX = tempViewTrafficLight.LampCoordinates[lamp].X;
-                int lampY = tempViewTrafficLight.LampCoordinates[lamp].Y;
-
-                if (lamp != )
-                    SetSignal(lampX, lampY, tempColor);
-
-                else
-                    ResetSiganl(lampX, lampY);
-            }
-
-            //    ConsoleColor tempColor = ConsoleColor.Black;
-            //switch (lampId)
-            //{
-            //    case 0:
-            //        tempColor = ConsoleColor.Red;
-            //        break;
-            //    case 2:
-            //        tempColor = ConsoleColor.Yellow;
-            //        break;
-            //    case 1:
-            //        tempColor = ConsoleColor.Green;
-            //        break;
-
-            //    default:
-            //        break;
-            //}
-            //var tempViewTrafficLight = ViewTraffiLIghts.Find(x => x.Id == TraffiLightId);
-            //    int lampX = tempViewTrafficLight.LampCoordinates[lampId].X;
-            //    int lampY = tempViewTrafficLight.LampCoordinates[lampId].Y;
-
-            //    if (light)
-            //        SetSignal(lampX, lampY, tempColor);
-
-            //    else
-            //        ResetSiganl(lampX, lampY);
-
-        }
-
-        public void SetSignal(int x, int y, ConsoleColor color)
-        {
-            System.Console.ForegroundColor = color;
-            System.Console.SetCursorPosition(x, y);
-            System.Console.Write("*");
-            System.Console.CursorVisible = false;
-            
-        }
-
-        public void ResetSiganl(int x, int y)
-        {
-            System.Console.ResetColor();
-            System.Console.SetCursorPosition(x, y);
-            System.Console.Write("0");
-
-        }
-
-        public void InitTrafficLight()
-        {
-            //  Initialize the roadA
-            AddViewTrafficLight(new TrafficLightView("RoadATrafficLight", 19, 9, 19, 10, 19, 11));
-            //AddViewTrafficLight(new TrafficLightView("RoadATrafficLight", 40, 9, 40, 10, 40, 11));
-
-            //  Initialize the roadA
-            AddViewTrafficLight(new TrafficLightView("RoadBTrafficLight", 27, 7, 29, 7, 31, 7));
-            //AddViewTrafficLight(new TrafficLightView("RoadBTrafficLight", 27, 12, 29, 12, 31, 12));
-
-            //  Initialize the PedestrianTrafficLights
-            AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 18, 3,  18, 4));
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 40, 3,  40, 4));
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 18, 14,  18, 15));
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 40, 14,  40, 15));
-
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 7, 6, 9, 6));
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 7, 14, 9, 14));
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 49, 6, 51, 6));
-            //AddViewTrafficLight(new TrafficLightView("PedestrianTrafficLight", 49, 14, 51, 14));
-
-        }
-
-
-
         public CrossroadsView()
         {
-            ViewTraffiLIghts = new List<ITrafficLightView>();
-        
-
-          
+            ViewTraffiLIghts = new List<TrafficLightView>();
+     
         }
 
         public void DrawCrossroads()

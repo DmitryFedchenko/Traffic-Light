@@ -1,5 +1,6 @@
-﻿using TrafficLightClassDiagram;
+﻿
 using NLog;
+using Traffic_Light.Model;
 
 namespace Traffic_Light.Console
 {
@@ -7,15 +8,14 @@ namespace Traffic_Light.Console
     {
         static void Main(string[] args)
         {
-        
-            TrafficLightController trafficLightController = new TrafficLightController();;
-         CrossroadsView crossroadsView = new CrossroadsView();
-         MainPresenter presenter = new MainPresenter(trafficLightController, crossroadsView);
-            crossroadsView.DrawCrossroads();
-            trafficLightController.StartWork();
-            crossroadsView.ControlPanel();
+            CrossroadsView crossroadsView = new CrossroadsView();
+            TrafficLightController controller = new TrafficLightController(); 
+            MainPresenter presenter = new MainPresenter(crossroadsView,controller);
 
-            Logger logger = LogManager.GetCurrentClassLogger();
+            crossroadsView.DrawCrossroads();
+            controller.StartWork();
+            crossroadsView.ControlPanel();
+                    
 
 
         }

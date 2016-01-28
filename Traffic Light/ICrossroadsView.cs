@@ -5,12 +5,12 @@ namespace Traffic_Light.Console
 {
     public interface ICrossroadsView
     {
-        List<ITrafficLightView> ViewTraffiLIghts { get; set; }
-        void RepresentSignal(int TraffiLightId, int lampId, bool light);
-      
+        TrafficLightView RoadATrafficLight { get; set; }
+        TrafficLightView RoadBTrafficLight { get; set; }
+        TrafficLightView PedestrianTrafficLight { get; set; }
+
         string UserSelectedState { get; set; }
-        void InitTrafficLight();
-        event EventHandler AddTraffilight;
+       
         event EventHandler UserChangeMode;
     }
 }

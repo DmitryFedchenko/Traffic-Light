@@ -9,7 +9,7 @@ namespace Traffic_Light.Model
 {
     public class TrafficLightController : ITrafficLightController
     {
-        public  List<TrafficLight> TrafficLights { get; }
+        private  List<TrafficLight> TrafficLights { get; }
         private List<TrafficLightControllerState> ControllerStateList;
         private Timer ChangeStateTimer;
         private int CurrentStateNumber;

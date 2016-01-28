@@ -8,8 +8,7 @@ namespace Traffic_Light.Model
     {
        
        void AddTrafficlight(TrafficLight trafficLight);
-        List<TrafficLight> TrafficLights { get;}
-        void SwithMode(string mode);
+       void SwithMode(string mode);
 
 
     }

@@ -57,7 +57,6 @@
     <Compile Include="TrafficLightView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AppData\XMLTrafficLightStates.xml" />
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
     <Content Include="NLog.config">
@@ -67,6 +66,12 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Module Traffic-Lights\Traffic Light.Model.csproj">
+      <Project>{05834faa-38ad-4c00-8ee7-6c6b968be1e4}</Project>
+      <Name>Traffic Light.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,18 +9,17 @@ namespace Traffic_Light.Model
 {
     public class CarTrafficLight : TrafficLight
     {
-        object obj = new object();
         public override event EventHandler ChangeSignal;
 
-        public SignalType RedLamp { get; set; }
-        public SignalType YellowLamp { get; set; }
-        public SignalType GreenLamp { get; set; }
+        public bool RedLamp { get; set; }
+        public bool YellowLamp { get; set; }
+        public bool GreenLamp { get; set; }
 
         protected override void SetSignal(SignalType signal) {
 
-            RedLamp = SignalType.Grey;
-            YellowLamp= SignalType.Grey;
-            GreenLamp = SignalType.Grey;
+            RedLamp = false;
+            YellowLamp= false;
+            GreenLamp = false;
 
             switch (signal) {
                 case SignalType.BlinkGreen:
@@ -32,20 +31,20 @@ namespace Traffic_Light.Model
                     break;
 
                 case SignalType.Yellow:
-                    YellowLamp = SignalType.Yellow;
+                    YellowLamp =true;
                     break;
 
                 case SignalType.Green:
-                    GreenLamp = SignalType.Yellow;
+                    GreenLamp = true;
                     break;
 
                 case SignalType.Red:
-                    RedLamp = SignalType.Yellow;
+                    RedLamp = true;
                     break;
 
                 case SignalType.RedAndYellow:
-                    RedLamp = SignalType.Red;
-                    YellowLamp = SignalType.Yellow;
+                    RedLamp = true;
+                    YellowLamp = true;
                     break;
             }
             if (ChangeSignal != null)
@@ -56,10 +55,10 @@ namespace Traffic_Light.Model
         protected override void BlinkSignal(object signal)
         {
             if (SignalType.Yellow == (SignalType)signal)
-             YellowLamp = YellowLamp == SignalType.Yellow ? SignalType.Grey: SignalType.Yellow;
+             YellowLamp = YellowLamp ?false: true;
 
             if (SignalType.Green == (SignalType)signal)
-             GreenLamp = GreenLamp== SignalType.Green  ? SignalType.Grey: SignalType.Green;
+             GreenLamp = GreenLamp ? false: true;
             
             if (ChangeSignal != null)
                 ChangeSignal(this, EventArgs.Empty);
