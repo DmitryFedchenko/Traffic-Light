@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace Traffic_Light.Model
@@ -10,8 +7,7 @@ namespace Traffic_Light.Model
     {
         protected  Timer BlinkSignalTimer;
         public abstract event EventHandler ChangeState;
-        public int Id { get; set; }
-        public string TrafficLightType { get; set; }
+        public TrafficLightType TrafficLightType { get; set; }
 
         public void SetState(TrafficLightControllerState trafficLightState)
         {            
@@ -20,16 +16,16 @@ namespace Traffic_Light.Model
 
                 switch (TrafficLightType)
                 {
-                    case "RoadATrafficLight":
-                        SetSignal(trafficLightState.RoadASignal);
+                    case TrafficLightType.RoadATrafficLight:
+                        SetSignal(trafficLightState.RoadAState);
                         break;
 
-                    case "RoadBTrafficLight":
-                        SetSignal(trafficLightState.RoadBSignal);
+                    case TrafficLightType.RoadBTrafficLight:
+                        SetSignal(trafficLightState.RoadBState);
                         break;
 
-                    case "PedestrianTrafficLight":
-                        SetSignal(trafficLightState.PedestrianTrafficLightSignal);
+                    case TrafficLightType.PedestrianTrafficLight:
+                        SetSignal(trafficLightState.PedestrianTrafficLightState);
                         break;
 
                     default:
@@ -40,7 +36,10 @@ namespace Traffic_Light.Model
         protected abstract void SetSignal(LampState signal);
 
         protected abstract void BlinkSignal(object signal);
-       
-      
-    }
+        }
+
+
+        public enum TrafficLightType {
+          RoadATrafficLight, RoadBTrafficLight, PedestrianTrafficLight
+        }
 }

@@ -7,17 +7,17 @@ namespace Traffic_Light.Model
 {
     public class TrafficLightControllerState
     {
-        public LampState RoadASignal { get; set; }
-        public LampState RoadBSignal { get; set; }
-        public LampState  PedestrianTrafficLightSignal { get; set; }
+        public LampState RoadAState { get; set; }
+        public LampState RoadBState { get; set; }
+        public LampState  PedestrianTrafficLightState { get; set; }
 
         public int TimeWait { get; set; }
       
-        public TrafficLightControllerState(LampState roadASignal, LampState roadBSignal, LampState pedestrianTrafficLightSignal, int timeWait)
+        public TrafficLightControllerState(LampState roadAState, LampState roadBState, LampState pedestrianTrafficLightState, int timeWait)
         {
-            this.RoadASignal = roadASignal;
-            this.RoadBSignal = roadBSignal;
-            this.PedestrianTrafficLightSignal = pedestrianTrafficLightSignal;
+            this.RoadAState = roadAState;
+            this.RoadBState = roadBState;
+            this.PedestrianTrafficLightState = pedestrianTrafficLightState;
             TimeWait = timeWait;
         }
     }

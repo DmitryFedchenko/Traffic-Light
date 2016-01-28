@@ -66,10 +66,9 @@ namespace Traffic_Light.Model
                 ChangeState(this, EventArgs.Empty);
         }
 
-        public CarTrafficLight(int id, string trafficLightType)
+        public CarTrafficLight(TrafficLightType trafficLightType)
         {
             this.TrafficLightType = trafficLightType;
-            Id = id;
         }
 
     }

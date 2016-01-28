@@ -21,9 +21,9 @@ namespace Traffic_Light
             CrossroadsView = crossroadsView;
             Controller = controller;
 
-            RoadATrafficLight = new CarTrafficLight(0, "RoadATrafficLight");
-            RoadBTrafficLight = new CarTrafficLight(1, "RoadBTrafficLight");
-            PedestrianTrafficLight = new PedestrianTrafficLight(2, "PedestrianTrafficLight");
+            RoadATrafficLight = new CarTrafficLight(TrafficLightType.RoadATrafficLight);
+            RoadBTrafficLight = new CarTrafficLight(TrafficLightType.RoadBTrafficLight);
+            PedestrianTrafficLight = new PedestrianTrafficLight(TrafficLightType.PedestrianTrafficLight);
 
             Controller.AddTrafficlight(RoadATrafficLight);
             Controller.AddTrafficlight(RoadBTrafficLight);

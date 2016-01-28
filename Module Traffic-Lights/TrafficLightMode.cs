@@ -12,7 +12,7 @@ namespace Traffic_Light.Model
         public List<TrafficLightControllerState> NightTimeMode { get; set; }
         public List<TrafficLightControllerState> StopMode { get; set; }
 
-        public void InitState() {
+        public void InitModes() {
           
             this.DayTimeMode.Add(new TrafficLightControllerState(LampState.Green, LampState.Red, LampState.Red, 3000));
             this.DayTimeMode.Add(new TrafficLightControllerState(LampState.BlinkGreen, LampState.Red, LampState.Red, 2000));
@@ -38,7 +38,7 @@ namespace Traffic_Light.Model
             NightTimeMode = new List<TrafficLightControllerState>();
             StopMode = new List<TrafficLightControllerState>();
 
-            InitState();
+            InitModes();
         }
 
     }
