@@ -8,9 +8,8 @@ namespace Traffic_Light.Model
 {
     public abstract class TrafficLight
     {
-      
         protected  Timer BlinkSignalTimer;
-        public abstract event EventHandler ChangeSignal;
+        public abstract event EventHandler ChangeState;
         public int Id { get; set; }
         public string TrafficLightType { get; set; }
 
@@ -38,7 +37,7 @@ namespace Traffic_Light.Model
                 }
             }
 
-        protected abstract void SetSignal(SignalType signal);
+        protected abstract void SetSignal(LampState signal);
 
         protected abstract void BlinkSignal(object signal);
        

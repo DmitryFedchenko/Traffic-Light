@@ -8,6 +8,8 @@ namespace Traffic_Light.Console
     {
         static void Main(string[] args)
         {
+            Logger logger = LogManager.GetCurrentClassLogger();
+                                    
             CrossroadsView crossroadsView = new CrossroadsView();
             TrafficLightController controller = new TrafficLightController(); 
             MainPresenter presenter = new MainPresenter(crossroadsView,controller);

@@ -30,9 +30,9 @@ namespace Traffic_Light
             Controller.AddTrafficlight(PedestrianTrafficLight);
 
             CrossroadsView.UserChangeMode += CrossroadsView_UserChangeMode;
-            RoadATrafficLight.ChangeSignal += RoadATrafficLight_ChangeSignal;
-            RoadBTrafficLight.ChangeSignal += RoadBTrafficLight_ChangeSignal;
-            PedestrianTrafficLight.ChangeSignal += PedestrianTrafficLight_ChangeSignal;
+            RoadATrafficLight.ChangeState += RoadATrafficLight_ChangeSignal;
+            RoadBTrafficLight.ChangeState += RoadBTrafficLight_ChangeSignal;
+            PedestrianTrafficLight.ChangeState += PedestrianTrafficLight_ChangeSignal;
                        
         }
 

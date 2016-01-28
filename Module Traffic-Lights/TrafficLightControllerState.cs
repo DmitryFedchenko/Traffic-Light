@@ -7,13 +7,13 @@ namespace Traffic_Light.Model
 {
     public class TrafficLightControllerState
     {
-        public SignalType RoadASignal { get; set; }
-        public SignalType RoadBSignal { get; set; }
-        public SignalType  PedestrianTrafficLightSignal { get; set; }
+        public LampState RoadASignal { get; set; }
+        public LampState RoadBSignal { get; set; }
+        public LampState  PedestrianTrafficLightSignal { get; set; }
 
         public int TimeWait { get; set; }
       
-        public TrafficLightControllerState(SignalType roadASignal, SignalType roadBSignal, SignalType pedestrianTrafficLightSignal, int timeWait)
+        public TrafficLightControllerState(LampState roadASignal, LampState roadBSignal, LampState pedestrianTrafficLightSignal, int timeWait)
         {
             this.RoadASignal = roadASignal;
             this.RoadBSignal = roadBSignal;

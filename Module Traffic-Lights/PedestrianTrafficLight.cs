@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,45 +11,49 @@ namespace Traffic_Light.Model
 {
     public class PedestrianTrafficLight : TrafficLight
     {
-        
-        public override event EventHandler ChangeSignal;
+        Logger log = LogManager.GetCurrentClassLogger();
+
+        public override event EventHandler ChangeState;
      
         public bool RedLamp { get; set; }
         public bool GreenLamp { get; set; }
 
-        protected override void SetSignal(SignalType signal) {
+        protected override void SetSignal(LampState signal) {
+
+            log.Trace(signal.ToString());
 
             RedLamp = false;
             GreenLamp = false;
 
             switch (signal) {
-                case SignalType.BlinkGreen:
-                    BlinkSignalTimer = new Timer(BlinkSignal, SignalType.Green, 0, 500);
+                case LampState.BlinkGreen:
+                    BlinkSignalTimer = new Timer(BlinkSignal, LampState.Green, 0, 500);
                     break;
 
-                case SignalType.BlinkYellow:
-                    BlinkSignalTimer = new Timer(BlinkSignal, SignalType.Yellow, 0, 500);
+                case LampState.BlinkYellow:
+                    BlinkSignalTimer = new Timer(BlinkSignal, LampState.Yellow, 0, 500);
                     break;
-                case SignalType.Green:
+                case LampState.Green:
                     GreenLamp = true;
                     break;
 
-                case SignalType.Red:
+                case LampState.Red:
                     RedLamp = true;
                     break;
             }
-            if (ChangeSignal != null)
-                    ChangeSignal(this, EventArgs.Empty);
+            if (ChangeState != null)
+                    ChangeState(this, EventArgs.Empty);
            
         }
 
         protected override void BlinkSignal(object signal)
         {
-            if (SignalType.Green == (SignalType)signal)
+            log.Trace(GreenLamp.ToString());
+            if (LampState.Green == (LampState)signal)
              GreenLamp = GreenLamp ? false: true;
             
-            if (ChangeSignal != null)
-                ChangeSignal(this, EventArgs.Empty);
+            if (ChangeState != null)
+                ChangeState(this, EventArgs.Empty);
         }
         public PedestrianTrafficLight(int id, string trafficLightType)
         {

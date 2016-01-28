@@ -1,6 +1,6 @@
 namespace Traffic_Light.Model
 {
-    public enum SignalType
+    public enum LampState
     {
         Green,Red, Yellow, RedAndYellow, BlinkGreen, BlinkYellow,
         Grey

@@ -1,45 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Traffic_Light.Model.TrafficLightController">
-    <Position X="7.25" Y="1.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAARAAAgAAAAAAAAAAAAAQAIAAAAAAAAACAAgAAACA=</HashCode>
-      <FileName>TrafficLightController.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.121" />
-  </Class>
-  <Class Name="Traffic_Light.Model.ControllerMode">
-    <Position X="7.25" Y="5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAgAAAIAgAAAAAAAA=</HashCode>
-      <FileName>TrafficLightMode.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Traffic_Light.Model.PedestrianTrafficLight">
     <Position X="5.25" Y="5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAACAAAABAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAACAAAAAAAAACAACAAAABAAQA=</HashCode>
       <FileName>PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.Model.CarTrafficLight">
     <Position X="3" Y="4.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAABAAAAACAACAAAABAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAACAAABAAAAACAACAAAABAAQA=</HashCode>
       <FileName>CarTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Traffic_Light.Model.TrafficLight">
-    <Position X="5" Y="1.5" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>BAACBABAAAAAAAAAAAAAAAAAAAAAAACAACAAAABAAAA=</HashCode>
-      <FileName>TrafficLight.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Interface Name="Traffic_Light.Model.ITrafficLightController">
-    <Position X="9.75" Y="1.5" Width="2.5" />
+    <Position X="3.25" Y="1.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAgAAACA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACA=</HashCode>
       <FileName>ITrafficLightControl.cs</FileName>
     </TypeIdentifier>
   </Interface>

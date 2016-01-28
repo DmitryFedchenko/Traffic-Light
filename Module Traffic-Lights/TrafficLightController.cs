@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +10,7 @@ namespace Traffic_Light.Model
 {
     public class TrafficLightController : ITrafficLightController
     {
+        Logger log = LogManager.GetCurrentClassLogger();
         private  List<TrafficLight> TrafficLights { get; }
         private List<TrafficLightControllerState> ControllerStateList;
         private Timer ChangeStateTimer;
@@ -23,6 +25,7 @@ namespace Traffic_Light.Model
 
         public void SwithMode(string mode)
         {
+            log.Trace(mode);
             if (CurrentMode == mode)
                 return;
 
@@ -30,17 +33,17 @@ namespace Traffic_Light.Model
             switch (mode)
             {
                 case "DayTime":
-                    ControllerStateList = new ControllerMode().DayTime;
+                    ControllerStateList = new TrafficLightControllerStateTables().DayTimeMode;
                     CurrentMode = mode;
                     break;
 
                 case "Night":
-                    ControllerStateList = new ControllerMode().NightTime;
+                    ControllerStateList = new TrafficLightControllerStateTables().NightTimeMode;
                     CurrentMode = mode;
                     break;
 
                 case "Stop":
-                    ControllerStateList = new ControllerMode().Stop;
+                    ControllerStateList = new TrafficLightControllerStateTables().StopMode;
                     CurrentMode = mode;
                     break;
                
@@ -53,6 +56,7 @@ namespace Traffic_Light.Model
        
         private void SetState(object obj)
         {
+            log.Trace(CurrentStateNumber);
             // Set current state to all traffic lights   
             foreach (var trafficlight in TrafficLights)
                 trafficlight.SetState(ControllerStateList[CurrentStateNumber]);
@@ -76,7 +80,7 @@ namespace Traffic_Light.Model
         public TrafficLightController()
         {
             TrafficLights = new List<TrafficLight>();
-            ControllerStateList = new ControllerMode().DayTime;
+            ControllerStateList = new TrafficLightControllerStateTables().DayTimeMode;
         }
     }
 }
