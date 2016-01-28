@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 
 
-namespace TrafficLightClassDiagram
+
+namespace Traffic_Light.Model
 {
     class Program
     {
@@ -17,8 +18,8 @@ namespace TrafficLightClassDiagram
             TrafficLightController controller = new TrafficLightController();
 
             CarTrafficLight RoadATrafficLight =new CarTrafficLight(0, "RoadATrafficLight");
-            CarTrafficLight RoadBTrafficLight = new CarTrafficLight(0, "RoadBTrafficLight");
-            PedestrianTrafficLight PedestrianTrafficLight = new PedestrianTrafficLight(0, "PedestrianTrafficLight");
+            CarTrafficLight RoadBTrafficLight = new CarTrafficLight(1, "RoadBTrafficLight");
+            PedestrianTrafficLight PedestrianTrafficLight = new PedestrianTrafficLight(2, "PedestrianTrafficLight");
 
             controller.AddTrafficlight(RoadATrafficLight);
             controller.AddTrafficlight(RoadBTrafficLight);
@@ -26,12 +27,9 @@ namespace TrafficLightClassDiagram
 
             controller.StartWork();
             
-            controller.StartWork();
-
+           
             while (true)
             {
-                
-
                 var key = System.Console.ReadKey(true);
 
                 //start the state of Daytime

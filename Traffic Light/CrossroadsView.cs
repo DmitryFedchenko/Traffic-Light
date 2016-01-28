@@ -8,7 +8,7 @@ namespace Traffic_Light.Console
     
     public class CrossroadsView : ICrossroadsView
     {
-        object obj = new object();
+       
         public List<ITrafficLightView> ViewTraffiLIghts { get; set; }
         
         public event EventHandler AddTraffilight;
@@ -28,50 +28,51 @@ namespace Traffic_Light.Console
         }
 
 
-        public void RepresentSignal(int TraffiLightId, int lampId, bool light)
+        public void RepresentSignal(int TraffiLightId, string trafficLightType, string signal)
         {
 
-            //ConsoleColor tempColor;
-            //if (Enum.TryParse(colorSiganl, out tempColor))
-            //{
-            //    var tempViewTrafficLight = ViewTraffiLIghts.Find(x => x.Id == TraffiLightId);
-            //    int lampX = tempViewTrafficLight.LampCoordinates[lampId].X;
-            //    int lampY = tempViewTrafficLight.LampCoordinates[lampId].Y;
+            ConsoleColor tempColor;
+            LampType lamp = (LampType) Enum.Parse(typeof (LampType),signal);
 
-            //    if(light)
-            //    SetSignal(lampX, lampY, tempColor);
-
-            //    else
-            //    ResetSiganl(lampX, lampY);
-            //}
-            lock (obj) {
-                ConsoleColor tempColor = ConsoleColor.Black;
-                switch (lampId)
-                {
-                    case 0:
-                        tempColor = ConsoleColor.Red;
-                        break;
-                    case 2:
-                        tempColor = ConsoleColor.Yellow;
-                        break;
-                    case 1:
-                        tempColor = ConsoleColor.Green;
-                        break;
-
-                    default:
-                        break;
-                }
-
+            if (Enum.TryParse(signal, out tempColor))
+            {
                 var tempViewTrafficLight = ViewTraffiLIghts.Find(x => x.Id == TraffiLightId);
-                int lampX = tempViewTrafficLight.LampCoordinates[lampId].X;
-                int lampY = tempViewTrafficLight.LampCoordinates[lampId].Y;
+                int lampX = tempViewTrafficLight.LampCoordinates[lamp].X;
+                int lampY = tempViewTrafficLight.LampCoordinates[lamp].Y;
 
-                if (light)
+                if (lamp != )
                     SetSignal(lampX, lampY, tempColor);
 
                 else
                     ResetSiganl(lampX, lampY);
             }
+
+            //    ConsoleColor tempColor = ConsoleColor.Black;
+            //switch (lampId)
+            //{
+            //    case 0:
+            //        tempColor = ConsoleColor.Red;
+            //        break;
+            //    case 2:
+            //        tempColor = ConsoleColor.Yellow;
+            //        break;
+            //    case 1:
+            //        tempColor = ConsoleColor.Green;
+            //        break;
+
+            //    default:
+            //        break;
+            //}
+            //var tempViewTrafficLight = ViewTraffiLIghts.Find(x => x.Id == TraffiLightId);
+            //    int lampX = tempViewTrafficLight.LampCoordinates[lampId].X;
+            //    int lampY = tempViewTrafficLight.LampCoordinates[lampId].Y;
+
+            //    if (light)
+            //        SetSignal(lampX, lampY, tempColor);
+
+            //    else
+            //        ResetSiganl(lampX, lampY);
+
         }
 
         public void SetSignal(int x, int y, ConsoleColor color)

@@ -41,18 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CarTrafficLight.cs" />
-    <Compile Include="Models\DayTimeMode.cs" />
-    <Compile Include="Models\ITrafficLightController.cs" />
-    <Compile Include="Models\NightMode.cs" />
-    <Compile Include="Models\PedestrianTrafficLight.cs" />
-    <Compile Include="Models\StopMode.cs" />
-    <Compile Include="Models\TrafficLight.cs" />
-    <Compile Include="Models\TrafficLightController.cs" />
-    <Compile Include="Models\TrafficLightControllerState.cs" />
-    <Compile Include="Models\ControllerMode.cs" />
-    <Compile Include="Models\TrafficLightView.cs" />
+    <Compile Include="CarTrafficLight.cs" />
+    <Compile Include="ITrafficLightControl.cs" />
+    <Compile Include="PedestrianTrafficLight.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalType.cs" />
+    <Compile Include="TrafficLight.cs" />
+    <Compile Include="TrafficLightController.cs" />
+    <Compile Include="TrafficLightControllerState.cs" />
+    <Compile Include="TrafficLightMode.cs" />
+    <Compile Include="TrafficLightView.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />

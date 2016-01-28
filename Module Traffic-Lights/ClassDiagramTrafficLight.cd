@@ -1,74 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="TrafficLitht.TrafficLightController">
-    <Position X="7" Y="1.75" Width="2.25" />
+  <Class Name="Traffic_Light.Model.Program">
+    <Position X="3" Y="3.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAARAAAkAAAAAAAAAAAAAQIIAIAAAAAAAAAAgAAgCA=</HashCode>
-      <FileName>Models\TrafficLightController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Traffic_Light.Model.TrafficLightController">
+    <Position X="7.25" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAARAAAgAAAAAAAAAAAAAQAIAAAAAAAAACAAgAAACA=</HashCode>
+      <FileName>TrafficLightController.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.121" />
   </Class>
-  <Class Name="TrafficLitht.TrafficLightControllerState">
-    <Position X="9.5" Y="3.5" Width="1.75" />
+  <Class Name="Traffic_Light.Model.TrafficLightView">
+    <Position X="3" Y="1.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQgAAAAAEAAAAAAAAAAIAAA=</HashCode>
-      <FileName>Models\TrafficLightControllerState.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TrafficLightView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLitht.DayTimeMode">
-    <Position X="8" Y="7.5" Width="1.5" />
+  <Class Name="Traffic_Light.Model.ControllerMode">
+    <Position X="7.25" Y="5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\DayTimeMode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAgAAAIAgAAAAAAAA=</HashCode>
+      <FileName>TrafficLightMode.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLitht.ControllerMode">
-    <Position X="7" Y="5.75" Width="2.25" />
+  <Class Name="Traffic_Light.Model.PedestrianTrafficLight">
+    <Position X="5.25" Y="5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\ControllerMode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAACAACAAAABAAQA=</HashCode>
+      <FileName>PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLitht.NightMode">
-    <Position X="6" Y="7.5" Width="1.5" />
+  <Class Name="Traffic_Light.Model.CarTrafficLight">
+    <Position X="3" Y="4.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\NightMode.cs</FileName>
+      <HashCode>AAAAAAAAAAAAIEAAAAAAAAAABAAAAACAACAAAABAAQA=</HashCode>
+      <FileName>CarTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLitht.PedestrianTrafficLight">
-    <Position X="4" Y="6" Width="1.75" />
+  <Class Name="Traffic_Light.Model.TrafficLight">
+    <Position X="5" Y="1.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAQCAAAAAAABAAQA=</HashCode>
-      <FileName>Models\PedestrianTrafficLight.cs</FileName>
+      <HashCode>BAACBABAAAAAAAAAAAAAAAAAAAAAAACAACAAAABAAAA=</HashCode>
+      <FileName>TrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TrafficLitht.CarTrafficLight">
-    <Position X="2" Y="5.75" Width="1.75" />
+  <Interface Name="Traffic_Light.Model.ITrafficLightController">
+    <Position X="9.75" Y="1.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAABAAAAQCAAAAAAABAAQA=</HashCode>
-      <FileName>Models\CarTrafficLight.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrafficLitht.StopMode">
-    <Position X="9.75" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Models\StopMode.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="TrafficLitht.TrafficLight">
-    <Position X="5" Y="3" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAACAABAAAAAAAAAAAAAAAAAAAAAAQCAAAAAAABAAAA=</HashCode>
-      <FileName>Models\TrafficLight.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Interface Name="TrafficLitht.ITrafficLightController">
-    <Position X="9.5" Y="1.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAIAAAAAAAAAAgAAgAA=</HashCode>
-      <FileName>Models\ITrafficLightController.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAgAAACA=</HashCode>
+      <FileName>ITrafficLightControl.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

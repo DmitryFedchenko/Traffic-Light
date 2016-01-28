@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TrafficLightClassDiagram
+namespace Traffic_Light.Model
 {
     public interface ITrafficLightController
     {

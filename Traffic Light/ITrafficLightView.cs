@@ -7,7 +7,7 @@ namespace Traffic_Light.Console
     {
         int Id { get; set; }
         string TrafficLightType { get; set; }
-        List<LampCordinate> LampCoordinates { get; set; }
+        Dictionary<LampType,LampCordinate> LampCoordinates { get; set; }
 
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace TrafficLightClassDiagram
+namespace Traffic_Light.Model
 {
     public abstract class TrafficLight
     {
@@ -22,28 +22,25 @@ namespace TrafficLightClassDiagram
                 switch (TrafficLightType)
                 {
                     case "RoadATrafficLight":
-                        SetSignal(trafficLightState.RoadASignals);
+                        SetSignal(trafficLightState.RoadASignal);
                         break;
 
                     case "RoadBTrafficLight":
-                        SetSignal(trafficLightState.RoadBSignals);
+                        SetSignal(trafficLightState.RoadBSignal);
                         break;
 
                     case "PedestrianTrafficLight":
-                        SetSignal(trafficLightState.PedestrianTrafficLightSignals);
+                        SetSignal(trafficLightState.PedestrianTrafficLightSignal);
                         break;
 
                     default:
                         break;
                 }
-
-            
-               
             }
 
-        protected abstract void SetSignal(SignalsType signal);
+        protected abstract void SetSignal(SignalType signal);
 
-        protected abstract void BlinkSignal(object obj);
+        protected abstract void BlinkSignal(object signal);
        
       
     }

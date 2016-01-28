@@ -5,12 +5,12 @@ using System.Linq;
 using System.Threading;
 
 
-namespace TrafficLightClassDiagram
+namespace Traffic_Light.Model
 {
     public class TrafficLightController : ITrafficLightController
     {
-        public List<TrafficLight> TrafficLights { get; }
-        public List<TrafficLightControllerState> ControllerStateList;
+        public  List<TrafficLight> TrafficLights { get; }
+        private List<TrafficLightControllerState> ControllerStateList;
         private Timer ChangeStateTimer;
         private int CurrentStateNumber;
 
@@ -78,9 +78,5 @@ namespace TrafficLightClassDiagram
             TrafficLights = new List<TrafficLight>();
             ControllerStateList = new ControllerMode().DayTime;
         }
-    }
-
-    public enum TrafficLightType {
-        RoadATrafficLight, RoadBTrafficLight, PedestrianTrafficLight
     }
 }

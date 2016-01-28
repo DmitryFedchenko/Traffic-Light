@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TrafficLightClassDiagram
+namespace Traffic_Light.Model
 {
     public class TrafficLightView
     {
-        public event EventHandler AddTrafficLight;
+        public event EventHandler ChangeSignals;
 
         public TrafficLightView()
         {
