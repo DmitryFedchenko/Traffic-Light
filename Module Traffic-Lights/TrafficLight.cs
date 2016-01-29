@@ -35,8 +35,9 @@ namespace Traffic_Light.Model
 
         protected abstract void SetSignal(LampState signal);
 
-        protected abstract void BlinkSignal(object signal);
-        }
+        protected virtual void BlinkSignal(object signal) { }
+       
+ }
 
 
         public enum TrafficLightType {

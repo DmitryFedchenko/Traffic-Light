@@ -12,44 +12,28 @@ namespace Traffic_Light.Model
     {
         Logger log = LogManager.GetCurrentClassLogger();
         private  List<TrafficLight> TrafficLights { get; }
-        private List<TrafficLightControllerState> ControllerStateList;
+        private TrafficLightControllerStateTables ControllerStateList;
         private Timer ChangeStateTimer;
         private int CurrentStateNumber;
 
-        private string CurrentMode;
+        private TrafficLightModeType CurrentMode;
 
         public void AddTrafficlight(TrafficLight trafficLight)
         {
          TrafficLights.Add(trafficLight);
         }
 
-        public void SwithMode(string mode)
+        public void SwithMode(TrafficLightModeType mode)
         {
             log.Trace(mode);
             if (CurrentMode == mode)
                 return;
 
+            if (ControllerStateList.ModesTable.ContainsKey(mode))
+                CurrentMode = mode;
+
             CurrentStateNumber = 0;           
-            switch (mode)
-            {
-                case "DayTime":
-                    ControllerStateList = new TrafficLightControllerStateTables().DayTimeMode;
-                    CurrentMode = mode;
-                    break;
-
-                case "Night":
-                    ControllerStateList = new TrafficLightControllerStateTables().NightTimeMode;
-                    CurrentMode = mode;
-                    break;
-
-                case "Stop":
-                    ControllerStateList = new TrafficLightControllerStateTables().StopMode;
-                    CurrentMode = mode;
-                    break;
-               
-                default:
-                    return;
-            }
+            
 
         }
 
@@ -80,7 +64,7 @@ namespace Traffic_Light.Model
         public TrafficLightController()
         {
             TrafficLights = new List<TrafficLight>();
-            ControllerStateList = new TrafficLightControllerStateTables().DayTimeMode;
+            ControllerStateList = new TrafficLightControllerStateTables();
         }
     }
 }
