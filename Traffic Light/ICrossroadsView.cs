@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Traffic_Light.Model;
 
 namespace Traffic_Light.Console
 {
@@ -9,7 +10,7 @@ namespace Traffic_Light.Console
         TrafficLightView RoadBTrafficLight { get; set; }
         TrafficLightView PedestrianTrafficLight { get; set; }
 
-        string UserSelectedState { get; set; }
+        TrafficLightModeType UserSelectedState { get; set; }
        
         event EventHandler UserChangeMode;
     }

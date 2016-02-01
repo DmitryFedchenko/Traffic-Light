@@ -54,6 +54,7 @@
     <Compile Include="TrafficLightController.cs" />
     <Compile Include="TrafficLightControllerState.cs" />
     <Compile Include="TrafficLightMode.cs" />
+    <Compile Include="TrafficLightModeType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />

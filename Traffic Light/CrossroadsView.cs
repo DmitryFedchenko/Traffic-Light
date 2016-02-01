@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Traffic_Light.Model;
 
 
 namespace Traffic_Light.Console
@@ -17,7 +17,7 @@ namespace Traffic_Light.Console
         public event EventHandler AddTraffilight;
         public event EventHandler UserChangeMode;
 
-        public string UserSelectedState {get; set;}
+        public TrafficLightModeType UserSelectedState {get; set;}
 
 
 
@@ -74,7 +74,7 @@ namespace Traffic_Light.Console
                     //start the state of Daytime
                     if (key.Key.ToString() == "D")
                     {
-                        UserSelectedState = "Daytime";
+                        UserSelectedState = TrafficLightModeType.DayTime;
 
                     if (UserChangeMode != null)
                         UserChangeMode(this, EventArgs.Empty);
@@ -82,14 +82,14 @@ namespace Traffic_Light.Console
                     //start the state of Nighttime
                     if (key.Key.ToString() == "N")
                     {
-                        UserSelectedState = "Night";
+                        UserSelectedState = TrafficLightModeType.Night;
                     if (UserChangeMode != null)
                         UserChangeMode(this, EventArgs.Empty);
                 }
                     //start the state of Stop
                     if (key.Key.ToString() == "S")
                     {
-                        UserSelectedState = "Stop";
+                        UserSelectedState = TrafficLightModeType.Stop;
 
                     if (UserChangeMode != null)
                         UserChangeMode(this, EventArgs.Empty);
@@ -97,10 +97,7 @@ namespace Traffic_Light.Console
 
                     //exit from program
                     if (key.Key.ToString() == "E")
-                    {
-                        UserSelectedState = "StopIterate";
                         return;
-                    }
                 }
          
          

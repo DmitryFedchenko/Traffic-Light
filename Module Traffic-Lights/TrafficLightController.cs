@@ -10,7 +10,7 @@ namespace Traffic_Light.Model
 {
     public class TrafficLightController : ITrafficLightController
     {
-        Logger log = LogManager.GetCurrentClassLogger();
+        readonly Logger _log = LogManager.GetCurrentClassLogger();
         private  List<TrafficLight> TrafficLights { get; }
         private TrafficLightControllerStateTables ControllerStateList;
         private Timer ChangeStateTimer;
@@ -25,7 +25,7 @@ namespace Traffic_Light.Model
 
         public void SwithMode(TrafficLightModeType mode)
         {
-            log.Trace(mode);
+            _log.Trace(mode);
             if (CurrentMode == mode)
                 return;
 
@@ -33,23 +33,21 @@ namespace Traffic_Light.Model
                 CurrentMode = mode;
 
             CurrentStateNumber = 0;           
-            
-
         }
 
        
         private void SetState(object obj)
         {
-            log.Trace(CurrentStateNumber);
+            _log.Trace(CurrentStateNumber);
             // Set current state to all traffic lights   
             foreach (var trafficlight in TrafficLights)
-                trafficlight.SetState(ControllerStateList[CurrentStateNumber]);
+                trafficlight.SetState(ControllerStateList.ModesTable[CurrentMode][CurrentStateNumber]);
                    
-            ChangeStateTimer.Change(ControllerStateList[CurrentStateNumber].TimeWait,0);
+            ChangeStateTimer.Change(ControllerStateList.ModesTable[CurrentMode][CurrentStateNumber].TimeWait,0);
             CurrentStateNumber++;
                      
             // Check opportunity of next iterate states in this mode
-            bool existIndexState = CurrentStateNumber < ControllerStateList.Count;
+            bool existIndexState = CurrentStateNumber < ControllerStateList.ModesTable[CurrentMode].Count;
        
             if (!existIndexState)
                 CurrentStateNumber = 0;
