@@ -6,9 +6,12 @@ namespace Traffic_Light.Model
     public abstract class TrafficLight
     {
         protected  Timer BlinkSignalTimer;
-        public abstract event EventHandler ChangeState;
+        public event EventHandler StateChanged;
         public TrafficLightType TrafficLightType { get; set; }
-
+        public void OnStateChanged(object obj,EventArgs e) {
+            if (StateChanged != null) 
+            StateChanged(obj,e);
+        }
         public void SetState(TrafficLightControllerState trafficLightState)
         {            
                 if (BlinkSignalTimer != null)

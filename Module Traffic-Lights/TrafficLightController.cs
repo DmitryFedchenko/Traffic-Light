@@ -10,7 +10,8 @@ namespace Traffic_Light.Model
 {
     public class TrafficLightController : ITrafficLightController
     {
-        readonly Logger _log = LogManager.GetCurrentClassLogger();
+        readonly Logger Log = LogManager.GetCurrentClassLogger();
+
         private  List<TrafficLight> TrafficLights { get; }
         private TrafficLightControllerStateTables ControllerStateList;
         private Timer ChangeStateTimer;
@@ -25,7 +26,7 @@ namespace Traffic_Light.Model
 
         public void SwithMode(TrafficLightModeType mode)
         {
-            _log.Trace(mode);
+            Log.Trace(mode);
             if (CurrentMode == mode)
                 return;
 
@@ -38,7 +39,7 @@ namespace Traffic_Light.Model
        
         private void SetState(object obj)
         {
-            _log.Trace(CurrentStateNumber);
+            Log.Trace("\n                                                   State № "+CurrentStateNumber+"\n");
             // Set current state to all traffic lights   
             foreach (var trafficlight in TrafficLights)
                 trafficlight.SetState(ControllerStateList.ModesTable[CurrentMode][CurrentStateNumber]);

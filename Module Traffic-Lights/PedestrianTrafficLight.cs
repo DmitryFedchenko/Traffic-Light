@@ -13,7 +13,7 @@ namespace Traffic_Light.Model
     {
         Logger log = LogManager.GetCurrentClassLogger();
 
-        public override event EventHandler ChangeState;
+       
      
         public bool RedLamp { get; set; }
         public bool GreenLamp { get; set; }
@@ -28,11 +28,8 @@ namespace Traffic_Light.Model
             switch (signal) {
                 case LampState.BlinkGreen:
                     BlinkSignalTimer = new Timer(BlinkSignal, LampState.Green, 0, 500);
-                    break;
-
-                case LampState.BlinkYellow:
-                    BlinkSignalTimer = new Timer(BlinkSignal, LampState.Yellow, 0, 500);
-                    break;
+                    return;
+               
                 case LampState.Green:
                     GreenLamp = true;
                     break;
@@ -41,19 +38,18 @@ namespace Traffic_Light.Model
                     RedLamp = true;
                     break;
             }
-            if (ChangeState != null)
-                    ChangeState(this, EventArgs.Empty);
-           
+            OnStateChanged(this, EventArgs.Empty);
+
         }
 
         protected override void BlinkSignal(object signal)
         {
-            log.Trace(GreenLamp.ToString());
+           
             if (LampState.Green == (LampState)signal)
              GreenLamp = GreenLamp ? false: true;
-            
-            if (ChangeState != null)
-                ChangeState(this, EventArgs.Empty);
+
+            log.Trace((LampState)signal + "   " + GreenLamp + " " + this.TrafficLightType);
+            OnStateChanged(this, EventArgs.Empty);
         }
         public PedestrianTrafficLight(TrafficLightType trafficLightType)
         {

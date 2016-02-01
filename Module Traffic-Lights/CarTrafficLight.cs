@@ -11,14 +11,15 @@ namespace Traffic_Light.Model
     public class CarTrafficLight : TrafficLight
     {
         Logger log = LogManager.GetCurrentClassLogger();
-        public override event EventHandler ChangeState;
+        
 
         public bool RedLamp { get; set; }
         public bool YellowLamp { get; set; }
         public bool GreenLamp { get; set; }
 
         protected override void SetSignal(LampState signal) {
-            log.Trace(signal.ToString());
+            log.Trace(signal + "   " + this.TrafficLightType);
+
             RedLamp = false;
             YellowLamp= false;
             GreenLamp = false;
@@ -26,11 +27,11 @@ namespace Traffic_Light.Model
             switch (signal) {
                 case LampState.BlinkGreen:
                     BlinkSignalTimer = new Timer(BlinkSignal, LampState.Green, 0, 500);
-                    break;
+                    return;
 
                 case LampState.BlinkYellow:
                     BlinkSignalTimer = new Timer(BlinkSignal, LampState.Yellow, 0, 500);
-                    break;
+                    return;
 
                 case LampState.Yellow:
                     YellowLamp =true;
@@ -49,21 +50,25 @@ namespace Traffic_Light.Model
                     YellowLamp = true;
                     break;
             }
-            if (ChangeState != null)
-                    ChangeState(this, EventArgs.Empty);
+            OnStateChanged(this,EventArgs.Empty);
            
         }
 
         protected override void BlinkSignal(object signal)
         {
             if (LampState.Yellow == (LampState)signal)
-             YellowLamp = YellowLamp ?false: true;
+            {
+                YellowLamp = YellowLamp ? false : true;
+                log.Trace((LampState)signal + "   " + YellowLamp + " " + this.TrafficLightType);
+            }
+
 
             if (LampState.Green == (LampState)signal)
-             GreenLamp = GreenLamp ? false: true;
-            
-            if (ChangeState != null)
-                ChangeState(this, EventArgs.Empty);
+            {
+                GreenLamp = GreenLamp ? false : true;
+                log.Trace((LampState)signal + "   " + GreenLamp + " " + this.TrafficLightType);
+            }
+            OnStateChanged(this, EventArgs.Empty);
         }
 
         public CarTrafficLight(TrafficLightType trafficLightType)
