@@ -10,15 +10,14 @@ namespace Traffic_Light.Model
 {
     public class CarTrafficLight : TrafficLight
     {
-        Logger log = LogManager.GetCurrentClassLogger();
-        
+        private Logger Log = LogManager.GetCurrentClassLogger();
 
         public bool RedLamp { get; set; }
         public bool YellowLamp { get; set; }
         public bool GreenLamp { get; set; }
 
-        protected override void SetSignal(LampState signal) {
-            log.Trace(signal + "   " + this.TrafficLightType);
+        protected override void SetLampState(LampState signal) {
+            Log.Trace("Traffic Light type:{0} Lamp state :{1}",this.TrafficLightType,signal);
 
             RedLamp = false;
             YellowLamp= false;
@@ -59,14 +58,14 @@ namespace Traffic_Light.Model
             if (LampState.Yellow == (LampState)signal)
             {
                 YellowLamp = YellowLamp ? false : true;
-                log.Trace((LampState)signal + "   " + YellowLamp + " " + this.TrafficLightType);
+                Log.Trace("Traffic light type: {0} ; Yellow lamp state: {1}; ", this.TrafficLightType,YellowLamp);
             }
 
 
             if (LampState.Green == (LampState)signal)
             {
                 GreenLamp = GreenLamp ? false : true;
-                log.Trace((LampState)signal + "   " + GreenLamp + " " + this.TrafficLightType);
+                Log.Trace("Traffic light type: {0} ; Green lamp state: {1}; ", this.TrafficLightType, GreenLamp);
             }
             OnStateChanged(this, EventArgs.Empty);
         }

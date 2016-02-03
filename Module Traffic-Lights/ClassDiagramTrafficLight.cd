@@ -2,55 +2,88 @@
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Traffic_Light.Model.PedestrianTrafficLight">
     <Position X="4" Y="5.5" Width="1.75" />
+    <InheritanceLine Type="Traffic_Light.Model.TrafficLight" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="4.785" />
+        <Point X="3" Y="5.025" />
+        <Point X="3.76" Y="5.025" />
+        <Point X="3.76" Y="6.25" />
+        <Point X="4" Y="6.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAACAAAAAAAAAAAACAAAABAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAgAgAAAAAAAAAAABAAQA=</HashCode>
       <FileName>PedestrianTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.Model.CarTrafficLight">
     <Position X="1.75" Y="5.25" Width="1.75" />
+    <InheritanceLine Type="Traffic_Light.Model.TrafficLight" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="4.785" />
+        <Point X="3" Y="5.025" />
+        <Point X="3.76" Y="5.025" />
+        <Point X="3.76" Y="6.25" />
+        <Point X="3.5" Y="6.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAAACAAABAAAAAAAACAAAABAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAhAgAAAAAAAAAAABAAQA=</HashCode>
       <FileName>CarTrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Traffic_Light.Model.TrafficLightControllerStateTables">
-    <Position X="7" Y="3.25" Width="2.5" />
+  <Class Name="Traffic_Light.Model.TrafficLightControllerStateTable">
+    <Position X="6" Y="6.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAIAAA=</HashCode>
-      <FileName>TrafficLightMode.cs</FileName>
+      <FileName>TrafficLightControllerStateTable.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Traffic_Light.Model.TrafficLight">
-    <Position X="3" Y="2" Width="1.5" />
+    <Position X="2" Y="1.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>BAAABABABAAAAAAAAAAAAAAAAAAAAAAAACAAAABAACA=</HashCode>
+      <HashCode>BAAABABABAAAAAAAAAAAAAAAgAAAAAAAAAAAAABAACA=</HashCode>
       <FileName>TrafficLight.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Traffic_Light.Model.TrafficLightController">
+    <Position X="4.25" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAARAAAgAEAAAAAAAAAAAQAIAgAAAAAAACAAgAAACA=</HashCode>
+      <FileName>TrafficLightController.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Traffic_Light.Model.TrafficLightControllerState">
+    <Position X="6.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAQAAAAAAAAIAAAAQAAAAAAA=</HashCode>
+      <FileName>TrafficLightControllerState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Traffic_Light.Model.ITrafficLightController">
-    <Position X="6" Y="1.5" Width="1.75" />
+    <Position X="9" Y="7" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACA=</HashCode>
       <FileName>ITrafficLightControl.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Traffic_Light.Model.LampState">
-    <Position X="9.75" Y="1.5" Width="1.5" />
+    <Position X="9" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAgAAAAAAAAAAAAAAAQAAAAAAADECAAA=</HashCode>
-      <FileName>SignalType.cs</FileName>
+      <FileName>LampState.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Traffic_Light.Model.TrafficLightModeType">
-    <Position X="9.75" Y="3.75" Width="1.5" />
+    <Position X="9" Y="5.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAA=</HashCode>
       <FileName>TrafficLightModeType.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="Traffic_Light.Model.TrafficLightType">
-    <Position X="8" Y="1.5" Width="1.5" />
+    <Position X="9" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIEAA=</HashCode>
       <FileName>TrafficLight.cs</FileName>

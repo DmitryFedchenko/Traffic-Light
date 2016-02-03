@@ -1,17 +1,20 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
-
+using Traffic_Light.Model;
 
 namespace Traffic_Light.Console
 {
     public class TrafficLightView : ITrafficLightView
     {
+        Logger Log = LogManager.GetCurrentClassLogger();
         public int Id { get; set; }
-        public string TrafficLightType { get; set; }
-        public Dictionary<LampType, LampCordinate> LampCoordinates { get; set; }
+        public TrafficLightType TrafficLightType { get; set; }
+        public Dictionary<LampType, CoordinateLamp> LampCoordinates { get; set; }
 
         public void SetSignal(int x, int y, ConsoleColor color)
         {
+            Log.Trace("Traffic light type : {0}; The current color of signal: {1}; ", TrafficLightType, color);
             System.Console.ForegroundColor = color;
             System.Console.SetCursorPosition(x, y);
             System.Console.Write("*");
@@ -56,21 +59,20 @@ namespace Traffic_Light.Console
 
 
 
-        public TrafficLightView(string participan ,int topX, int topY, int middleX, int middleY)
+        public TrafficLightView(TrafficLightType participan ,int topX, int topY, int middleX, int middleY)
         {
             TrafficLightType = participan;
-
-            LampCoordinates = new Dictionary<LampType,LampCordinate>();
-            LampCoordinates.Add(LampType.Red, new LampCordinate(topX, topY));
-            LampCoordinates.Add(LampType.Green, new LampCordinate(middleX, middleY));
+            LampCoordinates = new Dictionary<LampType,CoordinateLamp>();
+            LampCoordinates.Add(LampType.Red, new CoordinateLamp(topX, topY));
+            LampCoordinates.Add(LampType.Green, new CoordinateLamp(middleX, middleY));
 
         }
 
 
-        public TrafficLightView(string participan ,int lampTopX, int lampTopY, int lampMiddleX, int lampMiddleY, int lampBottomX, int lampBottomY)
+        public TrafficLightView(TrafficLightType participan, int lampTopX, int lampTopY, int lampMiddleX, int lampMiddleY, int lampBottomX, int lampBottomY)
             : this(participan,lampTopX, lampTopY, lampBottomX, lampBottomY)
         {
-            LampCoordinates.Add(LampType.Yellow, new LampCordinate(lampMiddleX, lampMiddleY));
+            LampCoordinates.Add(LampType.Yellow, new CoordinateLamp(lampMiddleX, lampMiddleY));
         }
 
         

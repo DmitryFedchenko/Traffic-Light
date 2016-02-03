@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-
+using Traffic_Light.Model;
 
 namespace Traffic_Light.Console
 {
     public interface ITrafficLightView
     {
-        int Id { get; set; }
-        string TrafficLightType { get; set; }
-        Dictionary<LampType,LampCordinate> LampCoordinates { get; set; }
+        TrafficLightType TrafficLightType { get; set; }
+        void ChangeSignal(bool redLamp, bool greeenLamp);
+        void ChangeSignal(bool redLamp, bool yellowLamp, bool greeenLamp);
 
     }
 }

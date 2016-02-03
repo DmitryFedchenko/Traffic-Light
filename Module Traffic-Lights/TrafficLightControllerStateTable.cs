@@ -6,7 +6,7 @@ using System.Text;
 namespace Traffic_Light.Model
 {
 
-    public  class TrafficLightControllerStateTables
+    public  class TrafficLightControllerStateTable
     {
 
         public Dictionary<TrafficLightModeType, List<TrafficLightControllerState>> ModesTable;
@@ -30,7 +30,7 @@ namespace Traffic_Light.Model
             ModesTable[TrafficLightModeType.Stop].Add(new TrafficLightControllerState(LampState.Grey, LampState.Grey, LampState.Grey, 3000));
         }
 
-        public TrafficLightControllerStateTables()
+        public TrafficLightControllerStateTable()
         {
             ModesTable = new Dictionary<TrafficLightModeType, List<TrafficLightControllerState>>();
             ModesTable.Add(TrafficLightModeType.DayTime, new List<TrafficLightControllerState>());

@@ -8,7 +8,8 @@ namespace Traffic_Light.Model
         protected  Timer BlinkSignalTimer;
         public event EventHandler StateChanged;
         public TrafficLightType TrafficLightType { get; set; }
-        public void OnStateChanged(object obj,EventArgs e) {
+
+        protected void OnStateChanged(object obj,EventArgs e) {
             if (StateChanged != null) 
             StateChanged(obj,e);
         }
@@ -20,15 +21,15 @@ namespace Traffic_Light.Model
                 switch (TrafficLightType)
                 {
                     case TrafficLightType.RoadATrafficLight:
-                        SetSignal(trafficLightState.RoadAState);
+                        SetLampState(trafficLightState.RoadAState);
                         break;
 
                     case TrafficLightType.RoadBTrafficLight:
-                        SetSignal(trafficLightState.RoadBState);
+                        SetLampState(trafficLightState.RoadBState);
                         break;
 
                     case TrafficLightType.PedestrianTrafficLight:
-                        SetSignal(trafficLightState.PedestrianTrafficLightState);
+                        SetLampState(trafficLightState.PedestrianTrafficLightState);
                         break;
 
                     default:
@@ -36,8 +37,7 @@ namespace Traffic_Light.Model
                 }
             }
 
-        protected abstract void SetSignal(LampState signal);
-
+        protected abstract void SetLampState(LampState signal);
         protected virtual void BlinkSignal(object signal) { }
        
  }

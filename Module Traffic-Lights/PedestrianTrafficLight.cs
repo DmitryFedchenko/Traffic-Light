@@ -11,16 +11,14 @@ namespace Traffic_Light.Model
 {
     public class PedestrianTrafficLight : TrafficLight
     {
-        Logger log = LogManager.GetCurrentClassLogger();
-
-       
+        Logger Log = LogManager.GetCurrentClassLogger();
      
         public bool RedLamp { get; set; }
         public bool GreenLamp { get; set; }
 
-        protected override void SetSignal(LampState signal) {
+        protected override void SetLampState(LampState signal) {
 
-            log.Trace(signal.ToString());
+            Log.Trace("Traffic Light type:{0} Lamp state :{1}", this.TrafficLightType, signal);
 
             RedLamp = false;
             GreenLamp = false;
@@ -44,11 +42,10 @@ namespace Traffic_Light.Model
 
         protected override void BlinkSignal(object signal)
         {
-           
             if (LampState.Green == (LampState)signal)
-             GreenLamp = GreenLamp ? false: true;
+                GreenLamp = GreenLamp ? false: true;
 
-            log.Trace((LampState)signal + "   " + GreenLamp + " " + this.TrafficLightType);
+            Log.Trace("Traffic light type: {0} ; Green lamp state: {1}; ", this.TrafficLightType, GreenLamp);
             OnStateChanged(this, EventArgs.Empty);
         }
         public PedestrianTrafficLight(TrafficLightType trafficLightType)

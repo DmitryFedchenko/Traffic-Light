@@ -43,17 +43,20 @@ namespace Traffic_Light
 
         private void PedestrianTrafficLight_ChangeSignal(object sender, EventArgs e)
         {
-            CrossroadsView.PedestrianTrafficLight.ChangeSignal(PedestrianTrafficLight.RedLamp, PedestrianTrafficLight.GreenLamp);
+            foreach (var trafficLight in CrossroadsView.ViewTrafficLights.FindAll(x => x.TrafficLightType == TrafficLightType.PedestrianTrafficLight))
+                trafficLight.ChangeSignal(PedestrianTrafficLight.RedLamp, PedestrianTrafficLight.GreenLamp);
         }
 
         private void RoadBTrafficLight_ChangeSignal(object sender, EventArgs e)
         {
-                CrossroadsView.RoadBTrafficLight.ChangeSignal(RoadBTrafficLight.RedLamp, RoadBTrafficLight.YellowLamp, RoadBTrafficLight.GreenLamp);
+            foreach (var trafficLight in CrossroadsView.ViewTrafficLights.FindAll(x => x.TrafficLightType == TrafficLightType.RoadBTrafficLight))
+                trafficLight.ChangeSignal(RoadBTrafficLight.RedLamp, RoadBTrafficLight.YellowLamp, RoadBTrafficLight.GreenLamp);
         }
 
         private void RoadATrafficLight_ChangeSignal(object sender, EventArgs e)
         {
-                CrossroadsView.RoadATrafficLight.ChangeSignal(RoadATrafficLight.RedLamp, RoadATrafficLight.YellowLamp, RoadATrafficLight.GreenLamp);
+            foreach (var trafficLight in CrossroadsView.ViewTrafficLights.FindAll(x => x.TrafficLightType == TrafficLightType.RoadATrafficLight))
+                trafficLight.ChangeSignal(RoadATrafficLight.RedLamp, RoadATrafficLight.YellowLamp, RoadATrafficLight.GreenLamp);
         }
     }
 }
