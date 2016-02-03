@@ -32,7 +32,7 @@ namespace Traffic_Light.Console
 
 
             TrafficLightController controller = new TrafficLightController();
-            MainPresenter presenter = new MainPresenter(crossroadsView, controller);
+            Presenter presenter = new Presenter(crossroadsView, controller);
 
 
 

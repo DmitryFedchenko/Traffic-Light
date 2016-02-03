@@ -8,7 +8,6 @@ namespace Traffic_Light.Console
     public class TrafficLightView : ITrafficLightView
     {
         Logger Log = LogManager.GetCurrentClassLogger();
-        public int Id { get; set; }
         public TrafficLightType TrafficLightType { get; set; }
         public Dictionary<LampType, CoordinateLamp> LampCoordinates { get; set; }
 

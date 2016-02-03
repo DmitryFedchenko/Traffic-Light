@@ -18,12 +18,12 @@ namespace Traffic_Light.Model
         private int CurrentStateNumber;
 
         private TrafficLightModeType CurrentMode;
-
        
        
         private void SetState(object obj)
         {
             Log.Trace("State № "+CurrentStateNumber+"\n");
+            
             // Set current state to all traffic lights   
             foreach (var trafficlight in TrafficLights)
                 trafficlight.SetState(ControllerStateTable.ModesTable[CurrentMode][CurrentStateNumber]);

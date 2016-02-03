@@ -16,7 +16,7 @@ namespace Traffic_Lights__WindowsForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CrossroadWindowsFormsView());
+            Application.Run(new ControllerMainForm());
         }
     }
 }

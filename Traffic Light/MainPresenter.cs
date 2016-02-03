@@ -5,7 +5,7 @@ using Traffic_Light.Model;
 
 namespace Traffic_Light
 {
-    class MainPresenter
+    class Presenter
     {
         public ITrafficLightController Controller;
         public ICrossroadsView CrossroadsView;
@@ -16,7 +16,7 @@ namespace Traffic_Light
        
         
 
-        public MainPresenter(ICrossroadsView crossroadsView, ITrafficLightController controller)
+        public Presenter(ICrossroadsView crossroadsView, ITrafficLightController controller)
         {
             CrossroadsView = crossroadsView;
             Controller = controller;

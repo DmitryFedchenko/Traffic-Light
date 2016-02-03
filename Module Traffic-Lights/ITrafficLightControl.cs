@@ -9,6 +9,7 @@ namespace Traffic_Light.Model
        
        void AddTrafficlight(TrafficLight trafficLight);
        void SwithMode(TrafficLightModeType mode);
+       void StartWork();
 
 
     }

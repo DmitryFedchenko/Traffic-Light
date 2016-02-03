@@ -52,7 +52,7 @@
       <HashCode>AAAARAAAgAEAAAAAAAAAAAQAIAgAAAAAAACAAgAAACA=</HashCode>
       <FileName>TrafficLightController.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
+    <Lollipop Position="0.273" />
   </Class>
   <Class Name="Traffic_Light.Model.TrafficLightControllerState">
     <Position X="6.5" Y="1.75" Width="2.25" />
