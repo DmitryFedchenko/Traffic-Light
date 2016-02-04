@@ -13,12 +13,13 @@ namespace Traffic_Lights__WindowsForms
 {
     public partial class ControllerMainForm : Form
     {
+
         public ITrafficLightController trafficLightController;
       
 
-        CarTrafficLight RoadATrafficLight;
-        CarTrafficLight RoadBTrafficLight;
-        PedestrianTrafficLight PedestrianTrafficLight;
+        private CarTrafficLight roadATrafficLight;
+        private CarTrafficLight roadBTrafficLight;
+        private PedestrianTrafficLight pedestrianTrafficLight;
 
         View view;
         public ControllerMainForm()
@@ -26,10 +27,12 @@ namespace Traffic_Lights__WindowsForms
             trafficLightController = new TrafficLightController();
 
             InitializeComponent();
+
             view = new View();
             this.Controls.Add(view);
 
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

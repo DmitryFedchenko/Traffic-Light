@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarTraffiicLightView.cs" />
     <Compile Include="CrossroadWindowsFormsView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrossroadWindowsFormsView.Designer.cs">
       <DependentUpon>CrossroadWindowsFormsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="PedestrianTrafficLightView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrafficLightView.cs" />
@@ -91,13 +93,31 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CarTrafficLightYellowSignal.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Module Traffic-Lights\Traffic Light.Model.csproj">
       <Project>{05834faa-38ad-4c00-8ee7-6c6b968be1e4}</Project>
       <Name>Traffic Light.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarTrafficLightRedAndYellowSignal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenSignalCarTrafficLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenSignalPedestrianTrafficLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedSignalCarTrafficLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedSignalPedestrianTrafficLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CarTrafficLightYellowSignal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crossroads.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

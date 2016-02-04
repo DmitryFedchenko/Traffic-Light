@@ -59,5 +59,75 @@ namespace Traffic_Lights__WindowsForms.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CarTrafficLightGreenSignal {
+            get {
+                object obj = ResourceManager.GetObject("CarTrafficLightGreenSignal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CarTrafficLightRedAndYellowSignal {
+            get {
+                object obj = ResourceManager.GetObject("CarTrafficLightRedAndYellowSignal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CarTrafficLightRedSignal {
+            get {
+                object obj = ResourceManager.GetObject("CarTrafficLightRedSignal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CarTrafficLightYellowSignal {
+            get {
+                object obj = ResourceManager.GetObject("CarTrafficLightYellowSignal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crossroads {
+            get {
+                object obj = ResourceManager.GetObject("Crossroads", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PedestrianTrafficLightGreenSignal {
+            get {
+                object obj = ResourceManager.GetObject("PedestrianTrafficLightGreenSignal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PedestrianTrafficLightRedSignal {
+            get {
+                object obj = ResourceManager.GetObject("PedestrianTrafficLightRedSignal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

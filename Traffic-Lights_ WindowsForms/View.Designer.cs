@@ -35,8 +35,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackgroundImage = global::Traffic_Lights__WindowsForms.Properties.Resources.Crossroads;
             this.Name = "View";
-            this.Size = new System.Drawing.Size(429, 311);
+            this.Size = new System.Drawing.Size(799, 561);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.View_Paint);
             this.ResumeLayout(false);
 
         }
